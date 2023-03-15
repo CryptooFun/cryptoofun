@@ -1,0 +1,9 @@
+{
+  "extends": "next/core-web-vitals",
+  "plugins": [],
+  "rules": {
+    "no-unused-vars": "error",
+    "no-unused-labels": "error",
+    "no-unused-expressions": "error"
+  }
+}
