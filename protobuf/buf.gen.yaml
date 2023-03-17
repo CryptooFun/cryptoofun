@@ -1,0 +1,19 @@
+version: v1
+plugins:
+  - name: java
+    out: ../services/java/cryptoofun/genproto/src/main/java/
+  - name: java
+    out: ../services/java/cryptoofun/genproto/src/main/java/
+    path: protoc-gen-grpc-java
+    opt: grpc
+  - name: js
+    out: ../services/nodejs/cryptoofun/genproto/
+    opt: import_style=commonjs,binary
+    path: protoc-gen-js
+  - name: grpc
+    out: ../services/nodejs/cryptoofun/genproto/
+    opt: grpc_js
+    path: grpc_tools_node_protoc_plugin
+  - name: ts
+    out: ../services/nodejs/cryptoofun/genproto/
+    opt: grpc_js
