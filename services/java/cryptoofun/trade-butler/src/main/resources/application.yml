@@ -1,0 +1,7 @@
+server:
+  port: 7170
+
+spring:
+  kafka:
+    bootstrap-servers: 127.0.0.1:19092
+    groupId: butlers
