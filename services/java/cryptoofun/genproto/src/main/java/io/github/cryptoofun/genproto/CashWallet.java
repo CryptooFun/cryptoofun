@@ -46,17 +46,17 @@ public final class CashWallet {
       "\n\021cash_wallet.proto\"0\n\025AskCashBalanceReq" +
       "uest\022\027\n\007user_id\030\001 \001(\tR\006userId\"K\n\026AskCash" +
       "BalanceResponse\022\027\n\007user_id\030\001 \001(\tR\006userId" +
-      "\022\030\n\007balance\030\002 \001(\001R\007balance\"0\n\030ModifyCash" +
-      "BalanceRequest\022\024\n\005delta\030\001 \001(\001R\005delta\"\200\001\n" +
-      "\031ModifyCashBalanceResponse\022\027\n\007user_id\030\001 " +
-      "\001(\tR\006userId\022%\n\016balance_before\030\002 \001(\001R\rbal" +
-      "anceBefore\022#\n\rbalance_after\030\003 \001(\001R\014balan" +
-      "ceAfter2\246\001\n\021CashWalletService\022C\n\016AskCash" +
-      "Balance\022\026.AskCashBalanceRequest\032\027.AskCas" +
-      "hBalanceResponse\"\000\022L\n\021ModifyCashBalance\022" +
-      "\031.ModifyCashBalanceRequest\032\032.ModifyCashB" +
-      "alanceResponse\"\000B!\n\035io.github.cryptoofun" +
-      ".genprotoP\001b\006proto3"
+      "\022\030\n\007balance\030\002 \001(\001R\007balance\"I\n\030ModifyCash" +
+      "BalanceRequest\022\027\n\007user_id\030\001 \001(\tR\006userId\022" +
+      "\024\n\005delta\030\002 \001(\001R\005delta\"Y\n\031ModifyCashBalan" +
+      "ceResponse\022\027\n\007user_id\030\001 \001(\tR\006userId\022#\n\rb" +
+      "alance_after\030\002 \001(\001R\014balanceAfter2\246\001\n\021Cas" +
+      "hWalletService\022C\n\016AskCashBalance\022\026.AskCa" +
+      "shBalanceRequest\032\027.AskCashBalanceRespons" +
+      "e\"\000\022L\n\021ModifyCashBalance\022\031.ModifyCashBal" +
+      "anceRequest\032\032.ModifyCashBalanceResponse\"" +
+      "\000B!\n\035io.github.cryptoofun.genprotoP\001b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -79,13 +79,13 @@ public final class CashWallet {
     internal_static_ModifyCashBalanceRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ModifyCashBalanceRequest_descriptor,
-        new java.lang.String[] { "Delta", });
+        new java.lang.String[] { "UserId", "Delta", });
     internal_static_ModifyCashBalanceResponse_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_ModifyCashBalanceResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ModifyCashBalanceResponse_descriptor,
-        new java.lang.String[] { "UserId", "BalanceBefore", "BalanceAfter", });
+        new java.lang.String[] { "UserId", "BalanceAfter", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

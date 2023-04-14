@@ -5,7 +5,8 @@
   "workspaces": [
     "genproto",
     "packages/*",
-    "hello-svc"
+    "hello-svc",
+    "cash-wallet"
   ],
   "scripts": {
     "build": "turbo run build",

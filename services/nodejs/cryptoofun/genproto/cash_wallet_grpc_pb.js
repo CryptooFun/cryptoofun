@@ -1,7 +1,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 
 'use strict';
-var grpc = require('grpc');
+var grpc = require('@grpc/grpc-js');
 var cash_wallet_pb = require('./cash_wallet_pb.js');
 
 function serialize_AskCashBalanceRequest(arg) {

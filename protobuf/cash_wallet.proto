@@ -18,11 +18,11 @@ message AskCashBalanceResponse {
 }
 
 message ModifyCashBalanceRequest {
-  double delta = 1; 
+  string user_id = 1;
+  double delta = 2; 
 }
 
 message ModifyCashBalanceResponse {
   string user_id = 1;
-  double balance_before = 2;
-  double balance_after = 3;
+  double balance_after = 2;
 }

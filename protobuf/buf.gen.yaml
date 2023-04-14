@@ -5,9 +5,16 @@ plugins:
   - plugin: buf.build/grpc/java
     out: ../services/java/cryptoofun/genproto/src/main/java/
 
-  - plugin: buf.build/bufbuild/es
+  - name: js
+    opt: import_style=commonjs,binary
     out: ../services/nodejs/cryptoofun/genproto/
+    path: protoc-gen-js
+  - name: grpc
+    out: ../services/nodejs/cryptoofun/genproto/
+    opt: grpc_js
+    path: grpc_tools_node_protoc_plugin
+  - name: ts
+    out: ../services/nodejs/cryptoofun/genproto/
+    opt: grpc_js
   - plugin: buf.build/protocolbuffers/js
-    out: ../services/nodejs/cryptoofun/genproto/
-  - plugin: buf.build/grpc/node
     out: ../services/nodejs/cryptoofun/genproto/

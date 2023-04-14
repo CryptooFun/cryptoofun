@@ -1,14 +1,13 @@
-// Security packages
+// Packages
 const helmet = require('helmet');
 const cors = require('cors');
 const xss = require('xss-clean');
+const grpcServer = require('./grpc/server');
+var grpc = require('@grpc/grpc-js');
 
 // express
 const express = require('express');
 const app = express();
-
-// database
-const prisma = require('./db/dbConnect.js');
 
 // Routers
 const walletRouter = require('./routers/walletRoutes')
@@ -31,4 +30,12 @@ const start = async () => {
   }
 };
 
+const grpcStart = async () => {
+  grpcServer.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), () => {
+    grpcServer.start();
+    console.log(`grpc server is listening...`)
+  });
+};
+
+grpcStart();
 start();
