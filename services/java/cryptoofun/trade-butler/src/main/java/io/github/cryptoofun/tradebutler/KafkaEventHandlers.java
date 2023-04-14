@@ -13,5 +13,4 @@ public class KafkaEventHandlers {
     private void handleTradeOrderProcessedEvent(TradeOrderProcessedEvent event) {
         System.out.println(event.toString());
     }
-
 }
