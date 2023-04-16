@@ -20,13 +20,7 @@ public interface ModifyCashBalanceResponseOrBuilder extends
       getUserIdBytes();
 
   /**
-   * <code>double balance_before = 2 [json_name = "balanceBefore"];</code>
-   * @return The balanceBefore.
-   */
-  double getBalanceBefore();
-
-  /**
-   * <code>double balance_after = 3 [json_name = "balanceAfter"];</code>
+   * <code>double balance_after = 2 [json_name = "balanceAfter"];</code>
    * @return The balanceAfter.
    */
   double getBalanceAfter();

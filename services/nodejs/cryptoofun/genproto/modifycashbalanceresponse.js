@@ -71,8 +71,7 @@ proto.ModifyCashBalanceResponse.prototype.toObject = function(opt_includeInstanc
 proto.ModifyCashBalanceResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
     userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    balanceBefore: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
-    balanceAfter: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0)
+    balanceAfter: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0)
   };
 
   if (includeInstance) {
@@ -115,10 +114,6 @@ proto.ModifyCashBalanceResponse.deserializeBinaryFromReader = function(msg, read
       break;
     case 2:
       var value = /** @type {number} */ (reader.readDouble());
-      msg.setBalanceBefore(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readDouble());
       msg.setBalanceAfter(value);
       break;
     default:
@@ -157,17 +152,10 @@ proto.ModifyCashBalanceResponse.serializeBinaryToWriter = function(message, writ
       f
     );
   }
-  f = message.getBalanceBefore();
-  if (f !== 0.0) {
-    writer.writeDouble(
-      2,
-      f
-    );
-  }
   f = message.getBalanceAfter();
   if (f !== 0.0) {
     writer.writeDouble(
-      3,
+      2,
       f
     );
   }
@@ -193,10 +181,10 @@ proto.ModifyCashBalanceResponse.prototype.setUserId = function(value) {
 
 
 /**
- * optional double balance_before = 2;
+ * optional double balance_after = 2;
  * @return {number}
  */
-proto.ModifyCashBalanceResponse.prototype.getBalanceBefore = function() {
+proto.ModifyCashBalanceResponse.prototype.getBalanceAfter = function() {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 2, 0.0));
 };
 
@@ -205,26 +193,8 @@ proto.ModifyCashBalanceResponse.prototype.getBalanceBefore = function() {
  * @param {number} value
  * @return {!proto.ModifyCashBalanceResponse} returns this
  */
-proto.ModifyCashBalanceResponse.prototype.setBalanceBefore = function(value) {
-  return jspb.Message.setProto3FloatField(this, 2, value);
-};
-
-
-/**
- * optional double balance_after = 3;
- * @return {number}
- */
-proto.ModifyCashBalanceResponse.prototype.getBalanceAfter = function() {
-  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 3, 0.0));
-};
-
-
-/**
- * @param {number} value
- * @return {!proto.ModifyCashBalanceResponse} returns this
- */
 proto.ModifyCashBalanceResponse.prototype.setBalanceAfter = function(value) {
-  return jspb.Message.setProto3FloatField(this, 3, value);
+  return jspb.Message.setProto3FloatField(this, 2, value);
 };
 
 

@@ -78,21 +78,10 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int BALANCE_BEFORE_FIELD_NUMBER = 2;
-  private double balanceBefore_ = 0D;
-  /**
-   * <code>double balance_before = 2 [json_name = "balanceBefore"];</code>
-   * @return The balanceBefore.
-   */
-  @java.lang.Override
-  public double getBalanceBefore() {
-    return balanceBefore_;
-  }
-
-  public static final int BALANCE_AFTER_FIELD_NUMBER = 3;
+  public static final int BALANCE_AFTER_FIELD_NUMBER = 2;
   private double balanceAfter_ = 0D;
   /**
-   * <code>double balance_after = 3 [json_name = "balanceAfter"];</code>
+   * <code>double balance_after = 2 [json_name = "balanceAfter"];</code>
    * @return The balanceAfter.
    */
   @java.lang.Override
@@ -117,11 +106,8 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
     }
-    if (java.lang.Double.doubleToRawLongBits(balanceBefore_) != 0) {
-      output.writeDouble(2, balanceBefore_);
-    }
     if (java.lang.Double.doubleToRawLongBits(balanceAfter_) != 0) {
-      output.writeDouble(3, balanceAfter_);
+      output.writeDouble(2, balanceAfter_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -135,13 +121,9 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
     }
-    if (java.lang.Double.doubleToRawLongBits(balanceBefore_) != 0) {
-      size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(2, balanceBefore_);
-    }
     if (java.lang.Double.doubleToRawLongBits(balanceAfter_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(3, balanceAfter_);
+        .computeDoubleSize(2, balanceAfter_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -160,9 +142,6 @@ private static final long serialVersionUID = 0L;
 
     if (!getUserId()
         .equals(other.getUserId())) return false;
-    if (java.lang.Double.doubleToLongBits(getBalanceBefore())
-        != java.lang.Double.doubleToLongBits(
-            other.getBalanceBefore())) return false;
     if (java.lang.Double.doubleToLongBits(getBalanceAfter())
         != java.lang.Double.doubleToLongBits(
             other.getBalanceAfter())) return false;
@@ -179,9 +158,6 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + USER_ID_FIELD_NUMBER;
     hash = (53 * hash) + getUserId().hashCode();
-    hash = (37 * hash) + BALANCE_BEFORE_FIELD_NUMBER;
-    hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-        java.lang.Double.doubleToLongBits(getBalanceBefore()));
     hash = (37 * hash) + BALANCE_AFTER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getBalanceAfter()));
@@ -315,7 +291,6 @@ private static final long serialVersionUID = 0L;
       super.clear();
       bitField0_ = 0;
       userId_ = "";
-      balanceBefore_ = 0D;
       balanceAfter_ = 0D;
       return this;
     }
@@ -354,9 +329,6 @@ private static final long serialVersionUID = 0L;
         result.userId_ = userId_;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.balanceBefore_ = balanceBefore_;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.balanceAfter_ = balanceAfter_;
       }
     }
@@ -377,9 +349,6 @@ private static final long serialVersionUID = 0L;
         userId_ = other.userId_;
         bitField0_ |= 0x00000001;
         onChanged();
-      }
-      if (other.getBalanceBefore() != 0D) {
-        setBalanceBefore(other.getBalanceBefore());
       }
       if (other.getBalanceAfter() != 0D) {
         setBalanceAfter(other.getBalanceAfter());
@@ -416,15 +385,10 @@ private static final long serialVersionUID = 0L;
               break;
             } // case 10
             case 17: {
-              balanceBefore_ = input.readDouble();
+              balanceAfter_ = input.readDouble();
               bitField0_ |= 0x00000002;
               break;
             } // case 17
-            case 25: {
-              balanceAfter_ = input.readDouble();
-              bitField0_ |= 0x00000004;
-              break;
-            } // case 25
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -514,41 +478,9 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double balanceBefore_ ;
-    /**
-     * <code>double balance_before = 2 [json_name = "balanceBefore"];</code>
-     * @return The balanceBefore.
-     */
-    @java.lang.Override
-    public double getBalanceBefore() {
-      return balanceBefore_;
-    }
-    /**
-     * <code>double balance_before = 2 [json_name = "balanceBefore"];</code>
-     * @param value The balanceBefore to set.
-     * @return This builder for chaining.
-     */
-    public Builder setBalanceBefore(double value) {
-
-      balanceBefore_ = value;
-      bitField0_ |= 0x00000002;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>double balance_before = 2 [json_name = "balanceBefore"];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearBalanceBefore() {
-      bitField0_ = (bitField0_ & ~0x00000002);
-      balanceBefore_ = 0D;
-      onChanged();
-      return this;
-    }
-
     private double balanceAfter_ ;
     /**
-     * <code>double balance_after = 3 [json_name = "balanceAfter"];</code>
+     * <code>double balance_after = 2 [json_name = "balanceAfter"];</code>
      * @return The balanceAfter.
      */
     @java.lang.Override
@@ -556,23 +488,23 @@ private static final long serialVersionUID = 0L;
       return balanceAfter_;
     }
     /**
-     * <code>double balance_after = 3 [json_name = "balanceAfter"];</code>
+     * <code>double balance_after = 2 [json_name = "balanceAfter"];</code>
      * @param value The balanceAfter to set.
      * @return This builder for chaining.
      */
     public Builder setBalanceAfter(double value) {
 
       balanceAfter_ = value;
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>double balance_after = 3 [json_name = "balanceAfter"];</code>
+     * <code>double balance_after = 2 [json_name = "balanceAfter"];</code>
      * @return This builder for chaining.
      */
     public Builder clearBalanceAfter() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000002);
       balanceAfter_ = 0D;
       onChanged();
       return this;

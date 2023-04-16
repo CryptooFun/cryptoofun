@@ -16,6 +16,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private ModifyCashBalanceRequest() {
+    userId_ = "";
   }
 
   @java.lang.Override
@@ -38,10 +39,49 @@ private static final long serialVersionUID = 0L;
             io.github.cryptoofun.genproto.ModifyCashBalanceRequest.class, io.github.cryptoofun.genproto.ModifyCashBalanceRequest.Builder.class);
   }
 
-  public static final int DELTA_FIELD_NUMBER = 1;
+  public static final int USER_ID_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object userId_ = "";
+  /**
+   * <code>string user_id = 1 [json_name = "userId"];</code>
+   * @return The userId.
+   */
+  @java.lang.Override
+  public java.lang.String getUserId() {
+    java.lang.Object ref = userId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      userId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string user_id = 1 [json_name = "userId"];</code>
+   * @return The bytes for userId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getUserIdBytes() {
+    java.lang.Object ref = userId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      userId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int DELTA_FIELD_NUMBER = 2;
   private double delta_ = 0D;
   /**
-   * <code>double delta = 1 [json_name = "delta"];</code>
+   * <code>double delta = 2 [json_name = "delta"];</code>
    * @return The delta.
    */
   @java.lang.Override
@@ -63,8 +103,11 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userId_);
+    }
     if (java.lang.Double.doubleToRawLongBits(delta_) != 0) {
-      output.writeDouble(1, delta_);
+      output.writeDouble(2, delta_);
     }
     getUnknownFields().writeTo(output);
   }
@@ -75,9 +118,12 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userId_);
+    }
     if (java.lang.Double.doubleToRawLongBits(delta_) != 0) {
       size += com.google.protobuf.CodedOutputStream
-        .computeDoubleSize(1, delta_);
+        .computeDoubleSize(2, delta_);
     }
     size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
@@ -94,6 +140,8 @@ private static final long serialVersionUID = 0L;
     }
     io.github.cryptoofun.genproto.ModifyCashBalanceRequest other = (io.github.cryptoofun.genproto.ModifyCashBalanceRequest) obj;
 
+    if (!getUserId()
+        .equals(other.getUserId())) return false;
     if (java.lang.Double.doubleToLongBits(getDelta())
         != java.lang.Double.doubleToLongBits(
             other.getDelta())) return false;
@@ -108,6 +156,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + USER_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getUserId().hashCode();
     hash = (37 * hash) + DELTA_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getDelta()));
@@ -240,6 +290,7 @@ private static final long serialVersionUID = 0L;
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
+      userId_ = "";
       delta_ = 0D;
       return this;
     }
@@ -275,6 +326,9 @@ private static final long serialVersionUID = 0L;
     private void buildPartial0(io.github.cryptoofun.genproto.ModifyCashBalanceRequest result) {
       int from_bitField0_ = bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.userId_ = userId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.delta_ = delta_;
       }
     }
@@ -291,6 +345,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.github.cryptoofun.genproto.ModifyCashBalanceRequest other) {
       if (other == io.github.cryptoofun.genproto.ModifyCashBalanceRequest.getDefaultInstance()) return this;
+      if (!other.getUserId().isEmpty()) {
+        userId_ = other.userId_;
+        bitField0_ |= 0x00000001;
+        onChanged();
+      }
       if (other.getDelta() != 0D) {
         setDelta(other.getDelta());
       }
@@ -320,11 +379,16 @@ private static final long serialVersionUID = 0L;
             case 0:
               done = true;
               break;
-            case 9: {
-              delta_ = input.readDouble();
+            case 10: {
+              userId_ = input.readStringRequireUtf8();
               bitField0_ |= 0x00000001;
               break;
-            } // case 9
+            } // case 10
+            case 17: {
+              delta_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
             default: {
               if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                 done = true; // was an endgroup tag
@@ -342,9 +406,81 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
+    private java.lang.Object userId_ = "";
+    /**
+     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * @return The userId.
+     */
+    public java.lang.String getUserId() {
+      java.lang.Object ref = userId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        userId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * @return The bytes for userId.
+     */
+    public com.google.protobuf.ByteString
+        getUserIdBytes() {
+      java.lang.Object ref = userId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        userId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * @param value The userId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      userId_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUserId() {
+      userId_ = getDefaultInstance().getUserId();
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string user_id = 1 [json_name = "userId"];</code>
+     * @param value The bytes for userId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUserIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      userId_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
     private double delta_ ;
     /**
-     * <code>double delta = 1 [json_name = "delta"];</code>
+     * <code>double delta = 2 [json_name = "delta"];</code>
      * @return The delta.
      */
     @java.lang.Override
@@ -352,23 +488,23 @@ private static final long serialVersionUID = 0L;
       return delta_;
     }
     /**
-     * <code>double delta = 1 [json_name = "delta"];</code>
+     * <code>double delta = 2 [json_name = "delta"];</code>
      * @param value The delta to set.
      * @return This builder for chaining.
      */
     public Builder setDelta(double value) {
 
       delta_ = value;
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
-     * <code>double delta = 1 [json_name = "delta"];</code>
+     * <code>double delta = 2 [json_name = "delta"];</code>
      * @return This builder for chaining.
      */
     public Builder clearDelta() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       delta_ = 0D;
       onChanged();
       return this;

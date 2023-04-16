@@ -70,7 +70,8 @@ proto.ModifyCashBalanceRequest.prototype.toObject = function(opt_includeInstance
  */
 proto.ModifyCashBalanceRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    delta: jspb.Message.getFloatingPointFieldWithDefault(msg, 1, 0.0)
+    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    delta: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0)
   };
 
   if (includeInstance) {
@@ -108,6 +109,10 @@ proto.ModifyCashBalanceRequest.deserializeBinaryFromReader = function(msg, reade
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setUserId(value);
+      break;
+    case 2:
       var value = /** @type {number} */ (reader.readDouble());
       msg.setDelta(value);
       break;
@@ -140,10 +145,17 @@ proto.ModifyCashBalanceRequest.prototype.serializeBinary = function() {
  */
 proto.ModifyCashBalanceRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getUserId();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getDelta();
   if (f !== 0.0) {
     writer.writeDouble(
-      1,
+      2,
       f
     );
   }
@@ -151,11 +163,29 @@ proto.ModifyCashBalanceRequest.serializeBinaryToWriter = function(message, write
 
 
 /**
- * optional double delta = 1;
+ * optional string user_id = 1;
+ * @return {string}
+ */
+proto.ModifyCashBalanceRequest.prototype.getUserId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.ModifyCashBalanceRequest} returns this
+ */
+proto.ModifyCashBalanceRequest.prototype.setUserId = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional double delta = 2;
  * @return {number}
  */
 proto.ModifyCashBalanceRequest.prototype.getDelta = function() {
-  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 1, 0.0));
+  return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 2, 0.0));
 };
 
 
@@ -164,7 +194,7 @@ proto.ModifyCashBalanceRequest.prototype.getDelta = function() {
  * @return {!proto.ModifyCashBalanceRequest} returns this
  */
 proto.ModifyCashBalanceRequest.prototype.setDelta = function(value) {
-  return jspb.Message.setProto3FloatField(this, 1, value);
+  return jspb.Message.setProto3FloatField(this, 2, value);
 };
 
 

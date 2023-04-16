@@ -8,7 +8,19 @@ public interface ModifyCashBalanceRequestOrBuilder extends
     com.google.protobuf.MessageOrBuilder {
 
   /**
-   * <code>double delta = 1 [json_name = "delta"];</code>
+   * <code>string user_id = 1 [json_name = "userId"];</code>
+   * @return The userId.
+   */
+  java.lang.String getUserId();
+  /**
+   * <code>string user_id = 1 [json_name = "userId"];</code>
+   * @return The bytes for userId.
+   */
+  com.google.protobuf.ByteString
+      getUserIdBytes();
+
+  /**
+   * <code>double delta = 2 [json_name = "delta"];</code>
    * @return The delta.
    */
   double getDelta();
