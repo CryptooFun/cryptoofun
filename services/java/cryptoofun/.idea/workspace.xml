@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dbbc4ed-2187-473b-9e8f-0543b4457570" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/TradeButlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/TradeButlerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-processor/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-processor/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/KafkaHandlers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/KafkaPublishers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/OrderProcessorServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/config/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/config/KafkaProducerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/order-processor/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/380a6eb9-1884-4c3a-921d-b7a0d0336fd5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/380a6eb9-1884-4c3a-921d-b7a0d0336fd5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +69,7 @@
     "git-widget-placeholder": "subsystem/trading",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "Y:/Projects/cryptoofun/services/java/cryptoofun",
+    "last_opened_file_path": "Y:/Projects/cryptoofun/services/java/cryptoofun/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/config",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -67,7 +78,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "e5e1bb99c69a4428c89e33a3dea909bc",
+    "spring.configuration.checksum": "516a3dd5c3c284d78c837ede2b60ce17",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -77,6 +88,11 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Y:\Projects\cryptoofun\services\java\cryptoofun\order-processor\src\main\java\io\github\cryptoofun\orderprocesssor\config" />
+      <recent name="Y:\Projects\cryptoofun\services\java\cryptoofun\order-processor\src\main\resources" />
+      <recent name="Y:\Projects\cryptoofun\services\java\cryptoofun\order-processor\src\main\java\config" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
@@ -178,6 +194,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OrderProcessorServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="order-processor" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.github.cryptoofun.orderprocesssor.OrderProcessorServerApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.github.cryptoofun.orderprocesssor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TradeButlerServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="trade-butler" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="io.github.cryptoofun.tradebutler.TradeButlerServerApplication" />
@@ -187,6 +216,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.OrderProcessorServerApplication" />
         <item itemvalue="Application.TradeButlerServerApplication" />
         <item itemvalue="Application.TradeButlerSvcServerApp" />
         <item itemvalue="Maven.trade-butler-svc [install]" />
@@ -203,7 +233,8 @@
       <option name="presentableId" value="Default" />
       <updated>1681146475415</updated>
       <workItem from="1681647116033" duration="174000" />
-      <workItem from="1681647313350" duration="4365000" />
+      <workItem from="1681647313350" duration="15051000" />
+      <workItem from="1681665546163" duration="1855000" />
     </task>
     <servers />
   </component>

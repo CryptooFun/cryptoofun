@@ -8,27 +8,28 @@
       <CanLogin>1</CanLogin>
       <SuperRole>1</SuperRole>
     </role>
-    <schema id="3" parent="1" name="system">
-      <Properties>durable_writes:true
-replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.LocalStrategy&apos;}
-</Properties>
-    </schema>
-    <schema id="4" parent="1" name="system_auth">
+    <schema id="3" parent="1" name="system_auth">
       <Properties>durable_writes:true
 replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.SimpleStrategy&apos;, &apos;replication_factor&apos;: &apos;1&apos;}
 </Properties>
     </schema>
-    <schema id="5" parent="1" name="system_distributed">
+    <schema id="4" parent="1" name="system_schema">
+      <Properties>durable_writes:true
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.LocalStrategy&apos;}
+</Properties>
+    </schema>
+    <schema id="5" parent="1" name="tradebutler">
+      <Current>1</Current>
+      <Properties>durable_writes:true
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.SimpleStrategy&apos;, &apos;replication_factor&apos;: &apos;1&apos;}
+</Properties>
+    </schema>
+    <schema id="6" parent="1" name="system_distributed">
       <Properties>durable_writes:true
 replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.SimpleStrategy&apos;, &apos;replication_factor&apos;: &apos;3&apos;}
 </Properties>
     </schema>
-    <schema id="6" parent="1" name="system_distributed_everywhere">
-      <Properties>durable_writes:true
-replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.EverywhereStrategy&apos;}
-</Properties>
-    </schema>
-    <schema id="7" parent="1" name="system_schema">
+    <schema id="7" parent="1" name="system">
       <Properties>durable_writes:true
 replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.LocalStrategy&apos;}
 </Properties>
@@ -38,13 +39,12 @@ replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.LocalStrategy
 replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.SimpleStrategy&apos;, &apos;replication_factor&apos;: &apos;2&apos;}
 </Properties>
     </schema>
-    <schema id="9" parent="1" name="tradebutler">
-      <Current>1</Current>
+    <schema id="9" parent="1" name="system_distributed_everywhere">
       <Properties>durable_writes:true
-replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.SimpleStrategy&apos;, &apos;replication_factor&apos;: &apos;1&apos;}
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.EverywhereStrategy&apos;}
 </Properties>
     </schema>
-    <materialized-view id="10" parent="9" name="orders_user_id_index_index">
+    <materialized-view id="10" parent="5" name="orders_user_id_index_index">
       <BaseTableName>orders</BaseTableName>
       <Properties>caching:{&apos;keys&apos;: &apos;ALL&apos;, &apos;rows_per_partition&apos;: &apos;ALL&apos;}
 compression:{&apos;sstable_compression&apos;: &apos;org.apache.cassandra.io.compress.LZ4Compressor&apos;}
@@ -63,7 +63,7 @@ compaction:{&apos;class&apos;: &apos;SizeTieredCompactionStrategy&apos;}
 </Properties>
       <WhereClause>user_id IS NOT NULL</WhereClause>
     </materialized-view>
-    <table id="11" parent="9" name="orders">
+    <table id="11" parent="5" name="orders">
       <Properties>caching:{&apos;keys&apos;: &apos;ALL&apos;, &apos;rows_per_partition&apos;: &apos;ALL&apos;}
 compression:{&apos;sstable_compression&apos;: &apos;org.apache.cassandra.io.compress.LZ4Compressor&apos;}
 bloom_filter_fp_chance:0.01

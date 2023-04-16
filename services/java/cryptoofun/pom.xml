@@ -20,6 +20,7 @@
         <module>hello-svc</module>
         <module>trade-butler</module>
         <module>messages</module>
+        <module>order-processor</module>
     </modules>
 
     <properties>

@@ -1,0 +1,19 @@
+server:
+  port: 7171
+
+grpc:
+  server:
+    port: -1
+  client:
+    cash-wallet-server:
+      address: 'static://0.0.0.0:9090' # TODO: ...
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+#      negotiationType: plaintext
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:19092
+    consumer:
+      group-id: order-processors
+      auto-offset-reset: earliest
