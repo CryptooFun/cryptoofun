@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8dbbc4ed-2187-473b-9e8f-0543b4457570" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/src/main/java/io/github/cryptoofun/messages/events/TradeOrderCancelledEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/messages/src/main/java/io/github/cryptoofun/messages/events/TradeOrderCancelledEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/KafkaHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/KafkaHandlers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-processor/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order-processor/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.TradeButlerServerApplication">
+  <component name="RunManager" selected="Spring Boot.OrderProcessorServerApplication">
     <configuration name="TradeButlerServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.github.cryptoofun.tradebutler.TradeButlerServerApplication" />
       <module name="trade-butler" />
@@ -226,7 +225,7 @@
       <updated>1681146475415</updated>
       <workItem from="1681647116033" duration="174000" />
       <workItem from="1681647313350" duration="15051000" />
-      <workItem from="1681665546163" duration="9234000" />
+      <workItem from="1681665546163" duration="9626000" />
     </task>
     <servers />
   </component>

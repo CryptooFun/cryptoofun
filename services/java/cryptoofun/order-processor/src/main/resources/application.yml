@@ -6,11 +6,15 @@ grpc:
     port: -1
   client:
     cash-wallet-server:
-      address: 'static://0.0.0.0:9090' # TODO: ...
+      address: 'static://0.0.0.0:9090' # TODO: Update ...
       enableKeepAlive: true
       keepAliveWithoutCalls: true
-#      negotiationType: plaintext
-
+      negotiationType: plaintext  # TODO: Switch to TLS in production
+    market-data-server:
+      address: 'static://0.0.0.0:9091' # TODO: Update ...
+      enable-keep-alive: true
+      keep-alive-without-calls: true
+      negotiation-type: plaintext # TODO: Switch to TLS in production
 spring:
   kafka:
     bootstrap-servers: localhost:19092
