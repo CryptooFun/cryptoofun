@@ -38,6 +38,7 @@ public class TradeButlerService {
         try {
             double cashReserved = orderRequest.getPrice() * orderRequest.getAmount();
             cashWalletGrpcStub.modifyCashBalance(ModifyCashBalanceRequest.newBuilder()
+                    .setUserId(orderRequest.getUserID())
                     .setDelta(-1 * cashReserved)
                     .build());
 
