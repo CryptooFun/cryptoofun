@@ -9,4 +9,5 @@ import lombok.extern.jackson.Jacksonized;
 @ToString
 public class TradeOrderCancelledEvent {
     String orderID;
+    String reason;
 }
