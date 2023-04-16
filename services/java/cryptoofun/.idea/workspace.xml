@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dbbc4ed-2187-473b-9e8f-0543b4457570" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/order-processor/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-processor/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/KafkaHandlers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/KafkaPublishers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/OrderProcessorServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/config/KafkaConsumerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/config/KafkaProducerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/order-processor/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/380a6eb9-1884-4c3a-921d-b7a0d0336fd5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/380a6eb9-1884-4c3a-921d-b7a0d0336fd5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/AskCashBalanceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/AskCashBalanceRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/AskCashBalanceRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/AskCashBalanceRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/AskCashBalanceResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/AskCashBalanceResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/AskCashBalanceResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/AskCashBalanceResponseOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/CashWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/CashWallet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/CashWalletServiceGrpc.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/CashWalletServiceGrpc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/ModifyCashBalanceRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/ModifyCashBalanceRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/ModifyCashBalanceRequestOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/ModifyCashBalanceRequestOrBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/ModifyCashBalanceResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/ModifyCashBalanceResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/ModifyCashBalanceResponseOrBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/ModifyCashBalanceResponseOrBuilder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -234,7 +233,7 @@
       <updated>1681146475415</updated>
       <workItem from="1681647116033" duration="174000" />
       <workItem from="1681647313350" duration="15051000" />
-      <workItem from="1681665546163" duration="1855000" />
+      <workItem from="1681665546163" duration="2700000" />
     </task>
     <servers />
   </component>
