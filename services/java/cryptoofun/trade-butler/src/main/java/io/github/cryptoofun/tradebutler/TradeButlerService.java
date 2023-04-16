@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -31,13 +33,13 @@ public class TradeButlerService {
 
     /**
      * Create new trade order and return order ID.
-     */
+     * */
     public String NewOrder(PostOrderRequest orderRequest) throws CommandServiceException {
         try {
-//            double cashReserved = orderRequest.getPrice() * orderRequest.getAmount();
-//            cashWalletGrpcStub.modifyCashBalance(ModifyCashBalanceRequest.newBuilder()
-//                    .setDelta(-1 * cashReserved)
-//                    .build());
+            double cashReserved = orderRequest.getPrice() * orderRequest.getAmount();
+            cashWalletGrpcStub.modifyCashBalance(ModifyCashBalanceRequest.newBuilder()
+                    .setDelta(-1 * cashReserved)
+                    .build());
 
             var orderType = ProcessTradeOrderCommand.OrderType.valueOf(orderRequest
                     .getOrderType().toUpperCase());
@@ -45,7 +47,18 @@ public class TradeButlerService {
                     .getIntent().toUpperCase());
 
             var orderID = UUID.randomUUID().toString();
-            orderRepository.save(new Order(orderID, orderRequest.getOrderType()));
+            orderRepository.save(Order.builder()
+                    .id(orderID)
+                    .userID(orderRequest.getUserID())
+                    .orderType(orderRequest.getOrderType())
+                    .intent(orderRequest.getIntent())
+                    .ticker(orderRequest.getTicker())
+                    .price(orderRequest.getPrice())
+                    .amount(orderRequest.getAmount())
+                    .processed(false)
+                    .cancelled(false)
+                    .createdAt(Instant.now())
+                    .build());
             kafkaPublisher.sendProcessTradeOrderCommandBlocking(
                     new ProcessTradeOrderCommand(
                             orderID,
@@ -62,6 +75,18 @@ public class TradeButlerService {
             throw new CommandServiceException(e.getMessage(), httpStatus);
         } catch (IllegalArgumentException e) {
             throw new CommandServiceException(e.getMessage(), HttpStatus.BAD_REQUEST);
+        } catch (Exception e) {
+            log.error(e.getCause().toString());
+            throw new CommandServiceException("", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    /**
+     * Return all trade orders owned by a user.
+     * */
+    public List<Order> RetrieveOrdersByUser(String userID) throws CommandServiceException {
+        try {
+            return orderRepository.findByUserID(userID);
         } catch (Exception e) {
             log.error(e.getCause().toString());
             throw new CommandServiceException("", HttpStatus.INTERNAL_SERVER_ERROR);

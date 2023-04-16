@@ -38,6 +38,7 @@ public class KafkaConsumerConfiguration {
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         props.put(JsonDeserializer.TYPE_MAPPINGS, "tradeOrderProcessedEvent:io.github.cryptoofun.messages.events.TradeOrderProcessedEvent");
+        props.put(JsonDeserializer.TYPE_MAPPINGS, "tradeOrderProcessedEvent:io.github.cryptoofun.messages.events.TradeOrderCancelledEvent");
         return new DefaultKafkaConsumerFactory<>(props);
     }
 

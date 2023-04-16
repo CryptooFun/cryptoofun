@@ -24,6 +24,6 @@ public class KafkaTopicConfiguration {
 
     @Bean
     public NewTopic tradeOrdersTopic() {
-        return new NewTopic("trade_orders", 1, (short) 1);
+        return new NewTopic("new_trade_orders", 1, (short) 1);
     }
 }

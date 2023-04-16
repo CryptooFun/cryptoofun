@@ -5,26 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dbbc4ed-2187-473b-9e8f-0543b4457570" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/380a6eb9-1884-4c3a-921d-b7a0d0336fd5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/380a6eb9-1884-4c3a-921d-b7a0d0336fd5/storage_v2/_src_/schema/.UokAAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/380a6eb9-1884-4c3a-921d-b7a0d0336fd5/storage_v2/_src_/schema/system.L3Icyw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/380a6eb9-1884-4c3a-921d-b7a0d0336fd5/storage_v2/_src_/schema/system_schema.sb0HgQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/380a6eb9-1884-4c3a-921d-b7a0d0336fd5/storage_v2/_src_/schema/tradebutler.XF7wjg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/messages/src/main/java/io/github/cryptoofun/messages/events/TradeOrderCancelledEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trade-butler/scylla/migrations/init.cql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/dto/GetOrdersResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/Common.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/GreetingMsg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/GreetingMsgOrBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/Hello.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/HelloRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/HelloRequestOrBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/HelloResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/HelloResponseOrBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/genproto/src/main/java/io/github/cryptoofun/genproto/HelloServiceGrpc.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/messages/src/main/java/io/github/cryptoofun/messages/commands/ProcessTradeOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/messages/src/main/java/io/github/cryptoofun/messages/commands/ProcessTradeOrderCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trade-butler/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/src/main/java/io/github/cryptoofun/messages/events/TradeOrderProcessedEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/messages/src/main/java/io/github/cryptoofun/messages/events/TradeOrderProcessedEvent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/ApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/KafkaEventHandlers.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/KafkaEventHandlers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/KafkaPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/KafkaPublisher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/ScyllaConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/ScyllaConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/OrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/TradeButlerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/TradeButlerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/KafkaTopicConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/KafkaTopicConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/entity/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +35,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -45,6 +46,16 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="jar://$MAVEN_REPOSITORY$/io/grpc/grpc-api/1.51.0/grpc-api-1.51.0.jar!/io/grpc/Status.class" root0="SKIP_INSPECTION" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2OFBVBGJrRXhRnq378mhv3grbUj" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -53,20 +64,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;subsystem/trading&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "subsystem/trading",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "17",
+    "last_opened_file_path": "Y:/Projects/cryptoofun/services/java/cryptoofun",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "e5e1bb99c69a4428c89e33a3dea909bc",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "cassandra"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -74,8 +103,18 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="io.github.cryptoofun.tradebutler" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.github.cryptoofun.messages.events" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.TradeButlerServerApplication">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.TradeButlerServerApplication">
     <configuration name="TradeButlerServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.github.cryptoofun.tradebutler.TradeButlerServerApplication" />
       <module name="trade-butler" />
@@ -152,6 +191,20 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="HelloServiceServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="hello-svc" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.github.cryptoofun.hellosvc.HelloServiceServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TradeButlerServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="trade-butler" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.github.cryptoofun.tradebutler.TradeButlerServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TradeButlerServerApplication" />
@@ -169,8 +222,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681146475415</updated>
+      <workItem from="1681647116033" duration="174000" />
+      <workItem from="1681647313350" duration="4168000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

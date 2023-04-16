@@ -9,7 +9,6 @@ import lombok.extern.jackson.Jacksonized;
 @Builder
 @Data
 @ToString
-public class TradeOrderProcessedEvent {
+public class TradeOrderCancelledEvent {
     String orderID;
-    double actualizationPrice;
 }
