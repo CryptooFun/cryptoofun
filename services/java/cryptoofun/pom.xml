@@ -21,6 +21,7 @@
         <module>trade-butler</module>
         <module>messages</module>
         <module>order-processor</module>
+        <module>market-data-streamer</module>
     </modules>
 
     <properties>

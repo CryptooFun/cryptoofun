@@ -1,0 +1,6 @@
+server:
+  port: 7172
+
+grpc:
+  server:
+    port: 57172
