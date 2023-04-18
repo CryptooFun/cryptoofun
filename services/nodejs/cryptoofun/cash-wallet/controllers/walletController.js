@@ -21,7 +21,7 @@ const updateCashWallet = async (req, res) => {
     try {
         const {userId, delta} = req.body;
         const cashWallet = await update(userId, delta);
-        res.status(StatusCodes.OK).json({cashWallet});
+        res.status(StatusCodes.NO_CONTENT).json({cashWallet});
     }   
     catch (err) {
         console.log(err);
@@ -44,5 +44,5 @@ const createCashWallet = async (req, res) => {
 module.exports = {
     getWalletBalance,
     updateCashWallet,
-    createCashWallet
+    createCashWallet,
 }

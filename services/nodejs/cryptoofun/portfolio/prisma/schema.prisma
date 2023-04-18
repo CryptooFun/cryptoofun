@@ -1,0 +1,19 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Portfolio {
+  id        String   @id @default(uuid())
+  userId    String   @db.String()
+  ticker    String   @db.String()
+  cost      Float    @db.Float8()
+  amount    Float    @db.Float8()
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

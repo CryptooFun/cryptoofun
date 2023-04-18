@@ -34,5 +34,5 @@ const create = async (userId) => {
 module.exports = {
     get,
     update,
-    create
-}
+    create,
+};

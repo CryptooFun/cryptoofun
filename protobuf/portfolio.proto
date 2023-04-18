@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_package = "io.github.cryptoofun.genproto";
+option java_multiple_files = true;
+
+service PorfolioService {
+    rpc AskPortfolio (AskPortfolioRequest) returns (AskPortfolioResponse) {}
+    rpc ModifySingleTicker (ModifySingleTickerRequest) returns (ModifySingleTickerResponse) {}
+}
+
+message AskPortfolioRequest {
+    string user_id = 1;
+}
+
+// TODO: Tüm portfolio döndüğü için değişkenler nasıl olacak ?
+message AskPortfolioResponse {
+    repeated PortfolioItem portfolio = 1;
+}
+
+message PortfolioItem {
+    string ticker = 1;
+    double cost = 2;
+    double amount = 3;
+}
+
+message ModifySingleTickerRequest {
+    string user_id = 1;
+    string ticker = 2; 
+    double cost = 3;
+    double amount = 4;
+}
+  
+message ModifySingleTickerResponse {
+    
+}

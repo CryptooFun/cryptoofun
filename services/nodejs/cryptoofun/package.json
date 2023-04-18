@@ -6,7 +6,8 @@
     "genproto",
     "packages/*",
     "hello-svc",
-    "cash-wallet"
+    "cash-wallet",
+    "portfolio"
   ],
   "scripts": {
     "build": "turbo run build",
@@ -22,6 +23,5 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "dependencies": {},
   "packageManager": "npm@9.3.0"
 }
