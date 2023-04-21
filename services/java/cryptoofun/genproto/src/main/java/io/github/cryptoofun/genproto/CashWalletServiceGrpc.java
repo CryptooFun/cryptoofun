@@ -77,6 +77,37 @@ public final class CashWalletServiceGrpc {
     return getModifyCashBalanceMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest,
+      io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse> getAskTopBalancesDescendingMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "AskTopBalancesDescending",
+      requestType = io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest.class,
+      responseType = io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest,
+      io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse> getAskTopBalancesDescendingMethod() {
+    io.grpc.MethodDescriptor<io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest, io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse> getAskTopBalancesDescendingMethod;
+    if ((getAskTopBalancesDescendingMethod = CashWalletServiceGrpc.getAskTopBalancesDescendingMethod) == null) {
+      synchronized (CashWalletServiceGrpc.class) {
+        if ((getAskTopBalancesDescendingMethod = CashWalletServiceGrpc.getAskTopBalancesDescendingMethod) == null) {
+          CashWalletServiceGrpc.getAskTopBalancesDescendingMethod = getAskTopBalancesDescendingMethod =
+              io.grpc.MethodDescriptor.<io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest, io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AskTopBalancesDescending"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse.getDefaultInstance()))
+              .setSchemaDescriptor(new CashWalletServiceMethodDescriptorSupplier("AskTopBalancesDescending"))
+              .build();
+        }
+      }
+    }
+    return getAskTopBalancesDescendingMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -138,6 +169,13 @@ public final class CashWalletServiceGrpc {
         io.grpc.stub.StreamObserver<io.github.cryptoofun.genproto.ModifyCashBalanceResponse> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getModifyCashBalanceMethod(), responseObserver);
     }
+
+    /**
+     */
+    default void askTopBalancesDescending(io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest request,
+        io.grpc.stub.StreamObserver<io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getAskTopBalancesDescendingMethod(), responseObserver);
+    }
   }
 
   /**
@@ -182,6 +220,14 @@ public final class CashWalletServiceGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getModifyCashBalanceMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void askTopBalancesDescending(io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest request,
+        io.grpc.stub.StreamObserver<io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getAskTopBalancesDescendingMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -212,6 +258,13 @@ public final class CashWalletServiceGrpc {
     public io.github.cryptoofun.genproto.ModifyCashBalanceResponse modifyCashBalance(io.github.cryptoofun.genproto.ModifyCashBalanceRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getModifyCashBalanceMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse askTopBalancesDescending(io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getAskTopBalancesDescendingMethod(), getCallOptions(), request);
     }
   }
 
@@ -246,10 +299,19 @@ public final class CashWalletServiceGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getModifyCashBalanceMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse> askTopBalancesDescending(
+        io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getAskTopBalancesDescendingMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_ASK_CASH_BALANCE = 0;
   private static final int METHODID_MODIFY_CASH_BALANCE = 1;
+  private static final int METHODID_ASK_TOP_BALANCES_DESCENDING = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -275,6 +337,10 @@ public final class CashWalletServiceGrpc {
         case METHODID_MODIFY_CASH_BALANCE:
           serviceImpl.modifyCashBalance((io.github.cryptoofun.genproto.ModifyCashBalanceRequest) request,
               (io.grpc.stub.StreamObserver<io.github.cryptoofun.genproto.ModifyCashBalanceResponse>) responseObserver);
+          break;
+        case METHODID_ASK_TOP_BALANCES_DESCENDING:
+          serviceImpl.askTopBalancesDescending((io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest) request,
+              (io.grpc.stub.StreamObserver<io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -308,6 +374,13 @@ public final class CashWalletServiceGrpc {
               io.github.cryptoofun.genproto.ModifyCashBalanceRequest,
               io.github.cryptoofun.genproto.ModifyCashBalanceResponse>(
                 service, METHODID_MODIFY_CASH_BALANCE)))
+        .addMethod(
+          getAskTopBalancesDescendingMethod(),
+          io.grpc.stub.ServerCalls.asyncUnaryCall(
+            new MethodHandlers<
+              io.github.cryptoofun.genproto.AskTopBalancesDescendingRequest,
+              io.github.cryptoofun.genproto.AskTopBalancesDescendingResponse>(
+                service, METHODID_ASK_TOP_BALANCES_DESCENDING)))
         .build();
   }
 
@@ -358,6 +431,7 @@ public final class CashWalletServiceGrpc {
               .setSchemaDescriptor(new CashWalletServiceFileDescriptorSupplier())
               .addMethod(getAskCashBalanceMethod())
               .addMethod(getModifyCashBalanceMethod())
+              .addMethod(getAskTopBalancesDescendingMethod())
               .build();
         }
       }

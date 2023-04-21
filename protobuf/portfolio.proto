@@ -12,7 +12,6 @@ message AskPortfolioRequest {
     string user_id = 1;
 }
 
-// TODO: Tüm portfolio döndüğü için değişkenler nasıl olacak ?
 message AskPortfolioResponse {
     repeated PortfolioItem portfolio = 1;
 }

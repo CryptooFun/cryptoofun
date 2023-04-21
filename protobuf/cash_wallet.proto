@@ -6,6 +6,7 @@ option java_multiple_files = true;
 service CashWalletService {
   rpc AskCashBalance (AskCashBalanceRequest) returns (AskCashBalanceResponse) {}
   rpc ModifyCashBalance (ModifyCashBalanceRequest) returns (ModifyCashBalanceResponse) {}
+  rpc AskTopBalancesDescending (AskTopBalancesDescendingRequest) returns (AskTopBalancesDescendingResponse) {}
 }
 
 message AskCashBalanceRequest {
@@ -26,3 +27,19 @@ message ModifyCashBalanceResponse {
   string user_id = 1;
   double balance_after = 2;
 }
+
+message AskTopBalancesDescendingRequest {
+  uint32 skip = 1;
+  uint32 take = 2;
+}
+
+message AskTopBalancesDescendingResponse {
+  repeated BalanceItem balances = 1;
+}
+
+message BalanceItem {
+  string user_id = 1;
+  double balance = 2;
+}
+
+

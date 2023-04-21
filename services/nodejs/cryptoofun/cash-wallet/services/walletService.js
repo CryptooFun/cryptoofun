@@ -10,6 +10,21 @@ const get = async (userId) => {
     return balance;
 };
 
+const getBalancebyDescending = async (skip, take) => {
+    const balances = await prisma.cashWallet.findMany({
+        skip,
+        take,
+        select: {
+            userId: true,
+            balance: true
+        },
+        orderBy: {
+            balance: 'desc'
+        }
+    });
+    return balances;
+};
+
 const update = async (userId, delta) => {
     const cashWallet = await prisma.cashWallet.update({
         where: { userId },
@@ -33,6 +48,7 @@ const create = async (userId) => {
 
 module.exports = {
     get,
+    getBalancebyDescending,
     update,
     create,
 };

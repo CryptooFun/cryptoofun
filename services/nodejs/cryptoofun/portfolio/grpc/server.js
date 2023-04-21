@@ -1,7 +1,7 @@
 const {Server} = require('@grpc/grpc-js');
 const {
     get,
-    update
+    update,
 } = require('../services/portfolioService');
 
 const messages = require('genproto/portfolio_pb');

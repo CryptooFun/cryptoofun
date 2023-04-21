@@ -4,10 +4,6 @@
 package io.github.cryptoofun.genproto;
 
 /**
- * <pre>
- * TODO: Tüm portfolio döndüğü için değişkenler nasıl olacak ?
- * </pre>
- *
  * Protobuf type {@code AskPortfolioResponse}
  */
 public final class AskPortfolioResponse extends
@@ -242,10 +238,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * TODO: Tüm portfolio döndüğü için değişkenler nasıl olacak ?
-   * </pre>
-   *
    * Protobuf type {@code AskPortfolioResponse}
    */
   public static final class Builder extends
