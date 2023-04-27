@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost">
+  <database-model serializer="dbm" dbms="CASSANDRA" family-id="CASSANDRA" format-version="4.48">
+    <root id="1">
+      <ServerVersion>3.0.8</ServerVersion>
+    </root>
+    <role id="2" parent="1" name="cassandra">
+      <CanLogin>1</CanLogin>
+      <SuperRole>1</SuperRole>
+    </role>
+    <schema id="3" parent="1" name="system">
+      <Properties>durable_writes:true
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.LocalStrategy&apos;}
+</Properties>
+    </schema>
+    <schema id="4" parent="1" name="system_auth">
+      <Properties>durable_writes:true
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.SimpleStrategy&apos;, &apos;replication_factor&apos;: &apos;1&apos;}
+</Properties>
+    </schema>
+    <schema id="5" parent="1" name="system_distributed">
+      <Properties>durable_writes:true
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.SimpleStrategy&apos;, &apos;replication_factor&apos;: &apos;3&apos;}
+</Properties>
+    </schema>
+    <schema id="6" parent="1" name="system_distributed_everywhere">
+      <Properties>durable_writes:true
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.EverywhereStrategy&apos;}
+</Properties>
+    </schema>
+    <schema id="7" parent="1" name="system_schema">
+      <Properties>durable_writes:true
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.LocalStrategy&apos;}
+</Properties>
+    </schema>
+    <schema id="8" parent="1" name="system_traces">
+      <Properties>durable_writes:true
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.SimpleStrategy&apos;, &apos;replication_factor&apos;: &apos;2&apos;}
+</Properties>
+    </schema>
+    <schema id="9" parent="1" name="tradebutler">
+      <Properties>durable_writes:true
+replication:{&apos;class&apos;: &apos;org.apache.cassandra.locator.SimpleStrategy&apos;, &apos;replication_factor&apos;: &apos;1&apos;}
+</Properties>
+    </schema>
+  </database-model>
+</dataSource>
