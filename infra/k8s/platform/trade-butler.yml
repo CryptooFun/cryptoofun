@@ -55,7 +55,7 @@ spec:
                   name: kafka-secrets
                   key: cfg-with-secrets
             - name: CASSANDRA_CONTACT_POINTS
-              value: scylla-service
+              value: scylla-service.scylla.svc.cluster.local
             - name: CASSANDRA_PORT
               value: "9042"
             - name: CASSANDRA_USERNAME
