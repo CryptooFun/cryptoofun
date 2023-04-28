@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: trade-butler
+  labels:
+    app: trade-butler
+    service: trade-butler
+spec:
+  ports:
+    - port: 7170
+      name: http
+  selector:
+    app: trade-butler
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cryptoofun-trade-butler
+  labels:
+    account: trade-butler
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trade-butler-v1
+  labels:
+    app: trade-butler
+    version: v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trade-butler
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: trade-butler
+        version: v1
+    spec:
+      serviceAccountName: cryptoofun-trade-butler
+      containers:
+        - name: trade-butler
+          image: gcr.io/cryptoofun/trade-butler:1.0-SNAPSHOT
+          imagePullPolicy: Always
+          env:
+            - name: KAFKA_BS
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secrets
+                  key: bootstrap-servers
+            - name: KAFKA_JAAS_CONFIG
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secrets
+                  key: cfg-with-secrets
+            - name: CASSANDRA_CONTACT_POINTS
+              value: scylla-service
+            - name: CASSANDRA_PORT
+              value: "9042"
+            - name: CASSANDRA_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: scylla-secrets
+                  key: username
+            - name: CASSANDRA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: scylla-secrets
+                  key: password
+          ports:
+            - containerPort: 7170
+          securityContext:
+            runAsUser: 1000
+          resources:
+            limits:
+              cpu: 1500m
+              memory: 1.5Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi

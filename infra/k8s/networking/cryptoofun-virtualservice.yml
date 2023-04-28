@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: cryptoofun
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - cryptoofun-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /api/v1/tradebutler/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: trade-butler
+            port:
+              number: 7170
