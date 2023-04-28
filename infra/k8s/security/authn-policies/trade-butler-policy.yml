@@ -1,13 +1,13 @@
 apiVersion: "security.istio.io/v1beta1"
 kind: "AuthorizationPolicy"
 metadata:
-  name: "generic-policy"
+  name: trade-butler-policy
   namespace: cf
 spec:
   action: ALLOW
   selector:
     matchLabels:
-      app: details
+      app: trade-butler
   rules:
     - when:
         - key: request.auth.claims[permissions]
