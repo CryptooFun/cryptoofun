@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cash-wallet
+  labels:
+    app: cash-wallet
+    service: cash-wallet
+spec:
+  ports:
+    - port: 7370
+      name: http
+    - port: 57370
+      name: grpc
+  selector:
+    app: cash-wallet
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cryptoofun-cash-wallet
+  labels:
+    account: cash-wallet
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cash-wallet-v1
+  labels:
+    app: cash-wallet
+    version: v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: cash-wallet
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: cash-wallet
+        version: v1
+    spec:
+      serviceAccountName: cryptoofun-cash-wallet
+      containers:
+        - name: cash-wallet
+          image: gcr.io/cryptoofun/cash-wallet:1.0-SNAPSHOT
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: "7370"
+            - name: GRPC_SERVER_PORT
+              value: "57370"
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: crdb-secrets
+                  key: cashwalletdb_conn_str
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 7370
+              hostPort: 7370
+            - name: grpc
+              protocol: TCP
+              containerPort: 57370
+              hostPort: 57370
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 500Mi
