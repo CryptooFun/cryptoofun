@@ -1,0 +1,5 @@
+**/package.json
+**/package-lock.json
+**/node_modules/
+!services/nodejs/cryptoofun/**/package.json
+!services/nodejs/cryptoofun/**/package-lock.json
