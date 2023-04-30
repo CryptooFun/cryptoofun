@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "prisma:gen": "prisma generate --schema=./prisma/schema.prisma"
   },
   "author": "",
   "license": "ISC",

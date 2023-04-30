@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_package = "io.github.cryptoofun.genproto";
+option java_multiple_files = true;
+
+service MarketDataStreamerService {
+  rpc EnquireMarketPrice (EnquireMarketPriceRequest) returns (EnquireMarketPriceResponse) {}
+}
+
+message EnquireMarketPriceRequest {
+  string timestamp_ms = 1;
+  string ticker = 2;
+}
+
+message EnquireMarketPriceResponse {
+  string timestamp_ms = 1;
+  string ticker = 2;
+  double bid_price = 3;  
+  double ask_price = 4;
+}

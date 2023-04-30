@@ -1,0 +1,97 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: scylla-pv
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: /data/scylla-data
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: scylla-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: scylla-service
+spec:
+  selector:
+    app: scylla
+  ports:
+    - name: scylla
+      port: 9042
+      targetPort: 9042
+  type: ClusterIP
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cf-scylla
+  labels:
+    account: scylla
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scylla-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: scylla
+  template:
+    metadata:
+      labels:
+        app: scylla
+    spec:
+      serviceAccountName: cf-scylla
+      containers:
+        - name: scylla
+          image: scylladb/scylla:5.1
+          env:
+            - name: smp
+              value: "1"
+          ports:
+            - containerPort: 9042
+          # ! Requires manual execution step at the moment:
+          # lifecycle:
+          #   postStart:
+          #     exec:
+          #       command:
+          #         [
+          #           "/bin/sh",
+          #           "-c",
+          #           "cqlsh",
+          #           "-e",
+          #           "CREATE KEYSPACE IF NOT EXISTS tradebutler WITH REPLICATION = {'class': 'SimpleStrategy', 'replication_factor': 1};",
+          #         ]
+          volumeMounts:
+            - name: scylla-persistent-storage
+              mountPath: /var/lib/scylla
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
+      volumes:
+        - name: scylla-persistent-storage
+          persistentVolumeClaim:
+            claimName: scylla-pvc
