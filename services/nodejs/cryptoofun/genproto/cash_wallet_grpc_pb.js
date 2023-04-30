@@ -26,6 +26,28 @@ function deserialize_AskCashBalanceResponse(buffer_arg) {
   return cash_wallet_pb.AskCashBalanceResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
+function serialize_AskTopBalancesDescendingRequest(arg) {
+  if (!(arg instanceof cash_wallet_pb.AskTopBalancesDescendingRequest)) {
+    throw new Error('Expected argument of type AskTopBalancesDescendingRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_AskTopBalancesDescendingRequest(buffer_arg) {
+  return cash_wallet_pb.AskTopBalancesDescendingRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_AskTopBalancesDescendingResponse(arg) {
+  if (!(arg instanceof cash_wallet_pb.AskTopBalancesDescendingResponse)) {
+    throw new Error('Expected argument of type AskTopBalancesDescendingResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_AskTopBalancesDescendingResponse(buffer_arg) {
+  return cash_wallet_pb.AskTopBalancesDescendingResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
 function serialize_ModifyCashBalanceRequest(arg) {
   if (!(arg instanceof cash_wallet_pb.ModifyCashBalanceRequest)) {
     throw new Error('Expected argument of type ModifyCashBalanceRequest');
@@ -71,6 +93,17 @@ var CashWalletServiceService = exports.CashWalletServiceService = {
     requestDeserialize: deserialize_ModifyCashBalanceRequest,
     responseSerialize: serialize_ModifyCashBalanceResponse,
     responseDeserialize: deserialize_ModifyCashBalanceResponse,
+  },
+  askTopBalancesDescending: {
+    path: '/CashWalletService/AskTopBalancesDescending',
+    requestStream: false,
+    responseStream: false,
+    requestType: cash_wallet_pb.AskTopBalancesDescendingRequest,
+    responseType: cash_wallet_pb.AskTopBalancesDescendingResponse,
+    requestSerialize: serialize_AskTopBalancesDescendingRequest,
+    requestDeserialize: deserialize_AskTopBalancesDescendingRequest,
+    responseSerialize: serialize_AskTopBalancesDescendingResponse,
+    responseDeserialize: deserialize_AskTopBalancesDescendingResponse,
   },
 };
 

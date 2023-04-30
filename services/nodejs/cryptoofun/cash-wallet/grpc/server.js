@@ -1,6 +1,7 @@
 const {Server} = require('@grpc/grpc-js');
 const {
     get,
+    getBalancebyDescending,
     update
 } = require('../services/walletService'); 
 
@@ -16,6 +17,21 @@ function askCashBalance(call, callback) {
     }).catch(err => {callback(err, null)}); 
 }
 
+function askTopBalancesDescending(call, callback) {
+    getBalancebyDescending(call.request.getSkip(), call.request.getTake()).then(balances => {
+        const balanceList = [];
+        balances.forEach(item => {
+            const bItem = new messages.BalanceItem();
+            bItem.setUserId(item.userId);
+            bItem.setBalance(item.balance);
+            balanceList.push(bItem);
+        });
+        var response = new messages.AskTopBalancesDescendingResponse();
+        response.setBalancesList(balanceList);
+        callback(null, response);    
+    }).catch(err => {callback(err, null)}); 
+}
+
 function modifyCashBalance(call, callback) {
     update(call.request.getUserId(), call.request.getDelta()).then(cashWallet => {
         var response = new messages.ModifyCashBalanceResponse();
@@ -26,6 +42,6 @@ function modifyCashBalance(call, callback) {
 }
 
 const server = new Server();
-server.addService(services.CashWalletServiceService, {askCashBalance, modifyCashBalance});
+server.addService(services.CashWalletServiceService, {askCashBalance, modifyCashBalance, askTopBalancesDescending});
 
 module.exports = server;

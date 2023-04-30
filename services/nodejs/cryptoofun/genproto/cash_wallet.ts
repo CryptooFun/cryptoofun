@@ -342,6 +342,253 @@ export class ModifyCashBalanceResponse extends pb_1.Message {
         return ModifyCashBalanceResponse.deserialize(bytes);
     }
 }
+export class AskTopBalancesDescendingRequest extends pb_1.Message {
+    #one_of_decls: number[][] = [];
+    constructor(data?: any[] | {
+        skip?: number;
+        take?: number;
+    }) {
+        super();
+        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
+        if (!Array.isArray(data) && typeof data == "object") {
+            if ("skip" in data && data.skip != undefined) {
+                this.skip = data.skip;
+            }
+            if ("take" in data && data.take != undefined) {
+                this.take = data.take;
+            }
+        }
+    }
+    get skip() {
+        return pb_1.Message.getFieldWithDefault(this, 1, 0) as number;
+    }
+    set skip(value: number) {
+        pb_1.Message.setField(this, 1, value);
+    }
+    get take() {
+        return pb_1.Message.getFieldWithDefault(this, 2, 0) as number;
+    }
+    set take(value: number) {
+        pb_1.Message.setField(this, 2, value);
+    }
+    static fromObject(data: {
+        skip?: number;
+        take?: number;
+    }): AskTopBalancesDescendingRequest {
+        const message = new AskTopBalancesDescendingRequest({});
+        if (data.skip != null) {
+            message.skip = data.skip;
+        }
+        if (data.take != null) {
+            message.take = data.take;
+        }
+        return message;
+    }
+    toObject() {
+        const data: {
+            skip?: number;
+            take?: number;
+        } = {};
+        if (this.skip != null) {
+            data.skip = this.skip;
+        }
+        if (this.take != null) {
+            data.take = this.take;
+        }
+        return data;
+    }
+    serialize(): Uint8Array;
+    serialize(w: pb_1.BinaryWriter): void;
+    serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+        const writer = w || new pb_1.BinaryWriter();
+        if (this.skip != 0)
+            writer.writeUint32(1, this.skip);
+        if (this.take != 0)
+            writer.writeUint32(2, this.take);
+        if (!w)
+            return writer.getResultBuffer();
+    }
+    static deserialize(bytes: Uint8Array | pb_1.BinaryReader): AskTopBalancesDescendingRequest {
+        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new AskTopBalancesDescendingRequest();
+        while (reader.nextField()) {
+            if (reader.isEndGroup())
+                break;
+            switch (reader.getFieldNumber()) {
+                case 1:
+                    message.skip = reader.readUint32();
+                    break;
+                case 2:
+                    message.take = reader.readUint32();
+                    break;
+                default: reader.skipField();
+            }
+        }
+        return message;
+    }
+    serializeBinary(): Uint8Array {
+        return this.serialize();
+    }
+    static deserializeBinary(bytes: Uint8Array): AskTopBalancesDescendingRequest {
+        return AskTopBalancesDescendingRequest.deserialize(bytes);
+    }
+}
+export class AskTopBalancesDescendingResponse extends pb_1.Message {
+    #one_of_decls: number[][] = [];
+    constructor(data?: any[] | {
+        balances?: BalanceItem[];
+    }) {
+        super();
+        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [1], this.#one_of_decls);
+        if (!Array.isArray(data) && typeof data == "object") {
+            if ("balances" in data && data.balances != undefined) {
+                this.balances = data.balances;
+            }
+        }
+    }
+    get balances() {
+        return pb_1.Message.getRepeatedWrapperField(this, BalanceItem, 1) as BalanceItem[];
+    }
+    set balances(value: BalanceItem[]) {
+        pb_1.Message.setRepeatedWrapperField(this, 1, value);
+    }
+    static fromObject(data: {
+        balances?: ReturnType<typeof BalanceItem.prototype.toObject>[];
+    }): AskTopBalancesDescendingResponse {
+        const message = new AskTopBalancesDescendingResponse({});
+        if (data.balances != null) {
+            message.balances = data.balances.map(item => BalanceItem.fromObject(item));
+        }
+        return message;
+    }
+    toObject() {
+        const data: {
+            balances?: ReturnType<typeof BalanceItem.prototype.toObject>[];
+        } = {};
+        if (this.balances != null) {
+            data.balances = this.balances.map((item: BalanceItem) => item.toObject());
+        }
+        return data;
+    }
+    serialize(): Uint8Array;
+    serialize(w: pb_1.BinaryWriter): void;
+    serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+        const writer = w || new pb_1.BinaryWriter();
+        if (this.balances.length)
+            writer.writeRepeatedMessage(1, this.balances, (item: BalanceItem) => item.serialize(writer));
+        if (!w)
+            return writer.getResultBuffer();
+    }
+    static deserialize(bytes: Uint8Array | pb_1.BinaryReader): AskTopBalancesDescendingResponse {
+        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new AskTopBalancesDescendingResponse();
+        while (reader.nextField()) {
+            if (reader.isEndGroup())
+                break;
+            switch (reader.getFieldNumber()) {
+                case 1:
+                    reader.readMessage(message.balances, () => pb_1.Message.addToRepeatedWrapperField(message, 1, BalanceItem.deserialize(reader), BalanceItem));
+                    break;
+                default: reader.skipField();
+            }
+        }
+        return message;
+    }
+    serializeBinary(): Uint8Array {
+        return this.serialize();
+    }
+    static deserializeBinary(bytes: Uint8Array): AskTopBalancesDescendingResponse {
+        return AskTopBalancesDescendingResponse.deserialize(bytes);
+    }
+}
+export class BalanceItem extends pb_1.Message {
+    #one_of_decls: number[][] = [];
+    constructor(data?: any[] | {
+        user_id?: string;
+        balance?: number;
+    }) {
+        super();
+        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
+        if (!Array.isArray(data) && typeof data == "object") {
+            if ("user_id" in data && data.user_id != undefined) {
+                this.user_id = data.user_id;
+            }
+            if ("balance" in data && data.balance != undefined) {
+                this.balance = data.balance;
+            }
+        }
+    }
+    get user_id() {
+        return pb_1.Message.getFieldWithDefault(this, 1, "") as string;
+    }
+    set user_id(value: string) {
+        pb_1.Message.setField(this, 1, value);
+    }
+    get balance() {
+        return pb_1.Message.getFieldWithDefault(this, 2, 0) as number;
+    }
+    set balance(value: number) {
+        pb_1.Message.setField(this, 2, value);
+    }
+    static fromObject(data: {
+        user_id?: string;
+        balance?: number;
+    }): BalanceItem {
+        const message = new BalanceItem({});
+        if (data.user_id != null) {
+            message.user_id = data.user_id;
+        }
+        if (data.balance != null) {
+            message.balance = data.balance;
+        }
+        return message;
+    }
+    toObject() {
+        const data: {
+            user_id?: string;
+            balance?: number;
+        } = {};
+        if (this.user_id != null) {
+            data.user_id = this.user_id;
+        }
+        if (this.balance != null) {
+            data.balance = this.balance;
+        }
+        return data;
+    }
+    serialize(): Uint8Array;
+    serialize(w: pb_1.BinaryWriter): void;
+    serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+        const writer = w || new pb_1.BinaryWriter();
+        if (this.user_id.length)
+            writer.writeString(1, this.user_id);
+        if (this.balance != 0)
+            writer.writeDouble(2, this.balance);
+        if (!w)
+            return writer.getResultBuffer();
+    }
+    static deserialize(bytes: Uint8Array | pb_1.BinaryReader): BalanceItem {
+        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new BalanceItem();
+        while (reader.nextField()) {
+            if (reader.isEndGroup())
+                break;
+            switch (reader.getFieldNumber()) {
+                case 1:
+                    message.user_id = reader.readString();
+                    break;
+                case 2:
+                    message.balance = reader.readDouble();
+                    break;
+                default: reader.skipField();
+            }
+        }
+        return message;
+    }
+    serializeBinary(): Uint8Array {
+        return this.serialize();
+    }
+    static deserializeBinary(bytes: Uint8Array): BalanceItem {
+        return BalanceItem.deserialize(bytes);
+    }
+}
 interface GrpcUnaryServiceInterface<P, R> {
     (message: P, metadata: grpc_1.Metadata, options: grpc_1.CallOptions, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
     (message: P, metadata: grpc_1.Metadata, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
@@ -385,11 +632,21 @@ export abstract class UnimplementedCashWalletServiceService {
             requestDeserialize: (bytes: Buffer) => ModifyCashBalanceRequest.deserialize(new Uint8Array(bytes)),
             responseSerialize: (message: ModifyCashBalanceResponse) => Buffer.from(message.serialize()),
             responseDeserialize: (bytes: Buffer) => ModifyCashBalanceResponse.deserialize(new Uint8Array(bytes))
+        },
+        AskTopBalancesDescending: {
+            path: "/CashWalletService/AskTopBalancesDescending",
+            requestStream: false,
+            responseStream: false,
+            requestSerialize: (message: AskTopBalancesDescendingRequest) => Buffer.from(message.serialize()),
+            requestDeserialize: (bytes: Buffer) => AskTopBalancesDescendingRequest.deserialize(new Uint8Array(bytes)),
+            responseSerialize: (message: AskTopBalancesDescendingResponse) => Buffer.from(message.serialize()),
+            responseDeserialize: (bytes: Buffer) => AskTopBalancesDescendingResponse.deserialize(new Uint8Array(bytes))
         }
     };
     [method: string]: grpc_1.UntypedHandleCall;
     abstract AskCashBalance(call: grpc_1.ServerUnaryCall<AskCashBalanceRequest, AskCashBalanceResponse>, callback: grpc_1.sendUnaryData<AskCashBalanceResponse>): void;
     abstract ModifyCashBalance(call: grpc_1.ServerUnaryCall<ModifyCashBalanceRequest, ModifyCashBalanceResponse>, callback: grpc_1.sendUnaryData<ModifyCashBalanceResponse>): void;
+    abstract AskTopBalancesDescending(call: grpc_1.ServerUnaryCall<AskTopBalancesDescendingRequest, AskTopBalancesDescendingResponse>, callback: grpc_1.sendUnaryData<AskTopBalancesDescendingResponse>): void;
 }
 export class CashWalletServiceClient extends grpc_1.makeGenericClientConstructor(UnimplementedCashWalletServiceService.definition, "CashWalletService", {}) {
     constructor(address: string, credentials: grpc_1.ChannelCredentials, options?: Partial<grpc_1.ChannelOptions>) {
@@ -400,5 +657,8 @@ export class CashWalletServiceClient extends grpc_1.makeGenericClientConstructor
     };
     ModifyCashBalance: GrpcUnaryServiceInterface<ModifyCashBalanceRequest, ModifyCashBalanceResponse> = (message: ModifyCashBalanceRequest, metadata: grpc_1.Metadata | grpc_1.CallOptions | grpc_1.requestCallback<ModifyCashBalanceResponse>, options?: grpc_1.CallOptions | grpc_1.requestCallback<ModifyCashBalanceResponse>, callback?: grpc_1.requestCallback<ModifyCashBalanceResponse>): grpc_1.ClientUnaryCall => {
         return super.ModifyCashBalance(message, metadata, options, callback);
+    };
+    AskTopBalancesDescending: GrpcUnaryServiceInterface<AskTopBalancesDescendingRequest, AskTopBalancesDescendingResponse> = (message: AskTopBalancesDescendingRequest, metadata: grpc_1.Metadata | grpc_1.CallOptions | grpc_1.requestCallback<AskTopBalancesDescendingResponse>, options?: grpc_1.CallOptions | grpc_1.requestCallback<AskTopBalancesDescendingResponse>, callback?: grpc_1.requestCallback<AskTopBalancesDescendingResponse>): grpc_1.ClientUnaryCall => {
+        return super.AskTopBalancesDescending(message, metadata, options, callback);
     };
 }
