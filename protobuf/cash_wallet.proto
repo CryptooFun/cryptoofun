@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_package = "io.github.cryptoofun.genproto";
+option java_multiple_files = true;
+
+service CashWalletService {
+  rpc AskCashBalance (AskCashBalanceRequest) returns (AskCashBalanceResponse) {}
+  rpc ModifyCashBalance (ModifyCashBalanceRequest) returns (ModifyCashBalanceResponse) {}
+}
+
+message AskCashBalanceRequest {
+  string user_id = 1;
+}
+
+message AskCashBalanceResponse {
+  string user_id = 1;
+  double balance = 2;
+}
+
+message ModifyCashBalanceRequest {
+  string user_id = 1;
+  double delta = 2; 
+}
+
+message ModifyCashBalanceResponse {
+  string user_id = 1;
+  double balance_after = 2;
+}

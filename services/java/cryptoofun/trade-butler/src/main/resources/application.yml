@@ -1,0 +1,25 @@
+server:
+  port: 7170
+
+grpc:
+  server:
+    port: -1
+  client:
+    cash-wallet-server:
+      address: 'static://0.0.0.0:9090' # TODO: ...
+      enableKeepAlive: true
+      keepAliveWithoutCalls: true
+#      negotiationType: plaintext
+
+spring:
+  kafka:
+    bootstrap-servers: 127.0.0.1:19092
+    groupId: butlers
+
+  data.cassandra:
+    contact-points: localhost
+    port: 9042
+    keyspace: tradebutler
+    username: cassandra
+    password: cassandra
+    schema-action: CREATE_IF_NOT_EXISTS
