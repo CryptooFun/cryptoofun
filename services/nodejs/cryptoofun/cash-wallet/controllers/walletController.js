@@ -1,6 +1,7 @@
 const { StatusCodes } = require('http-status-codes');
 const {
     get,
+    getBalancebyDescending,
     update,
     create
 } = require('../services/walletService');
@@ -17,11 +18,23 @@ const getWalletBalance = async (req, res) => {
     }
 };
 
+const getBalancesbyDesc = async (req, res) => {
+    try {
+        const {offset, limit} = req.body;
+        const balances = await getBalancebyDescending(offset, limit);
+        res.status(StatusCodes.OK).json({balances});
+    } 
+    catch (err) {
+        console.log(err);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({err});
+    }
+};
+
 const updateCashWallet = async (req, res) => {
     try {
         const {userId, delta} = req.body;
         const cashWallet = await update(userId, delta);
-        res.status(StatusCodes.OK).json({cashWallet});
+        res.status(StatusCodes.NO_CONTENT).json({cashWallet});
     }   
     catch (err) {
         console.log(err);
@@ -43,6 +56,7 @@ const createCashWallet = async (req, res) => {
 
 module.exports = {
     getWalletBalance,
+    getBalancesbyDesc,
     updateCashWallet,
-    createCashWallet
+    createCashWallet,
 }

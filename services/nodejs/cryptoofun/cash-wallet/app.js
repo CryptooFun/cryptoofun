@@ -3,7 +3,7 @@ const helmet = require('helmet');
 const cors = require('cors');
 const xss = require('xss-clean');
 const grpcServer = require('./grpc/server');
-var grpc = require('@grpc/grpc-js');
+const grpc = require('@grpc/grpc-js');
 
 // express
 const express = require('express');
