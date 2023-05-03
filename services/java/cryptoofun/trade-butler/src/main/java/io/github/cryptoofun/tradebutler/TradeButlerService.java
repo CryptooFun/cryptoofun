@@ -4,6 +4,8 @@ import io.github.cryptoofun.messages.commands.ProcessTradeOrderCommand;
 import io.github.cryptoofun.tradebutler.dto.PostOrderRequest;
 import io.github.cryptoofun.tradebutler.entity.Order;
 import io.github.cryptoofun.tradebutler.exception.CommandServiceException;
+import lombok.Builder;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,10 +25,21 @@ public class TradeButlerService {
     @Autowired
     KafkaPublisher kafkaPublisher;
 
+    @Data
+    @Builder
+    public static class NewOrderRequest {
+        private final String userID;
+        private final String orderType;
+        private final String intent;
+        private final String ticker;
+        private final double price;
+        private final double amount;
+    }
+
     /**
      * Create new trade order and return order ID.
      * */
-    public String NewOrder(PostOrderRequest orderRequest) throws CommandServiceException {
+    public String NewOrder(NewOrderRequest orderRequest) throws CommandServiceException {
         try {
             var orderType = ProcessTradeOrderCommand.OrderType.valueOf(orderRequest
                     .getOrderType().toUpperCase());
@@ -34,6 +47,7 @@ public class TradeButlerService {
                     .getIntent().toUpperCase());
 
             var orderID = UUID.randomUUID().toString();
+            // TODO: May utilize object mapping for less hustle.
             orderRepository.save(Order.builder()
                     .id(orderID)
                     .userID(orderRequest.getUserID())
