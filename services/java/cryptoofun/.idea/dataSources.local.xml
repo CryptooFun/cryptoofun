@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="IU-231.8109.175">
-    <data-source name="tradebutler@localhost" uuid="380a6eb9-1884-4c3a-921d-b7a0d0336fd5">
+    <data-source name="@localhost" uuid="4cf332e5-6e75-47fc-a38a-88340ba15ce1">
       <database-info product="Cassandra" version="3.0.8" jdbc-version="4.2" driver-name="Cassandra JDBC Driver" driver-version="1.4" dbms="CASSANDRA" exact-version="3.0.8" exact-driver-version="1.4">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
@@ -10,7 +10,10 @@
       <user-name>cassandra</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="@" />
+          <node kind="schema">
+            <name qname="tradebutler" />
+            <name qname="@" />
+          </node>
         </introspection-scope>
       </schema-mapping>
     </data-source>

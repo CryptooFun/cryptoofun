@@ -1,7 +1,7 @@
-
 generator client {
-  provider = "prisma-client-js"
-  output = "../../../node_modules/@prisma/client-2"
+  provider   = "prisma-client-js"
+  output     = "../../node_modules/@prisma/client-cash-wallet"
+  engineType = "binary"
 }
 
 datasource db {
@@ -11,10 +11,8 @@ datasource db {
 
 model CashWallet {
   id        String   @id @default(uuid())
-  userId    String   @db.String() @unique
-  balance   Float    @db.Float8() @default(0)
+  userId    String   @unique @db.String()
+  balance   Float    @default(0) @db.Float8()
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
-
-

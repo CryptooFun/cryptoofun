@@ -1,0 +1,14 @@
+apiVersion: "security.istio.io/v1beta1"
+kind: "AuthorizationPolicy"
+metadata:
+  name: cash-wallet-policy
+  namespace: cf
+spec:
+  action: ALLOW
+  selector:
+    matchLabels:
+      app: cash-wallet
+  rules:
+    - when:
+        - key: request.auth.claims[permissions]
+          values: ["read:*", "write:*"]

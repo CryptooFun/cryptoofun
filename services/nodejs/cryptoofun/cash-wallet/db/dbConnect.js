@@ -1,10 +1,10 @@
-const {PrismaClient} = require('@prisma/client-2');
+const { PrismaClient } = require('@prisma/client-cash-wallet');
 
-const prisma = new PrismaClient({errorFormat: 'pretty'});
+const prisma = new PrismaClient({ errorFormat: 'pretty' });
 
 module.exports = {
-    /**
-     * @type {PrismaClient}
-     */
-    prisma
-}
+  /**
+   * @type {PrismaClient}
+   */
+  prisma,
+};

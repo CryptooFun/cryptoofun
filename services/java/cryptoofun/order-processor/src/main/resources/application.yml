@@ -17,7 +17,7 @@ grpc:
       negotiation-type: plaintext # TODO: Switch to TLS in production
 spring:
   kafka:
-    bootstrap-servers: localhost:19092
+    bootstrap-servers: ${KAFKA_SERVERS:127.0.0.1:19092}
     consumer:
       group-id: order-processors
       auto-offset-reset: earliest

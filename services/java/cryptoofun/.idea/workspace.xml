@@ -5,16 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8dbbc4ed-2187-473b-9e8f-0543b4457570" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/market-data-streamer/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market-data-streamer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market-data-streamer/src/main/java/io/github/cryptoofun/marketdatastreamer/BinanceConnectorConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market-data-streamer/src/main/java/io/github/cryptoofun/marketdatastreamer/BinanceMarketService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market-data-streamer/src/main/java/io/github/cryptoofun/marketdatastreamer/GrpcServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market-data-streamer/src/main/java/io/github/cryptoofun/marketdatastreamer/MarketDataStreamerApplicationServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market-data-streamer/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/genproto/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/genproto/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-svc/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-svc/src/main/java/io/github/cryptoofun/hellosvc/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-svc/src/main/java/io/github/cryptoofun/hellosvc/HelloClientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-svc/src/main/java/io/github/cryptoofun/hellosvc/HelloServiceServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-svc/src/main/java/io/github/cryptoofun/hellosvc/HelloServiceServerApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-svc/src/main/java/io/github/cryptoofun/hellosvc/KafkaProducerConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-svc/src/main/java/io/github/cryptoofun/hellosvc/KafkaPublisher.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-svc/src/main/java/io/github/cryptoofun/hellosvc/KafkaTopicConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/hello-svc/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/messages/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/messages/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-processor/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/order-processor/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/order-processor/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order-processor/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trade-butler/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/KafkaConsumerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/KafkaConsumerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/KafkaProducerConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/java/io/github/cryptoofun/tradebutler/config/KafkaProducerConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trade-butler/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/trade-butler/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +42,7 @@
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -65,7 +81,7 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "subsystem/market",
+    "git-widget-placeholder": "deployment",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "Y:/Projects/cryptoofun/services/java/cryptoofun/order-processor/src/main/java/io/github/cryptoofun/orderprocesssor/config",
@@ -77,7 +93,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "93e58aca70690e9697834ea385a767b9",
+    "spring.configuration.checksum": "b6526e4d8f09daa756ff8ed4cb9a7586",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -109,7 +125,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.MarketDataStreamerApplicationServer">
+  <component name="RunManager" selected="Spring Boot.TradeButlerServerApplication">
     <configuration name="TradeButlerServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="io.github.cryptoofun.tradebutler.TradeButlerServerApplication" />
       <module name="trade-butler" />
@@ -136,7 +152,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="trade-butler-svc [clean]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+    <configuration name="trade-butler [jib:dockerBuild]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
         <option name="myRunnerSettings" />
@@ -147,7 +163,7 @@
             </option>
             <option name="goals">
               <list>
-                <option value="clean" />
+                <option value="jib:dockerBuild" />
               </list>
             </option>
             <option name="pomFileName" value="pom.xml" />
@@ -155,7 +171,7 @@
               <map />
             </option>
             <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$/trade-butler-svc" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/trade-butler" />
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
@@ -222,11 +238,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Maven.trade-butler [jib:dockerBuild]" />
         <item itemvalue="Spring Boot.OrderProcessorServerApplication" />
         <item itemvalue="Application.TradeButlerServerApplication" />
         <item itemvalue="Application.TradeButlerSvcServerApp" />
         <item itemvalue="Maven.trade-butler-svc [install]" />
-        <item itemvalue="Maven.trade-butler-svc [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -243,11 +259,18 @@
       <workItem from="1681665546163" duration="10602000" />
       <workItem from="1681722015234" duration="3067000" />
       <workItem from="1681726025654" duration="11186000" />
+      <workItem from="1682431594384" duration="4250000" />
+      <workItem from="1682455283552" duration="8572000" />
+      <workItem from="1682585715413" duration="26458000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.cmd" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="application.yml" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

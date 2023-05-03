@@ -1,0 +1,40 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: cryptoofun
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - cryptoofun-gateway
+  http:
+    - match:
+        - uri:
+            prefix: /api/v1/tradebutler/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: trade-butler
+            port:
+              number: 7170
+    - match:
+        - uri:
+            prefix: /api/v1/cashwallet/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: cash-wallet
+            port:
+              number: 7370
+    - match:
+        - uri:
+            prefix: /api/v1/portfolio/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: portfolio
+            port:
+              number: 7371

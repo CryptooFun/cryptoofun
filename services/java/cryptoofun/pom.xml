@@ -17,7 +17,6 @@
 
     <modules>
         <module>genproto</module>
-        <module>hello-svc</module>
         <module>trade-butler</module>
         <module>messages</module>
         <module>order-processor</module>
@@ -25,12 +24,16 @@
     </modules>
 
     <properties>
+        <java.version>17</java.version>
+
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spring-cloud.version>2021.0.5</spring-cloud.version>
         <grpc.version>1.53.0</grpc.version>
+
+        <image>gcr.io/cryptoofun/${project.artifactId}:${project.version}</image>
     </properties>
 
     <dependencyManagement>
@@ -138,12 +141,15 @@
     </dependencyManagement>
 
     <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>3.3.1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
 </project>
