@@ -5,6 +5,7 @@
     <file url="file://$PROJECT_DIR$/genproto/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hello-svc/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hello-svc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/market-data-streamer/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/messages/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/messages/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/order-processor/src/main/java" charset="UTF-8" />
