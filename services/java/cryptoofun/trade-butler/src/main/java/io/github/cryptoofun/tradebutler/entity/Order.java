@@ -9,17 +9,42 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import java.time.Instant;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-@RequiredArgsConstructor
 @Getter
+@Setter
 @Table(value = "orders")
 public class Order {
 
     @PrimaryKey
-    private final String id;
+    private String id;
+
+    @Column("user_id")
+    private String userID;
 
     @Column("order_type")
-    private final String orderType;
+    private String orderType;
+
+    @Column("intent")
+    private String intent;
+
+    @Column("ticker")
+    private String ticker;
+
+    @Column("price")
+    private double price;
+
+    @Column("amount")
+    private double amount;
+
+    @Column("actualization_price")
+    private double actualizationPrice;
+
+    @Column("processed")
+    private boolean processed;
+
+    @Column("cancelled")
+    private boolean cancelled;
 
     @Column("created_at")
     @CassandraType(type = CassandraType.Name.TIMESTAMP)

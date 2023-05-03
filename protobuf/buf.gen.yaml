@@ -1,3 +1,9 @@
+# | Dependencies |
+# * protoc-gen-js: https://github.com/protocolbuffers/protobuf-javascript/releases/
+# * grpc_tools_node_protoc_plugin: npm i -g grpc-tools
+# * protoc-gen-ts: npm i -g protoc-gen-ts
+# # # # # # # # # # # # # # # # # # # # # # # # #
+
 version: v1
 plugins:
   - plugin: buf.build/protocolbuffers/java

@@ -1,8 +1,5 @@
-package io.github.cryptoofun.tradebutler.config;
+package io.github.cryptoofun.orderprocesssor.config;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import io.github.cryptoofun.messages.events.TradeOrderProcessedEvent;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,9 +10,6 @@ import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.listener.CommonLoggingErrorHandler;
-import org.springframework.kafka.listener.DefaultErrorHandler;
-import org.springframework.kafka.support.converter.JsonMessageConverter;
-import org.springframework.kafka.support.converter.StringJsonMessageConverter;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
 import java.util.HashMap;
@@ -27,7 +21,7 @@ public class KafkaConsumerConfiguration {
     @Value(value = "${spring.kafka.bootstrap-servers}")
     private String bootstrapAddress;
 
-    @Value(value = "${spring.kafka.groupId}")
+    @Value(value = "${spring.kafka.consumer.group-id}")
     private String groupId;
 
     @Bean
@@ -37,7 +31,7 @@ public class KafkaConsumerConfiguration {
         props.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
-        props.put(JsonDeserializer.TYPE_MAPPINGS, "tradeOrderProcessedEvent:io.github.cryptoofun.messages.events.TradeOrderProcessedEvent,tradeOrderCancelledEvent:io.github.cryptoofun.messages.events.TradeOrderCancelledEvent");
+        props.put(JsonDeserializer.TYPE_MAPPINGS, "processTradeOrderCommand:io.github.cryptoofun.messages.commands.ProcessTradeOrderCommand");
         return new DefaultKafkaConsumerFactory<>(props);
     }
 
