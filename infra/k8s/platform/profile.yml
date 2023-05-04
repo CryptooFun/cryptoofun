@@ -47,7 +47,7 @@ spec:
             - name: NODE_ENV
               value: production
             - name: GRPC_SERVER_PORT
-              value: "57370"
+              value: "57372"
             - name: AUTH0_DOMAIN
               value: cryptoofun.eu.auth0.com
             - name: AUTH0_CLIENT_ID
