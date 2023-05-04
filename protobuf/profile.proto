@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option java_package = "io.github.cryptoofun.genproto";
+option java_multiple_files = true;
+
+service ProfileService {
+  rpc GetProfileInfoByUserIds (GetProfileInfoByUserIdsRequest) returns (GetProfileInfoByUserIdsResponse) {}
+}
+
+message GetProfileInfoByUserIdsRequest {
+  repeated string user_ids = 1;
+}
+
+message ProfileInfo {
+  string user_id = 1;
+  string username = 2;
+}
+
+message GetProfileInfoByUserIdsResponse {
+  repeated ProfileInfo profile_info = 1;
+}
