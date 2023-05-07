@@ -6,18 +6,37 @@ grpc:
     port: -1
   client:
     cash-wallet-server:
-      address: 'static://0.0.0.0:9090' # TODO: Update ...
+      address: 'static://0.0.0.0:50051' # TODO: Update ...
       enableKeepAlive: true
       keepAliveWithoutCalls: true
       negotiationType: plaintext  # TODO: Switch to TLS in production
     market-data-server:
-      address: 'static://0.0.0.0:9091' # TODO: Update ...
+      address: 'static://0.0.0.0:57172' # TODO: Update ...
       enable-keep-alive: true
       keep-alive-without-calls: true
       negotiation-type: plaintext # TODO: Switch to TLS in production
+    portfolio-server:
+      address: 'static://localhost:50052' # TODO: Update ...
+      enable-keep-alive: true
+      keep-alive-without-calls: true
+      negotiation-type: plaintext # TODO: Switch to TLS in production
+
 spring:
   kafka:
-    bootstrap-servers: ${KAFKA_SERVERS:127.0.0.1:19092}
+    bootstrap-servers: ${KAFKA_BS}
     consumer:
       group-id: order-processors
       auto-offset-reset: earliest
+      properties:
+        session.timeout.ms: 45000
+    properties:
+      security:
+        protocol: SASL_SSL
+      sasl:
+        mechanism: PLAIN
+        jaas:
+          config: ${KAFKA_JAAS_CONFIG}
+      # Schema Registry configs [DISABLED] ==>
+      # basic.auth.credentials.source: USER_INFO
+      # basic.auth.user.info: { { SR_API_KEY } }:{{ SR_API_SECRET }}
+      # schema.registry.url: https://{{ SR_ENDPOINT }}
