@@ -3,7 +3,7 @@ syntax = "proto3";
 option java_package = "io.github.cryptoofun.genproto";
 option java_multiple_files = true;
 
-service PorfolioService {
+service PortfolioService {
     rpc AskPortfolio (AskPortfolioRequest) returns (AskPortfolioResponse) {}
     rpc ModifySingleTicker (ModifySingleTickerRequest) returns (ModifySingleTickerResponse) {}
 }

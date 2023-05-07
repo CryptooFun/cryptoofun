@@ -28,7 +28,11 @@ public class BinanceMarketService {
         private String askQty;
     }
 
-    public BookTicker QueryOrderBookTicker(String symbol) throws JsonProcessingException {
+    public BookTicker QueryOrderBookTicker(String symbol) throws Exception {
+        String[] symbolPair = symbol.split("[-_ ]+");
+        if (symbolPair.length == 2) {
+            symbol = String.join("", symbolPair);
+        }
         var params = new LinkedHashMap<String, Object>();
         params.put("symbol", symbol);
         var bookTickerStr = client.createMarket().bookTicker(params);

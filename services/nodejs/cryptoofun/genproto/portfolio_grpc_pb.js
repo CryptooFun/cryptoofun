@@ -49,9 +49,9 @@ function deserialize_ModifySingleTickerResponse(buffer_arg) {
 }
 
 
-var PorfolioServiceService = exports.PorfolioServiceService = {
+var PortfolioServiceService = exports.PortfolioServiceService = {
   askPortfolio: {
-    path: '/PorfolioService/AskPortfolio',
+    path: '/PortfolioService/AskPortfolio',
     requestStream: false,
     responseStream: false,
     requestType: portfolio_pb.AskPortfolioRequest,
@@ -62,7 +62,7 @@ var PorfolioServiceService = exports.PorfolioServiceService = {
     responseDeserialize: deserialize_AskPortfolioResponse,
   },
   modifySingleTicker: {
-    path: '/PorfolioService/ModifySingleTicker',
+    path: '/PortfolioService/ModifySingleTicker',
     requestStream: false,
     responseStream: false,
     requestType: portfolio_pb.ModifySingleTickerRequest,
@@ -74,4 +74,4 @@ var PorfolioServiceService = exports.PorfolioServiceService = {
   },
 };
 
-exports.PorfolioServiceClient = grpc.makeGenericClientConstructor(PorfolioServiceService);
+exports.PortfolioServiceClient = grpc.makeGenericClientConstructor(PortfolioServiceService);

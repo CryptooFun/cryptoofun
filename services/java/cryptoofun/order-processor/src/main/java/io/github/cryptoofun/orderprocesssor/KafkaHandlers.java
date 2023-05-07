@@ -16,8 +16,10 @@ public class KafkaHandlers {
     MarketDataStreamerServiceGrpc.MarketDataStreamerServiceBlockingStub marketDataGrpcStub;
 
     @GrpcClient(value = "cash-wallet-server")
-
     CashWalletServiceGrpc.CashWalletServiceBlockingStub cashWalletGrpcStub;
+
+    @GrpcClient(value = "portfolio-server")
+    PortfolioServiceGrpc.PortfolioServiceBlockingStub portfolioGrpcStub;
 
     @Autowired
     KafkaPublishers kafkaPublishers;
@@ -42,10 +44,21 @@ public class KafkaHandlers {
                     ? liveMarketPrices.getAskPrice()
                     : liveMarketPrices.getBidPrice();
 
-            cashReserved = command.getAmount() * tickerPrice;
+            var signedAmount = command.getAmount();
+            if (command.getIntent() == ProcessTradeOrderCommand.Intent.SELL) {
+                signedAmount *= -1;
+            }
+            cashReserved = signedAmount * tickerPrice;
             modifiedCashBalance = cashWalletGrpcStub.modifyCashBalance(ModifyCashBalanceRequest.newBuilder()
                     .setUserId(command.getUserID())
                     .setDelta(-1 * cashReserved)
+                    .build());
+
+            portfolioGrpcStub.modifySingleTicker(ModifySingleTickerRequest.newBuilder()
+                    .setUserId(command.getUserID())
+                    .setTicker(command.getTicker())
+                    .setCost(cashReserved)
+                    .setAmount(signedAmount)
                     .build());
 
             kafkaPublishers.sendBlocking(new TradeOrderProcessedEvent(command.getOrderID(), tickerPrice));

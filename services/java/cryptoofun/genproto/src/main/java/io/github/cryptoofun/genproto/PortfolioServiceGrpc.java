@@ -8,11 +8,11 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
     value = "by gRPC proto compiler (version 1.54.1)",
     comments = "Source: portfolio.proto")
 @io.grpc.stub.annotations.GrpcGenerated
-public final class PorfolioServiceGrpc {
+public final class PortfolioServiceGrpc {
 
-  private PorfolioServiceGrpc() {}
+  private PortfolioServiceGrpc() {}
 
-  public static final String SERVICE_NAME = "PorfolioService";
+  public static final String SERVICE_NAME = "PortfolioService";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<io.github.cryptoofun.genproto.AskPortfolioRequest,
@@ -26,10 +26,10 @@ public final class PorfolioServiceGrpc {
   public static io.grpc.MethodDescriptor<io.github.cryptoofun.genproto.AskPortfolioRequest,
       io.github.cryptoofun.genproto.AskPortfolioResponse> getAskPortfolioMethod() {
     io.grpc.MethodDescriptor<io.github.cryptoofun.genproto.AskPortfolioRequest, io.github.cryptoofun.genproto.AskPortfolioResponse> getAskPortfolioMethod;
-    if ((getAskPortfolioMethod = PorfolioServiceGrpc.getAskPortfolioMethod) == null) {
-      synchronized (PorfolioServiceGrpc.class) {
-        if ((getAskPortfolioMethod = PorfolioServiceGrpc.getAskPortfolioMethod) == null) {
-          PorfolioServiceGrpc.getAskPortfolioMethod = getAskPortfolioMethod =
+    if ((getAskPortfolioMethod = PortfolioServiceGrpc.getAskPortfolioMethod) == null) {
+      synchronized (PortfolioServiceGrpc.class) {
+        if ((getAskPortfolioMethod = PortfolioServiceGrpc.getAskPortfolioMethod) == null) {
+          PortfolioServiceGrpc.getAskPortfolioMethod = getAskPortfolioMethod =
               io.grpc.MethodDescriptor.<io.github.cryptoofun.genproto.AskPortfolioRequest, io.github.cryptoofun.genproto.AskPortfolioResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "AskPortfolio"))
@@ -38,7 +38,7 @@ public final class PorfolioServiceGrpc {
                   io.github.cryptoofun.genproto.AskPortfolioRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   io.github.cryptoofun.genproto.AskPortfolioResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new PorfolioServiceMethodDescriptorSupplier("AskPortfolio"))
+              .setSchemaDescriptor(new PortfolioServiceMethodDescriptorSupplier("AskPortfolio"))
               .build();
         }
       }
@@ -57,10 +57,10 @@ public final class PorfolioServiceGrpc {
   public static io.grpc.MethodDescriptor<io.github.cryptoofun.genproto.ModifySingleTickerRequest,
       io.github.cryptoofun.genproto.ModifySingleTickerResponse> getModifySingleTickerMethod() {
     io.grpc.MethodDescriptor<io.github.cryptoofun.genproto.ModifySingleTickerRequest, io.github.cryptoofun.genproto.ModifySingleTickerResponse> getModifySingleTickerMethod;
-    if ((getModifySingleTickerMethod = PorfolioServiceGrpc.getModifySingleTickerMethod) == null) {
-      synchronized (PorfolioServiceGrpc.class) {
-        if ((getModifySingleTickerMethod = PorfolioServiceGrpc.getModifySingleTickerMethod) == null) {
-          PorfolioServiceGrpc.getModifySingleTickerMethod = getModifySingleTickerMethod =
+    if ((getModifySingleTickerMethod = PortfolioServiceGrpc.getModifySingleTickerMethod) == null) {
+      synchronized (PortfolioServiceGrpc.class) {
+        if ((getModifySingleTickerMethod = PortfolioServiceGrpc.getModifySingleTickerMethod) == null) {
+          PortfolioServiceGrpc.getModifySingleTickerMethod = getModifySingleTickerMethod =
               io.grpc.MethodDescriptor.<io.github.cryptoofun.genproto.ModifySingleTickerRequest, io.github.cryptoofun.genproto.ModifySingleTickerResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(SERVICE_NAME, "ModifySingleTicker"))
@@ -69,7 +69,7 @@ public final class PorfolioServiceGrpc {
                   io.github.cryptoofun.genproto.ModifySingleTickerRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
                   io.github.cryptoofun.genproto.ModifySingleTickerResponse.getDefaultInstance()))
-              .setSchemaDescriptor(new PorfolioServiceMethodDescriptorSupplier("ModifySingleTicker"))
+              .setSchemaDescriptor(new PortfolioServiceMethodDescriptorSupplier("ModifySingleTicker"))
               .build();
         }
       }
@@ -80,45 +80,45 @@ public final class PorfolioServiceGrpc {
   /**
    * Creates a new async stub that supports all call types for the service
    */
-  public static PorfolioServiceStub newStub(io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<PorfolioServiceStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<PorfolioServiceStub>() {
+  public static PortfolioServiceStub newStub(io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<PortfolioServiceStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<PortfolioServiceStub>() {
         @java.lang.Override
-        public PorfolioServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new PorfolioServiceStub(channel, callOptions);
+        public PortfolioServiceStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new PortfolioServiceStub(channel, callOptions);
         }
       };
-    return PorfolioServiceStub.newStub(factory, channel);
+    return PortfolioServiceStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new blocking-style stub that supports unary and streaming output calls on the service
    */
-  public static PorfolioServiceBlockingStub newBlockingStub(
+  public static PortfolioServiceBlockingStub newBlockingStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<PorfolioServiceBlockingStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<PorfolioServiceBlockingStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<PortfolioServiceBlockingStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<PortfolioServiceBlockingStub>() {
         @java.lang.Override
-        public PorfolioServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new PorfolioServiceBlockingStub(channel, callOptions);
+        public PortfolioServiceBlockingStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new PortfolioServiceBlockingStub(channel, callOptions);
         }
       };
-    return PorfolioServiceBlockingStub.newStub(factory, channel);
+    return PortfolioServiceBlockingStub.newStub(factory, channel);
   }
 
   /**
    * Creates a new ListenableFuture-style stub that supports unary calls on the service
    */
-  public static PorfolioServiceFutureStub newFutureStub(
+  public static PortfolioServiceFutureStub newFutureStub(
       io.grpc.Channel channel) {
-    io.grpc.stub.AbstractStub.StubFactory<PorfolioServiceFutureStub> factory =
-      new io.grpc.stub.AbstractStub.StubFactory<PorfolioServiceFutureStub>() {
+    io.grpc.stub.AbstractStub.StubFactory<PortfolioServiceFutureStub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<PortfolioServiceFutureStub>() {
         @java.lang.Override
-        public PorfolioServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-          return new PorfolioServiceFutureStub(channel, callOptions);
+        public PortfolioServiceFutureStub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new PortfolioServiceFutureStub(channel, callOptions);
         }
       };
-    return PorfolioServiceFutureStub.newStub(factory, channel);
+    return PortfolioServiceFutureStub.newStub(factory, channel);
   }
 
   /**
@@ -141,30 +141,30 @@ public final class PorfolioServiceGrpc {
   }
 
   /**
-   * Base class for the server implementation of the service PorfolioService.
+   * Base class for the server implementation of the service PortfolioService.
    */
-  public static abstract class PorfolioServiceImplBase
+  public static abstract class PortfolioServiceImplBase
       implements io.grpc.BindableService, AsyncService {
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
-      return PorfolioServiceGrpc.bindService(this);
+      return PortfolioServiceGrpc.bindService(this);
     }
   }
 
   /**
-   * A stub to allow clients to do asynchronous rpc calls to service PorfolioService.
+   * A stub to allow clients to do asynchronous rpc calls to service PortfolioService.
    */
-  public static final class PorfolioServiceStub
-      extends io.grpc.stub.AbstractAsyncStub<PorfolioServiceStub> {
-    private PorfolioServiceStub(
+  public static final class PortfolioServiceStub
+      extends io.grpc.stub.AbstractAsyncStub<PortfolioServiceStub> {
+    private PortfolioServiceStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected PorfolioServiceStub build(
+    protected PortfolioServiceStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new PorfolioServiceStub(channel, callOptions);
+      return new PortfolioServiceStub(channel, callOptions);
     }
 
     /**
@@ -185,19 +185,19 @@ public final class PorfolioServiceGrpc {
   }
 
   /**
-   * A stub to allow clients to do synchronous rpc calls to service PorfolioService.
+   * A stub to allow clients to do synchronous rpc calls to service PortfolioService.
    */
-  public static final class PorfolioServiceBlockingStub
-      extends io.grpc.stub.AbstractBlockingStub<PorfolioServiceBlockingStub> {
-    private PorfolioServiceBlockingStub(
+  public static final class PortfolioServiceBlockingStub
+      extends io.grpc.stub.AbstractBlockingStub<PortfolioServiceBlockingStub> {
+    private PortfolioServiceBlockingStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected PorfolioServiceBlockingStub build(
+    protected PortfolioServiceBlockingStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new PorfolioServiceBlockingStub(channel, callOptions);
+      return new PortfolioServiceBlockingStub(channel, callOptions);
     }
 
     /**
@@ -216,19 +216,19 @@ public final class PorfolioServiceGrpc {
   }
 
   /**
-   * A stub to allow clients to do ListenableFuture-style rpc calls to service PorfolioService.
+   * A stub to allow clients to do ListenableFuture-style rpc calls to service PortfolioService.
    */
-  public static final class PorfolioServiceFutureStub
-      extends io.grpc.stub.AbstractFutureStub<PorfolioServiceFutureStub> {
-    private PorfolioServiceFutureStub(
+  public static final class PortfolioServiceFutureStub
+      extends io.grpc.stub.AbstractFutureStub<PortfolioServiceFutureStub> {
+    private PortfolioServiceFutureStub(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
       super(channel, callOptions);
     }
 
     @java.lang.Override
-    protected PorfolioServiceFutureStub build(
+    protected PortfolioServiceFutureStub build(
         io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
-      return new PorfolioServiceFutureStub(channel, callOptions);
+      return new PortfolioServiceFutureStub(channel, callOptions);
     }
 
     /**
@@ -311,9 +311,9 @@ public final class PorfolioServiceGrpc {
         .build();
   }
 
-  private static abstract class PorfolioServiceBaseDescriptorSupplier
+  private static abstract class PortfolioServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
-    PorfolioServiceBaseDescriptorSupplier() {}
+    PortfolioServiceBaseDescriptorSupplier() {}
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.FileDescriptor getFileDescriptor() {
@@ -322,21 +322,21 @@ public final class PorfolioServiceGrpc {
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.ServiceDescriptor getServiceDescriptor() {
-      return getFileDescriptor().findServiceByName("PorfolioService");
+      return getFileDescriptor().findServiceByName("PortfolioService");
     }
   }
 
-  private static final class PorfolioServiceFileDescriptorSupplier
-      extends PorfolioServiceBaseDescriptorSupplier {
-    PorfolioServiceFileDescriptorSupplier() {}
+  private static final class PortfolioServiceFileDescriptorSupplier
+      extends PortfolioServiceBaseDescriptorSupplier {
+    PortfolioServiceFileDescriptorSupplier() {}
   }
 
-  private static final class PorfolioServiceMethodDescriptorSupplier
-      extends PorfolioServiceBaseDescriptorSupplier
+  private static final class PortfolioServiceMethodDescriptorSupplier
+      extends PortfolioServiceBaseDescriptorSupplier
       implements io.grpc.protobuf.ProtoMethodDescriptorSupplier {
     private final String methodName;
 
-    PorfolioServiceMethodDescriptorSupplier(String methodName) {
+    PortfolioServiceMethodDescriptorSupplier(String methodName) {
       this.methodName = methodName;
     }
 
@@ -351,11 +351,11 @@ public final class PorfolioServiceGrpc {
   public static io.grpc.ServiceDescriptor getServiceDescriptor() {
     io.grpc.ServiceDescriptor result = serviceDescriptor;
     if (result == null) {
-      synchronized (PorfolioServiceGrpc.class) {
+      synchronized (PortfolioServiceGrpc.class) {
         result = serviceDescriptor;
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
-              .setSchemaDescriptor(new PorfolioServiceFileDescriptorSupplier())
+              .setSchemaDescriptor(new PortfolioServiceFileDescriptorSupplier())
               .addMethod(getAskPortfolioMethod())
               .addMethod(getModifySingleTickerMethod())
               .build();
