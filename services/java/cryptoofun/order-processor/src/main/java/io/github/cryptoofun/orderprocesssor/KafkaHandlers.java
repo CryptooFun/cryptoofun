@@ -39,8 +39,8 @@ public class KafkaHandlers {
                     .build());
 
             var tickerPrice = (command.getIntent() == ProcessTradeOrderCommand.Intent.BUY)
-                    ? liveMarketPrices.getBidPrice()
-                    : liveMarketPrices.getAskPrice();
+                    ? liveMarketPrices.getAskPrice()
+                    : liveMarketPrices.getBidPrice();
 
             cashReserved = command.getAmount() * tickerPrice;
             modifiedCashBalance = cashWalletGrpcStub.modifyCashBalance(ModifyCashBalanceRequest.newBuilder()
