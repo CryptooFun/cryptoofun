@@ -24,9 +24,9 @@ public class GrpcServiceImpl extends MarketDataStreamerServiceGrpc.MarketDataStr
                     .setTimestampMs(String.valueOf(System.currentTimeMillis()))
                     .build();
             responseObserver.onNext(response);
+            responseObserver.onCompleted();
         } catch (Exception e) {
             responseObserver.onError(e);
         }
-        responseObserver.onCompleted();
     }
 }
