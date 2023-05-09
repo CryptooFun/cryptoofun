@@ -16,14 +16,25 @@ public class ApiController {
     private TradeButlerService tradeButlerCommandService;
 
     @PostMapping("/")
-    public ResponseEntity<PostOrderResponse> postOrder(@RequestBody PostOrderRequest request) throws CommandServiceException {
-        var orderID = tradeButlerCommandService.NewOrder(request);
+    public ResponseEntity<PostOrderResponse> postOrder(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
+                                                       @RequestBody PostOrderRequest request) throws CommandServiceException {
+
+        // TODO: May utilize object mapping for less hustle.
+        var orderID = tradeButlerCommandService.NewOrder(TradeButlerService.NewOrderRequest.builder()
+                .userID(userID)
+                .orderType(request.getOrderType())
+                .intent(request.getIntent())
+                .ticker(request.getTicker())
+                .price(request.getPrice())
+                .amount(request.getAmount())
+                .build());
         var response = new PostOrderResponse(orderID);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/")
-    public ResponseEntity<GetOrdersResponse> getOrders(@RequestParam String userID) throws CommandServiceException {
+    public ResponseEntity<GetOrdersResponse> getOrders(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID) throws CommandServiceException {
+
         var orders = tradeButlerCommandService.RetrieveOrdersByUser(userID);
         var response = new GetOrdersResponse(orders);
         return new ResponseEntity<>(response, HttpStatus.OK);

@@ -8,7 +8,8 @@
     "hello-svc",
     "cash-wallet",
     "portfolio",
-    "profile"
+    "profile",
+    "shared"
   ],
   "scripts": {
     "build": "turbo run build",

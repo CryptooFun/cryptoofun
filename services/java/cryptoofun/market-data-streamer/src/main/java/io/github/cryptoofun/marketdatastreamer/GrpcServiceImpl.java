@@ -1,8 +1,5 @@
 package io.github.cryptoofun.marketdatastreamer;
 
-import io.github.cryptoofun.genproto.EnquireMarketPriceRequest;
-import io.github.cryptoofun.genproto.EnquireMarketPriceResponse;
-import io.github.cryptoofun.genproto.MarketDataStreamerServiceGrpc;
 import io.grpc.stub.StreamObserver;
 import net.devh.boot.grpc.server.service.GrpcService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -10,6 +10,17 @@ spec:
   http:
     - match:
         - uri:
+            prefix: /webapp
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: webapp
+            port:
+              number: 80
+
+    - match:
+        - uri:
             prefix: /api/v1/tradebutler/
       rewrite:
         uri: /
@@ -18,6 +29,7 @@ spec:
             host: trade-butler
             port:
               number: 7170
+
     - match:
         - uri:
             prefix: /api/v1/cashwallet/
@@ -28,6 +40,7 @@ spec:
             host: cash-wallet
             port:
               number: 7370
+
     - match:
         - uri:
             prefix: /api/v1/portfolio/

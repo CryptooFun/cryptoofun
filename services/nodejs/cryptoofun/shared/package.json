@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "name": "shared",
+  "version": "1.0.0",
+  "scripts": {},
+  "dependencies": {
+    "jsonwebtoken": "^9.0.0"
+  }
+}

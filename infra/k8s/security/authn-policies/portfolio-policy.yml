@@ -11,4 +11,4 @@ spec:
   rules:
     - when:
         - key: request.auth.claims[permissions]
-          values: ["read:*", "write:*"]
+          values: ["read:services", "write:services"]

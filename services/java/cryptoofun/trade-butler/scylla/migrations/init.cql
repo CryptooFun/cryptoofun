@@ -1,3 +1,5 @@
+create keyspace tradebutler with replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
 create table tradebutler.orders
 (
     id                  text primary key,
