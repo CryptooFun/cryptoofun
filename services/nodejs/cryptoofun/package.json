@@ -8,6 +8,7 @@
     "hello-svc",
     "cash-wallet",
     "portfolio",
+    "profile",
     "shared"
   ],
   "scripts": {

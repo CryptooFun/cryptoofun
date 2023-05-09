@@ -31,6 +31,6 @@ function modifySingleTicker(call, callback) {
 }
 
 const server = new Server();
-server.addService(services.PorfolioServiceService, {askPortfolio, modifySingleTicker});
+server.addService(services.PortfolioServiceService, {askPortfolio, modifySingleTicker});
 
 module.exports = server;

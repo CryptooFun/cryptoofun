@@ -57,12 +57,12 @@ public final class Portfolio {
       "erRequest\022\027\n\007user_id\030\001 \001(\tR\006userId\022\026\n\006ti" +
       "cker\030\002 \001(\tR\006ticker\022\022\n\004cost\030\003 \001(\001R\004cost\022\026" +
       "\n\006amount\030\004 \001(\001R\006amount\"\034\n\032ModifySingleTi" +
-      "ckerResponse2\241\001\n\017PorfolioService\022=\n\014AskP" +
-      "ortfolio\022\024.AskPortfolioRequest\032\025.AskPort" +
-      "folioResponse\"\000\022O\n\022ModifySingleTicker\022\032." +
-      "ModifySingleTickerRequest\032\033.ModifySingle" +
-      "TickerResponse\"\000B!\n\035io.github.cryptoofun" +
-      ".genprotoP\001b\006proto3"
+      "ckerResponse2\242\001\n\020PortfolioService\022=\n\014Ask" +
+      "Portfolio\022\024.AskPortfolioRequest\032\025.AskPor" +
+      "tfolioResponse\"\000\022O\n\022ModifySingleTicker\022\032" +
+      ".ModifySingleTickerRequest\032\033.ModifySingl" +
+      "eTickerResponse\"\000B!\n\035io.github.cryptoofu" +
+      "n.genprotoP\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

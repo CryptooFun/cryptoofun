@@ -31,7 +31,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <spring-cloud.version>2021.0.5</spring-cloud.version>
-        <grpc.version>1.53.0</grpc.version>
+        <grpc.version>1.54.1</grpc.version>
 
         <image>gcr.io/cryptoofun/${project.artifactId}:${project.version}</image>
     </properties>

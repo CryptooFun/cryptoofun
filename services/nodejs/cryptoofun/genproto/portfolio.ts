@@ -452,10 +452,10 @@ interface GrpcPromiseServiceInterface<P, R> {
     (message: P, metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): Promise<R>;
     (message: P, options?: grpc_1.CallOptions): Promise<R>;
 }
-export abstract class UnimplementedPorfolioServiceService {
+export abstract class UnimplementedPortfolioServiceService {
     static definition = {
         AskPortfolio: {
-            path: "/PorfolioService/AskPortfolio",
+            path: "/PortfolioService/AskPortfolio",
             requestStream: false,
             responseStream: false,
             requestSerialize: (message: AskPortfolioRequest) => Buffer.from(message.serialize()),
@@ -464,7 +464,7 @@ export abstract class UnimplementedPorfolioServiceService {
             responseDeserialize: (bytes: Buffer) => AskPortfolioResponse.deserialize(new Uint8Array(bytes))
         },
         ModifySingleTicker: {
-            path: "/PorfolioService/ModifySingleTicker",
+            path: "/PortfolioService/ModifySingleTicker",
             requestStream: false,
             responseStream: false,
             requestSerialize: (message: ModifySingleTickerRequest) => Buffer.from(message.serialize()),
@@ -477,7 +477,7 @@ export abstract class UnimplementedPorfolioServiceService {
     abstract AskPortfolio(call: grpc_1.ServerUnaryCall<AskPortfolioRequest, AskPortfolioResponse>, callback: grpc_1.sendUnaryData<AskPortfolioResponse>): void;
     abstract ModifySingleTicker(call: grpc_1.ServerUnaryCall<ModifySingleTickerRequest, ModifySingleTickerResponse>, callback: grpc_1.sendUnaryData<ModifySingleTickerResponse>): void;
 }
-export class PorfolioServiceClient extends grpc_1.makeGenericClientConstructor(UnimplementedPorfolioServiceService.definition, "PorfolioService", {}) {
+export class PortfolioServiceClient extends grpc_1.makeGenericClientConstructor(UnimplementedPortfolioServiceService.definition, "PortfolioService", {}) {
     constructor(address: string, credentials: grpc_1.ChannelCredentials, options?: Partial<grpc_1.ChannelOptions>) {
         super(address, credentials, options);
     }
