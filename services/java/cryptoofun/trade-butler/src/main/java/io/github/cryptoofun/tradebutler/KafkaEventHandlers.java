@@ -1,5 +1,6 @@
 package io.github.cryptoofun.tradebutler;
 
+import io.github.cryptoofun.messages.events.TradeOrderCancelledEvent;
 import io.github.cryptoofun.messages.events.TradeOrderProcessedEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class KafkaEventHandlers {
     }
 
     @KafkaListener(topics = "cancelled_trade_orders", groupId = "trade-butlers")
-    private void handleTradeOrderCancelledEvent(TradeOrderProcessedEvent event) {
+    private void handleTradeOrderCancelledEvent(TradeOrderCancelledEvent event) {
         orderRepository.findById(event.getOrderID())
                 .ifPresent(order -> {
                     order.setCancelled(true);
