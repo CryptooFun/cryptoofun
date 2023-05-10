@@ -21,6 +21,7 @@
         <module>messages</module>
         <module>order-processor</module>
         <module>market-data-streamer</module>
+        <module>progression</module>
     </modules>
 
     <properties>
