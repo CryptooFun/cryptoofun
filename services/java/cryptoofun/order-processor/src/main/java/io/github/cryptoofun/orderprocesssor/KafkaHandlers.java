@@ -31,7 +31,7 @@ public class KafkaHandlers {
         try {
             // In the proposed implementation, take only market orders into consideration:
             if (command.getOrderType() != ProcessTradeOrderCommand.OrderType.MARKET) {
-                kafkaPublishers.sendBlocking(new TradeOrderCancelledEvent(command.getOrderID(), "Unsupported order type"));
+                kafkaPublishers.sendBlocking(new TradeOrderCancelledEvent(command.getOrderID(), command.getUserID(), "Unsupported order type"));
                 return;
             }
 
@@ -61,7 +61,7 @@ public class KafkaHandlers {
                     .setAmount(signedAmount)
                     .build());
 
-            kafkaPublishers.sendBlocking(new TradeOrderProcessedEvent(command.getOrderID(), tickerPrice));
+            kafkaPublishers.sendBlocking(new TradeOrderProcessedEvent(command.getOrderID(), command.getUserID(), tickerPrice, signedAmount));
         } catch (Exception e) {
             // If the cash's already reserved, refund in case of an error:
             if (modifiedCashBalance != null) {
@@ -70,7 +70,7 @@ public class KafkaHandlers {
                         .setDelta(cashReserved)
                         .build());
             }
-            kafkaPublishers.sendBlocking(new TradeOrderCancelledEvent(command.getOrderID(), "Unknown reason"));
+            kafkaPublishers.sendBlocking(new TradeOrderCancelledEvent(command.getOrderID(), command.getUserID(), "Unknown reason"));
         }
     }
 }

@@ -9,5 +9,7 @@ import lombok.extern.jackson.Jacksonized;
 @ToString
 public class TradeOrderProcessedEvent {
     String orderID;
+    String userID;
     double actualizationPrice;
+    double amount;
 }
