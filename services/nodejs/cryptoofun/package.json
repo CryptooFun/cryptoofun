@@ -9,7 +9,8 @@
     "cash-wallet",
     "portfolio",
     "profile",
-    "shared"
+    "shared",
+    "leaderboard"
   ],
   "scripts": {
     "build": "turbo run build",

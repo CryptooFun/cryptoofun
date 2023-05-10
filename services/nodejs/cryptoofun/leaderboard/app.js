@@ -2,21 +2,27 @@
 require('dotenv').config();
 const cors = require('cors');
 const path = require('path');
+const {CronJob} = require('cron');
 
 // express
 const express = require('express');
 const app = express();
 
-const { seedDb } = require('./db');
+const job = new CronJob(
+  '*/5 * * * *',
+  require('./leaderboardConstructor'),
+  null,
+  true
+);
 
-// Setup routes
+// Routers
+const leaderboardRouter = require('./leaderboardRoute');
+
 app.use(cors());
-require('./routes')(app);
 
-// Seed redis db
-seedDb();
+app.use('/', leaderboardRouter);
 
-const port = process.env.PORT || 5002;
+const port = process.env.PORT || 5003;
 
 const start = async () => {
     try {
