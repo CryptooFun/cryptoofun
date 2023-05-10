@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-processor
+  labels:
+    app: order-processor
+    service: order-processor
+spec:
+  ports:
+    - port: 1
+  selector:
+    app: order-processor
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cryptoofun-order-processor
+  labels:
+    account: order-processor
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-processor-v1
+  labels:
+    app: order-processor
+    version: v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: order-processor
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: order-processor
+        version: v1
+    spec:
+      serviceAccountName: cryptoofun-order-processor
+      containers:
+        - name: order-processor
+          image: gcr.io/cryptoofun/order-processor:1.0-SNAPSHOT
+          imagePullPolicy: Always
+          env:
+            - name: GRPC_SV_CASH_WALLET
+              value: static://cash-wallet.cf.svc.cluster.local:57370
+            - name: GRPC_SV_MARKET_DATA
+              value: static://market-data-streamer.cf.svc.cluster.local:57172
+            - name: GRPC_SV_PORTFOLIO
+              value: static://porfolio.cf.svc.cluster.local:57371
+            - name: KAFKA_BS
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secrets
+                  key: bootstrap-servers
+            - name: KAFKA_JAAS_CONFIG
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secrets
+                  key: cfg-with-secrets
+          securityContext:
+            runAsUser: 1000
+          resources:
+            limits:
+              cpu: 1500m
+              memory: 1.5Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi

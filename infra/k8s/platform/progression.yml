@@ -1,0 +1,81 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: progression
+  labels:
+    app: progression
+    service: progression
+spec:
+  ports:
+    - port: 7172
+      name: http
+  selector:
+    app: progression
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cryptoofun-progression
+  labels:
+    account: progression
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: progression-v1
+  labels:
+    app: progression
+    version: v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: progression
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: progression
+        version: v1
+    spec:
+      serviceAccountName: cryptoofun-progression
+      containers:
+        - name: progression
+          image: gcr.io/cryptoofun/progression:1.0-SNAPSHOT
+          imagePullPolicy: Always
+          env:
+            - name: KAFKA_BS
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secrets
+                  key: bootstrap-servers
+            - name: KAFKA_JAAS_CONFIG
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secrets
+                  key: cfg-with-secrets
+            - name: CASSANDRA_CONTACT_POINTS
+              value: scylla-service.scylla.svc.cluster.local
+            - name: CASSANDRA_PORT
+              value: "9042"
+            - name: CASSANDRA_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: scylla-secrets
+                  key: username
+            - name: CASSANDRA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: scylla-secrets
+                  key: password
+          ports:
+            - containerPort: 7172
+          securityContext:
+            runAsUser: 1000
+          resources:
+            limits:
+              cpu: 1500m
+              memory: 1.5Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi

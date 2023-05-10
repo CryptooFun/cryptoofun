@@ -1,24 +1,13 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: cryptoofun
+  name: cryptoofun-virtualservice
 spec:
   hosts:
     - "*"
   gateways:
     - cryptoofun-gateway
   http:
-    - match:
-        - uri:
-            prefix: /webapp
-      rewrite:
-        uri: /
-      route:
-        - destination:
-            host: webapp
-            port:
-              number: 80
-
     - match:
         - uri:
             prefix: /api/v1/tradebutler/
@@ -29,6 +18,28 @@ spec:
             host: trade-butler
             port:
               number: 7170
+
+    - match:
+        - uri:
+            prefix: /api/v1/marketdatastreamer/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: market-data-streamer
+            port:
+              number: 7171
+
+    - match:
+        - uri:
+            prefix: /api/v1/progression/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: progression
+            port:
+              number: 7172
 
     - match:
         - uri:
@@ -51,3 +62,14 @@ spec:
             host: portfolio
             port:
               number: 7371
+
+    # The route for web app MUST always be at the end. (Istio matches paths in top-down order)
+    # The web app catches all remaining routes.
+    - match:
+        - uri:
+            prefix: /
+      route:
+        - destination:
+            host: webapp
+            port:
+              number: 3000

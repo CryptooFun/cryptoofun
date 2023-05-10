@@ -59,7 +59,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: auth0-management-secrets
-                  key: client_secrets
+                  key: client_secret
           ports:
             - name: grpc
               protocol: TCP

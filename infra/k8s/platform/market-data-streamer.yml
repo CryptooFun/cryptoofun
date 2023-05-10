@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: market-data-streamer
+  labels:
+    app: market-data-streamer
+    service: market-data-streamer
+spec:
+  ports:
+    - port: 7171
+      name: http
+    - port: 57171
+      name: grpc
+  selector:
+    app: market-data-streamer
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cryptoofun-market-data-streamer
+  labels:
+    account: market-data-streamer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: market-data-streamer-v1
+  labels:
+    app: market-data-streamer
+    version: v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: market-data-streamer
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: market-data-streamer
+        version: v1
+    spec:
+      serviceAccountName: cryptoofun-market-data-streamer
+      containers:
+        - name: market-data-streamer
+          image: gcr.io/cryptoofun/market-data-streamer:1.0-SNAPSHOT
+          imagePullPolicy: Always
+          env:
+            - name: CASSANDRA_CONTACT_POINTS
+              value: scylla-service.scylla.svc.cluster.local
+            - name: CASSANDRA_PORT
+              value: "9042"
+            - name: CASSANDRA_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: scylla-secrets
+                  key: username
+            - name: CASSANDRA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: scylla-secrets
+                  key: password
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 7171
+              hostPort: 7171
+            - name: grpc
+              protocol: TCP
+              containerPort: 57171
+              hostPort: 57171
+          securityContext:
+            runAsUser: 1000
+          resources:
+            limits:
+              cpu: 1500m
+              memory: 1.5Gi
+            requests:
+              cpu: "1"
+              memory: 1Gi
