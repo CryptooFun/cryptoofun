@@ -7,13 +7,31 @@ const get = async userId => {
       ticker: true,
       cost: true,
       amount: true,
+      createdAt: true,
+      updatedAt: true,
     },
   });
   return portfolio;
 };
 
 const update = async (userId, ticker, cost, amount) => {
-  const singleTicker = await prisma.portfolio.updateMany({
+  const tickerRecord = await prisma.portfolio.findFirst({
+    where: { userId, ticker },
+  });
+
+  if (tickerRecord == null) {
+    // If a ticker symbol does not exist in user's portfolio
+    return await prisma.portfolio.create({
+      data: {
+        userId,
+        ticker,
+        cost,
+        amount,
+      },
+    });
+  }
+
+  return await prisma.portfolio.updateMany({
     where: {
       userId,
       ticker,
@@ -27,23 +45,9 @@ const update = async (userId, ticker, cost, amount) => {
       },
     },
   });
-  return singleTicker;
-};
-
-const create = async (userId, ticker, cost, amount) => {
-  const singleTicker = await prisma.portfolio.create({
-    data: {
-      userId,
-      ticker,
-      cost,
-      amount,
-    },
-  });
-  return singleTicker;
 };
 
 module.exports = {
   get,
   update,
-  create,
 };
