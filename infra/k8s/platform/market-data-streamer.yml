@@ -60,6 +60,16 @@ spec:
                 secretKeyRef:
                   name: scylla-secrets
                   key: password
+            - name: BINANCE_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: binance-secrets
+                  key: api-key
+            - name: BINANCE_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: binance-secrets
+                  key: secret-key
           ports:
             - name: http
               protocol: TCP

@@ -4,3 +4,7 @@ server:
 grpc:
   server:
     port: 57172
+
+binance:
+  api-key: ${BINANCE_API_KEY:}
+  secret-key: ${BINANCE_SECRET_KEY:}
