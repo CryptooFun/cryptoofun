@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "utils"
+version = "1.0.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+PyJWT = {extras = ["crypto"], version = "^2.7.0"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
