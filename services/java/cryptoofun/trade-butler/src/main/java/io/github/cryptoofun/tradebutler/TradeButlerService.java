@@ -1,7 +1,6 @@
 package io.github.cryptoofun.tradebutler;
 
 import io.github.cryptoofun.messages.commands.ProcessTradeOrderCommand;
-import io.github.cryptoofun.tradebutler.dto.PostOrderRequest;
 import io.github.cryptoofun.tradebutler.entity.Order;
 import io.github.cryptoofun.tradebutler.exception.CommandServiceException;
 import lombok.Builder;
@@ -38,7 +37,7 @@ public class TradeButlerService {
 
     /**
      * Create new trade order and return order ID.
-     * */
+     */
     public String NewOrder(NewOrderRequest orderRequest) throws CommandServiceException {
         try {
             var orderType = ProcessTradeOrderCommand.OrderType.valueOf(orderRequest
@@ -79,12 +78,22 @@ public class TradeButlerService {
         }
     }
 
+    @Data
+    @Builder
+    public static class RetrieveOrdersByUserRequest {
+        private final String userID;
+        private final String tickerFilter;
+    }
+
     /**
      * Return all trade orders owned by a user.
-     * */
-    public List<Order> RetrieveOrdersByUser(String userID) throws CommandServiceException {
+     */
+    public List<Order> RetrieveOrdersByUser(RetrieveOrdersByUserRequest request) throws CommandServiceException {
         try {
-            return orderRepository.findByUserID(userID);
+            if (request.getTickerFilter().isBlank()) {
+                return orderRepository.findByUserID(request.getUserID());
+            }
+            return orderRepository.findByUserIDAndTicker(request.getUserID(), request.getTickerFilter());
         } catch (Exception e) {
             log.error(e.getCause().toString());
             throw new CommandServiceException("", HttpStatus.INTERNAL_SERVER_ERROR);

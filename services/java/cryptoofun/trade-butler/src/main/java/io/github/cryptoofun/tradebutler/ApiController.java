@@ -33,9 +33,13 @@ public class ApiController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<GetOrdersResponse> getOrders(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID) throws CommandServiceException {
+    public ResponseEntity<GetOrdersResponse> getOrders(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
+                                                       @RequestParam(defaultValue = "") String ticker) throws CommandServiceException {
 
-        var orders = tradeButlerCommandService.RetrieveOrdersByUser(userID);
+        var orders = tradeButlerCommandService.RetrieveOrdersByUser(TradeButlerService.RetrieveOrdersByUserRequest.builder()
+                .userID(userID)
+                .tickerFilter(ticker)
+                .build());
         var response = new GetOrdersResponse(orders);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
