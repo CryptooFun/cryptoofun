@@ -3,278 +3,325 @@
  * compiler version: 0.0.0
  * source: market_data_streamer.proto
  * git: https://github.com/thesayyn/protoc-gen-ts */
-import * as pb_1 from "google-protobuf";
-import * as grpc_1 from "@grpc/grpc-js";
+import * as pb_1 from 'google-protobuf';
+import * as grpc_1 from '@grpc/grpc-js';
 export class EnquireMarketPriceRequest extends pb_1.Message {
-    #one_of_decls: number[][] = [];
-    constructor(data?: any[] | {
-        timestamp_ms?: string;
-        ticker?: string;
-    }) {
-        super();
-        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
-        if (!Array.isArray(data) && typeof data == "object") {
-            if ("timestamp_ms" in data && data.timestamp_ms != undefined) {
-                this.timestamp_ms = data.timestamp_ms;
-            }
-            if ("ticker" in data && data.ticker != undefined) {
-                this.ticker = data.ticker;
-            }
+  #one_of_decls: number[][] = [];
+  constructor(
+    data?:
+      | any[]
+      | {
+          timestamp_ms?: string;
+          ticker?: string;
         }
+  ) {
+    super();
+    pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
+    if (!Array.isArray(data) && typeof data == 'object') {
+      if ('timestamp_ms' in data && data.timestamp_ms != undefined) {
+        this.timestamp_ms = data.timestamp_ms;
+      }
+      if ('ticker' in data && data.ticker != undefined) {
+        this.ticker = data.ticker;
+      }
     }
-    get timestamp_ms() {
-        return pb_1.Message.getFieldWithDefault(this, 1, "") as string;
+  }
+  get timestamp_ms() {
+    return pb_1.Message.getFieldWithDefault(this, 1, '') as string;
+  }
+  set timestamp_ms(value: string) {
+    pb_1.Message.setField(this, 1, value);
+  }
+  get ticker() {
+    return pb_1.Message.getFieldWithDefault(this, 2, '') as string;
+  }
+  set ticker(value: string) {
+    pb_1.Message.setField(this, 2, value);
+  }
+  static fromObject(data: { timestamp_ms?: string; ticker?: string }): EnquireMarketPriceRequest {
+    const message = new EnquireMarketPriceRequest({});
+    if (data.timestamp_ms != null) {
+      message.timestamp_ms = data.timestamp_ms;
     }
-    set timestamp_ms(value: string) {
-        pb_1.Message.setField(this, 1, value);
+    if (data.ticker != null) {
+      message.ticker = data.ticker;
     }
-    get ticker() {
-        return pb_1.Message.getFieldWithDefault(this, 2, "") as string;
+    return message;
+  }
+  toObject() {
+    const data: {
+      timestamp_ms?: string;
+      ticker?: string;
+    } = {};
+    if (this.timestamp_ms != null) {
+      data.timestamp_ms = this.timestamp_ms;
     }
-    set ticker(value: string) {
-        pb_1.Message.setField(this, 2, value);
+    if (this.ticker != null) {
+      data.ticker = this.ticker;
     }
-    static fromObject(data: {
-        timestamp_ms?: string;
-        ticker?: string;
-    }): EnquireMarketPriceRequest {
-        const message = new EnquireMarketPriceRequest({});
-        if (data.timestamp_ms != null) {
-            message.timestamp_ms = data.timestamp_ms;
-        }
-        if (data.ticker != null) {
-            message.ticker = data.ticker;
-        }
-        return message;
+    return data;
+  }
+  serialize(): Uint8Array;
+  serialize(w: pb_1.BinaryWriter): void;
+  serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+    const writer = w || new pb_1.BinaryWriter();
+    if (this.timestamp_ms.length) writer.writeString(1, this.timestamp_ms);
+    if (this.ticker.length) writer.writeString(2, this.ticker);
+    if (!w) return writer.getResultBuffer();
+  }
+  static deserialize(bytes: Uint8Array | pb_1.BinaryReader): EnquireMarketPriceRequest {
+    const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes),
+      message = new EnquireMarketPriceRequest();
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) break;
+      switch (reader.getFieldNumber()) {
+        case 1:
+          message.timestamp_ms = reader.readString();
+          break;
+        case 2:
+          message.ticker = reader.readString();
+          break;
+        default:
+          reader.skipField();
+      }
     }
-    toObject() {
-        const data: {
-            timestamp_ms?: string;
-            ticker?: string;
-        } = {};
-        if (this.timestamp_ms != null) {
-            data.timestamp_ms = this.timestamp_ms;
-        }
-        if (this.ticker != null) {
-            data.ticker = this.ticker;
-        }
-        return data;
-    }
-    serialize(): Uint8Array;
-    serialize(w: pb_1.BinaryWriter): void;
-    serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
-        const writer = w || new pb_1.BinaryWriter();
-        if (this.timestamp_ms.length)
-            writer.writeString(1, this.timestamp_ms);
-        if (this.ticker.length)
-            writer.writeString(2, this.ticker);
-        if (!w)
-            return writer.getResultBuffer();
-    }
-    static deserialize(bytes: Uint8Array | pb_1.BinaryReader): EnquireMarketPriceRequest {
-        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new EnquireMarketPriceRequest();
-        while (reader.nextField()) {
-            if (reader.isEndGroup())
-                break;
-            switch (reader.getFieldNumber()) {
-                case 1:
-                    message.timestamp_ms = reader.readString();
-                    break;
-                case 2:
-                    message.ticker = reader.readString();
-                    break;
-                default: reader.skipField();
-            }
-        }
-        return message;
-    }
-    serializeBinary(): Uint8Array {
-        return this.serialize();
-    }
-    static deserializeBinary(bytes: Uint8Array): EnquireMarketPriceRequest {
-        return EnquireMarketPriceRequest.deserialize(bytes);
-    }
+    return message;
+  }
+  serializeBinary(): Uint8Array {
+    return this.serialize();
+  }
+  static deserializeBinary(bytes: Uint8Array): EnquireMarketPriceRequest {
+    return EnquireMarketPriceRequest.deserialize(bytes);
+  }
 }
 export class EnquireMarketPriceResponse extends pb_1.Message {
-    #one_of_decls: number[][] = [];
-    constructor(data?: any[] | {
-        timestamp_ms?: string;
-        ticker?: string;
-        bid_price?: number;
-        ask_price?: number;
-    }) {
-        super();
-        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
-        if (!Array.isArray(data) && typeof data == "object") {
-            if ("timestamp_ms" in data && data.timestamp_ms != undefined) {
-                this.timestamp_ms = data.timestamp_ms;
-            }
-            if ("ticker" in data && data.ticker != undefined) {
-                this.ticker = data.ticker;
-            }
-            if ("bid_price" in data && data.bid_price != undefined) {
-                this.bid_price = data.bid_price;
-            }
-            if ("ask_price" in data && data.ask_price != undefined) {
-                this.ask_price = data.ask_price;
-            }
+  #one_of_decls: number[][] = [];
+  constructor(
+    data?:
+      | any[]
+      | {
+          timestamp_ms?: string;
+          ticker?: string;
+          bid_price?: number;
+          ask_price?: number;
         }
+  ) {
+    super();
+    pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
+    if (!Array.isArray(data) && typeof data == 'object') {
+      if ('timestamp_ms' in data && data.timestamp_ms != undefined) {
+        this.timestamp_ms = data.timestamp_ms;
+      }
+      if ('ticker' in data && data.ticker != undefined) {
+        this.ticker = data.ticker;
+      }
+      if ('bid_price' in data && data.bid_price != undefined) {
+        this.bid_price = data.bid_price;
+      }
+      if ('ask_price' in data && data.ask_price != undefined) {
+        this.ask_price = data.ask_price;
+      }
     }
-    get timestamp_ms() {
-        return pb_1.Message.getFieldWithDefault(this, 1, "") as string;
+  }
+  get timestamp_ms() {
+    return pb_1.Message.getFieldWithDefault(this, 1, '') as string;
+  }
+  set timestamp_ms(value: string) {
+    pb_1.Message.setField(this, 1, value);
+  }
+  get ticker() {
+    return pb_1.Message.getFieldWithDefault(this, 2, '') as string;
+  }
+  set ticker(value: string) {
+    pb_1.Message.setField(this, 2, value);
+  }
+  get bid_price() {
+    return pb_1.Message.getFieldWithDefault(this, 3, 0) as number;
+  }
+  set bid_price(value: number) {
+    pb_1.Message.setField(this, 3, value);
+  }
+  get ask_price() {
+    return pb_1.Message.getFieldWithDefault(this, 4, 0) as number;
+  }
+  set ask_price(value: number) {
+    pb_1.Message.setField(this, 4, value);
+  }
+  static fromObject(data: {
+    timestamp_ms?: string;
+    ticker?: string;
+    bid_price?: number;
+    ask_price?: number;
+  }): EnquireMarketPriceResponse {
+    const message = new EnquireMarketPriceResponse({});
+    if (data.timestamp_ms != null) {
+      message.timestamp_ms = data.timestamp_ms;
     }
-    set timestamp_ms(value: string) {
-        pb_1.Message.setField(this, 1, value);
+    if (data.ticker != null) {
+      message.ticker = data.ticker;
     }
-    get ticker() {
-        return pb_1.Message.getFieldWithDefault(this, 2, "") as string;
+    if (data.bid_price != null) {
+      message.bid_price = data.bid_price;
     }
-    set ticker(value: string) {
-        pb_1.Message.setField(this, 2, value);
+    if (data.ask_price != null) {
+      message.ask_price = data.ask_price;
     }
-    get bid_price() {
-        return pb_1.Message.getFieldWithDefault(this, 3, 0) as number;
+    return message;
+  }
+  toObject() {
+    const data: {
+      timestamp_ms?: string;
+      ticker?: string;
+      bid_price?: number;
+      ask_price?: number;
+    } = {};
+    if (this.timestamp_ms != null) {
+      data.timestamp_ms = this.timestamp_ms;
     }
-    set bid_price(value: number) {
-        pb_1.Message.setField(this, 3, value);
+    if (this.ticker != null) {
+      data.ticker = this.ticker;
     }
-    get ask_price() {
-        return pb_1.Message.getFieldWithDefault(this, 4, 0) as number;
+    if (this.bid_price != null) {
+      data.bid_price = this.bid_price;
     }
-    set ask_price(value: number) {
-        pb_1.Message.setField(this, 4, value);
+    if (this.ask_price != null) {
+      data.ask_price = this.ask_price;
     }
-    static fromObject(data: {
-        timestamp_ms?: string;
-        ticker?: string;
-        bid_price?: number;
-        ask_price?: number;
-    }): EnquireMarketPriceResponse {
-        const message = new EnquireMarketPriceResponse({});
-        if (data.timestamp_ms != null) {
-            message.timestamp_ms = data.timestamp_ms;
-        }
-        if (data.ticker != null) {
-            message.ticker = data.ticker;
-        }
-        if (data.bid_price != null) {
-            message.bid_price = data.bid_price;
-        }
-        if (data.ask_price != null) {
-            message.ask_price = data.ask_price;
-        }
-        return message;
+    return data;
+  }
+  serialize(): Uint8Array;
+  serialize(w: pb_1.BinaryWriter): void;
+  serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+    const writer = w || new pb_1.BinaryWriter();
+    if (this.timestamp_ms.length) writer.writeString(1, this.timestamp_ms);
+    if (this.ticker.length) writer.writeString(2, this.ticker);
+    if (this.bid_price != 0) writer.writeDouble(3, this.bid_price);
+    if (this.ask_price != 0) writer.writeDouble(4, this.ask_price);
+    if (!w) return writer.getResultBuffer();
+  }
+  static deserialize(bytes: Uint8Array | pb_1.BinaryReader): EnquireMarketPriceResponse {
+    const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes),
+      message = new EnquireMarketPriceResponse();
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) break;
+      switch (reader.getFieldNumber()) {
+        case 1:
+          message.timestamp_ms = reader.readString();
+          break;
+        case 2:
+          message.ticker = reader.readString();
+          break;
+        case 3:
+          message.bid_price = reader.readDouble();
+          break;
+        case 4:
+          message.ask_price = reader.readDouble();
+          break;
+        default:
+          reader.skipField();
+      }
     }
-    toObject() {
-        const data: {
-            timestamp_ms?: string;
-            ticker?: string;
-            bid_price?: number;
-            ask_price?: number;
-        } = {};
-        if (this.timestamp_ms != null) {
-            data.timestamp_ms = this.timestamp_ms;
-        }
-        if (this.ticker != null) {
-            data.ticker = this.ticker;
-        }
-        if (this.bid_price != null) {
-            data.bid_price = this.bid_price;
-        }
-        if (this.ask_price != null) {
-            data.ask_price = this.ask_price;
-        }
-        return data;
-    }
-    serialize(): Uint8Array;
-    serialize(w: pb_1.BinaryWriter): void;
-    serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
-        const writer = w || new pb_1.BinaryWriter();
-        if (this.timestamp_ms.length)
-            writer.writeString(1, this.timestamp_ms);
-        if (this.ticker.length)
-            writer.writeString(2, this.ticker);
-        if (this.bid_price != 0)
-            writer.writeDouble(3, this.bid_price);
-        if (this.ask_price != 0)
-            writer.writeDouble(4, this.ask_price);
-        if (!w)
-            return writer.getResultBuffer();
-    }
-    static deserialize(bytes: Uint8Array | pb_1.BinaryReader): EnquireMarketPriceResponse {
-        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new EnquireMarketPriceResponse();
-        while (reader.nextField()) {
-            if (reader.isEndGroup())
-                break;
-            switch (reader.getFieldNumber()) {
-                case 1:
-                    message.timestamp_ms = reader.readString();
-                    break;
-                case 2:
-                    message.ticker = reader.readString();
-                    break;
-                case 3:
-                    message.bid_price = reader.readDouble();
-                    break;
-                case 4:
-                    message.ask_price = reader.readDouble();
-                    break;
-                default: reader.skipField();
-            }
-        }
-        return message;
-    }
-    serializeBinary(): Uint8Array {
-        return this.serialize();
-    }
-    static deserializeBinary(bytes: Uint8Array): EnquireMarketPriceResponse {
-        return EnquireMarketPriceResponse.deserialize(bytes);
-    }
+    return message;
+  }
+  serializeBinary(): Uint8Array {
+    return this.serialize();
+  }
+  static deserializeBinary(bytes: Uint8Array): EnquireMarketPriceResponse {
+    return EnquireMarketPriceResponse.deserialize(bytes);
+  }
 }
 interface GrpcUnaryServiceInterface<P, R> {
-    (message: P, metadata: grpc_1.Metadata, options: grpc_1.CallOptions, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
-    (message: P, metadata: grpc_1.Metadata, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
-    (message: P, options: grpc_1.CallOptions, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
-    (message: P, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
+  (
+    message: P,
+    metadata: grpc_1.Metadata,
+    options: grpc_1.CallOptions,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientUnaryCall;
+  (
+    message: P,
+    metadata: grpc_1.Metadata,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientUnaryCall;
+  (
+    message: P,
+    options: grpc_1.CallOptions,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientUnaryCall;
+  (message: P, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
 }
 interface GrpcStreamServiceInterface<P, R> {
-    (message: P, metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): grpc_1.ClientReadableStream<R>;
-    (message: P, options?: grpc_1.CallOptions): grpc_1.ClientReadableStream<R>;
+  (
+    message: P,
+    metadata: grpc_1.Metadata,
+    options?: grpc_1.CallOptions
+  ): grpc_1.ClientReadableStream<R>;
+  (message: P, options?: grpc_1.CallOptions): grpc_1.ClientReadableStream<R>;
 }
 interface GrpWritableServiceInterface<P, R> {
-    (metadata: grpc_1.Metadata, options: grpc_1.CallOptions, callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
-    (metadata: grpc_1.Metadata, callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
-    (options: grpc_1.CallOptions, callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
-    (callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
+  (
+    metadata: grpc_1.Metadata,
+    options: grpc_1.CallOptions,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientWritableStream<P>;
+  (metadata: grpc_1.Metadata, callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
+  (
+    options: grpc_1.CallOptions,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientWritableStream<P>;
+  (callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
 }
 interface GrpcChunkServiceInterface<P, R> {
-    (metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): grpc_1.ClientDuplexStream<P, R>;
-    (options?: grpc_1.CallOptions): grpc_1.ClientDuplexStream<P, R>;
+  (metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): grpc_1.ClientDuplexStream<P, R>;
+  (options?: grpc_1.CallOptions): grpc_1.ClientDuplexStream<P, R>;
 }
 interface GrpcPromiseServiceInterface<P, R> {
-    (message: P, metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): Promise<R>;
-    (message: P, options?: grpc_1.CallOptions): Promise<R>;
+  (message: P, metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): Promise<R>;
+  (message: P, options?: grpc_1.CallOptions): Promise<R>;
 }
 export abstract class UnimplementedMarketDataStreamerServiceService {
-    static definition = {
-        EnquireMarketPrice: {
-            path: "/MarketDataStreamerService/EnquireMarketPrice",
-            requestStream: false,
-            responseStream: false,
-            requestSerialize: (message: EnquireMarketPriceRequest) => Buffer.from(message.serialize()),
-            requestDeserialize: (bytes: Buffer) => EnquireMarketPriceRequest.deserialize(new Uint8Array(bytes)),
-            responseSerialize: (message: EnquireMarketPriceResponse) => Buffer.from(message.serialize()),
-            responseDeserialize: (bytes: Buffer) => EnquireMarketPriceResponse.deserialize(new Uint8Array(bytes))
-        }
-    };
-    [method: string]: grpc_1.UntypedHandleCall;
-    abstract EnquireMarketPrice(call: grpc_1.ServerUnaryCall<EnquireMarketPriceRequest, EnquireMarketPriceResponse>, callback: grpc_1.sendUnaryData<EnquireMarketPriceResponse>): void;
+  static definition = {
+    EnquireMarketPrice: {
+      path: '/MarketDataStreamerService/EnquireMarketPrice',
+      requestStream: false,
+      responseStream: false,
+      requestSerialize: (message: EnquireMarketPriceRequest) => Buffer.from(message.serialize()),
+      requestDeserialize: (bytes: Buffer) =>
+        EnquireMarketPriceRequest.deserialize(new Uint8Array(bytes)),
+      responseSerialize: (message: EnquireMarketPriceResponse) => Buffer.from(message.serialize()),
+      responseDeserialize: (bytes: Buffer) =>
+        EnquireMarketPriceResponse.deserialize(new Uint8Array(bytes)),
+    },
+  };
+  [method: string]: grpc_1.UntypedHandleCall;
+  abstract EnquireMarketPrice(
+    call: grpc_1.ServerUnaryCall<EnquireMarketPriceRequest, EnquireMarketPriceResponse>,
+    callback: grpc_1.sendUnaryData<EnquireMarketPriceResponse>
+  ): void;
 }
-export class MarketDataStreamerServiceClient extends grpc_1.makeGenericClientConstructor(UnimplementedMarketDataStreamerServiceService.definition, "MarketDataStreamerService", {}) {
-    constructor(address: string, credentials: grpc_1.ChannelCredentials, options?: Partial<grpc_1.ChannelOptions>) {
-        super(address, credentials, options);
-    }
-    EnquireMarketPrice: GrpcUnaryServiceInterface<EnquireMarketPriceRequest, EnquireMarketPriceResponse> = (message: EnquireMarketPriceRequest, metadata: grpc_1.Metadata | grpc_1.CallOptions | grpc_1.requestCallback<EnquireMarketPriceResponse>, options?: grpc_1.CallOptions | grpc_1.requestCallback<EnquireMarketPriceResponse>, callback?: grpc_1.requestCallback<EnquireMarketPriceResponse>): grpc_1.ClientUnaryCall => {
-        return super.EnquireMarketPrice(message, metadata, options, callback);
-    };
+export class MarketDataStreamerServiceClient extends grpc_1.makeGenericClientConstructor(
+  UnimplementedMarketDataStreamerServiceService.definition,
+  'MarketDataStreamerService',
+  {}
+) {
+  constructor(
+    address: string,
+    credentials: grpc_1.ChannelCredentials,
+    options?: Partial<grpc_1.ChannelOptions>
+  ) {
+    super(address, credentials, options);
+  }
+  EnquireMarketPrice: GrpcUnaryServiceInterface<
+    EnquireMarketPriceRequest,
+    EnquireMarketPriceResponse
+  > = (
+    message: EnquireMarketPriceRequest,
+    metadata:
+      | grpc_1.Metadata
+      | grpc_1.CallOptions
+      | grpc_1.requestCallback<EnquireMarketPriceResponse>,
+    options?: grpc_1.CallOptions | grpc_1.requestCallback<EnquireMarketPriceResponse>,
+    callback?: grpc_1.requestCallback<EnquireMarketPriceResponse>
+  ): grpc_1.ClientUnaryCall => {
+    return super.EnquireMarketPrice(message, metadata, options, callback);
+  };
 }

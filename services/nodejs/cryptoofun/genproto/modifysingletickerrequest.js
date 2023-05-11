@@ -27,7 +27,7 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ModifySingleTickerRequest = function(opt_data) {
+proto.ModifySingleTickerRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.ModifySingleTickerRequest, jspb.Message);
@@ -39,62 +39,58 @@ if (goog.DEBUG && !COMPILED) {
   proto.ModifySingleTickerRequest.displayName = 'proto.ModifySingleTickerRequest';
 }
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.ModifySingleTickerRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.ModifySingleTickerRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.ModifySingleTickerRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.ModifySingleTickerRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    ticker: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    cost: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
-    amount: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.ModifySingleTickerRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.ModifySingleTickerRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.ModifySingleTickerRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.ModifySingleTickerRequest.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        ticker: jspb.Message.getFieldWithDefault(msg, 2, ''),
+        cost: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
+        amount: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.ModifySingleTickerRequest}
  */
-proto.ModifySingleTickerRequest.deserializeBinary = function(bytes) {
+proto.ModifySingleTickerRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ModifySingleTickerRequest;
+  var msg = new proto.ModifySingleTickerRequest();
   return proto.ModifySingleTickerRequest.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -103,48 +99,46 @@ proto.ModifySingleTickerRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.ModifySingleTickerRequest}
  */
-proto.ModifySingleTickerRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.ModifySingleTickerRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTicker(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setCost(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setAmount(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUserId(value);
+        break;
+      case 2:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setTicker(value);
+        break;
+      case 3:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setCost(value);
+        break;
+      case 4:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setAmount(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ModifySingleTickerRequest.prototype.serializeBinary = function() {
+proto.ModifySingleTickerRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.ModifySingleTickerRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -153,108 +147,86 @@ proto.ModifySingleTickerRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ModifySingleTickerRequest.serializeBinaryToWriter = function(message, writer) {
+proto.ModifySingleTickerRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserId();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getTicker();
   if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
+    writer.writeString(2, f);
   }
   f = message.getCost();
   if (f !== 0.0) {
-    writer.writeDouble(
-      3,
-      f
-    );
+    writer.writeDouble(3, f);
   }
   f = message.getAmount();
   if (f !== 0.0) {
-    writer.writeDouble(
-      4,
-      f
-    );
+    writer.writeDouble(4, f);
   }
 };
-
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.ModifySingleTickerRequest.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.ModifySingleTickerRequest.prototype.getUserId = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.ModifySingleTickerRequest} returns this
  */
-proto.ModifySingleTickerRequest.prototype.setUserId = function(value) {
+proto.ModifySingleTickerRequest.prototype.setUserId = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional string ticker = 2;
  * @return {string}
  */
-proto.ModifySingleTickerRequest.prototype.getTicker = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.ModifySingleTickerRequest.prototype.getTicker = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.ModifySingleTickerRequest} returns this
  */
-proto.ModifySingleTickerRequest.prototype.setTicker = function(value) {
+proto.ModifySingleTickerRequest.prototype.setTicker = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
-
 
 /**
  * optional double cost = 3;
  * @return {number}
  */
-proto.ModifySingleTickerRequest.prototype.getCost = function() {
+proto.ModifySingleTickerRequest.prototype.getCost = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 3, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.ModifySingleTickerRequest} returns this
  */
-proto.ModifySingleTickerRequest.prototype.setCost = function(value) {
+proto.ModifySingleTickerRequest.prototype.setCost = function (value) {
   return jspb.Message.setProto3FloatField(this, 3, value);
 };
-
 
 /**
  * optional double amount = 4;
  * @return {number}
  */
-proto.ModifySingleTickerRequest.prototype.getAmount = function() {
+proto.ModifySingleTickerRequest.prototype.getAmount = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 4, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.ModifySingleTickerRequest} returns this
  */
-proto.ModifySingleTickerRequest.prototype.setAmount = function(value) {
+proto.ModifySingleTickerRequest.prototype.setAmount = function (value) {
   return jspb.Message.setProto3FloatField(this, 4, value);
 };
-
-

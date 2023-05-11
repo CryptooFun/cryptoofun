@@ -27,7 +27,7 @@ goog.require('jspb.Message');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ModifySingleTickerResponse = function(opt_data) {
+proto.ModifySingleTickerResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.ModifySingleTickerResponse, jspb.Message);
@@ -39,59 +39,53 @@ if (goog.DEBUG && !COMPILED) {
   proto.ModifySingleTickerResponse.displayName = 'proto.ModifySingleTickerResponse';
 }
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.ModifySingleTickerResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.ModifySingleTickerResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.ModifySingleTickerResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.ModifySingleTickerResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.ModifySingleTickerResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.ModifySingleTickerResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.ModifySingleTickerResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.ModifySingleTickerResponse.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {};
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.ModifySingleTickerResponse}
  */
-proto.ModifySingleTickerResponse.deserializeBinary = function(bytes) {
+proto.ModifySingleTickerResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ModifySingleTickerResponse;
+  var msg = new proto.ModifySingleTickerResponse();
   return proto.ModifySingleTickerResponse.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -100,32 +94,30 @@ proto.ModifySingleTickerResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.ModifySingleTickerResponse}
  */
-proto.ModifySingleTickerResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.ModifySingleTickerResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    default:
-      reader.skipField();
-      break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ModifySingleTickerResponse.prototype.serializeBinary = function() {
+proto.ModifySingleTickerResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.ModifySingleTickerResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -134,8 +126,6 @@ proto.ModifySingleTickerResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ModifySingleTickerResponse.serializeBinaryToWriter = function(message, writer) {
+proto.ModifySingleTickerResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
 };
-
-

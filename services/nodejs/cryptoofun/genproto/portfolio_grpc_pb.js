@@ -48,8 +48,7 @@ function deserialize_ModifySingleTickerResponse(buffer_arg) {
   return portfolio_pb.ModifySingleTickerResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-
-var PortfolioServiceService = exports.PortfolioServiceService = {
+var PortfolioServiceService = (exports.PortfolioServiceService = {
   askPortfolio: {
     path: '/PortfolioService/AskPortfolio',
     requestStream: false,
@@ -72,6 +71,6 @@ var PortfolioServiceService = exports.PortfolioServiceService = {
     responseSerialize: serialize_ModifySingleTickerResponse,
     responseDeserialize: deserialize_ModifySingleTickerResponse,
   },
-};
+});
 
 exports.PortfolioServiceClient = grpc.makeGenericClientConstructor(PortfolioServiceService);

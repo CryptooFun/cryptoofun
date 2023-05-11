@@ -28,7 +28,7 @@ goog.require('proto.PortfolioItem');
  * @extends {jspb.Message}
  * @constructor
  */
-proto.AskPortfolioResponse = function(opt_data) {
+proto.AskPortfolioResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, proto.AskPortfolioResponse.repeatedFields_, null);
 };
 goog.inherits(proto.AskPortfolioResponse, jspb.Message);
@@ -47,60 +47,59 @@ if (goog.DEBUG && !COMPILED) {
  */
 proto.AskPortfolioResponse.repeatedFields_ = [1];
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.AskPortfolioResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.AskPortfolioResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.AskPortfolioResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.AskPortfolioResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    portfolioList: jspb.Message.toObjectList(msg.getPortfolioList(),
-    proto.PortfolioItem.toObject, includeInstance)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.AskPortfolioResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.AskPortfolioResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.AskPortfolioResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.AskPortfolioResponse.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        portfolioList: jspb.Message.toObjectList(
+          msg.getPortfolioList(),
+          proto.PortfolioItem.toObject,
+          includeInstance
+        ),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.AskPortfolioResponse}
  */
-proto.AskPortfolioResponse.deserializeBinary = function(bytes) {
+proto.AskPortfolioResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.AskPortfolioResponse;
+  var msg = new proto.AskPortfolioResponse();
   return proto.AskPortfolioResponse.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -109,37 +108,35 @@ proto.AskPortfolioResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.AskPortfolioResponse}
  */
-proto.AskPortfolioResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.AskPortfolioResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = new proto.PortfolioItem;
-      reader.readMessage(value,proto.PortfolioItem.deserializeBinaryFromReader);
-      msg.addPortfolio(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = new proto.PortfolioItem();
+        reader.readMessage(value, proto.PortfolioItem.deserializeBinaryFromReader);
+        msg.addPortfolio(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.AskPortfolioResponse.prototype.serializeBinary = function() {
+proto.AskPortfolioResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.AskPortfolioResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -148,54 +145,45 @@ proto.AskPortfolioResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.AskPortfolioResponse.serializeBinaryToWriter = function(message, writer) {
+proto.AskPortfolioResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getPortfolioList();
   if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      1,
-      f,
-      proto.PortfolioItem.serializeBinaryToWriter
-    );
+    writer.writeRepeatedMessage(1, f, proto.PortfolioItem.serializeBinaryToWriter);
   }
 };
-
 
 /**
  * repeated PortfolioItem portfolio = 1;
  * @return {!Array<!proto.PortfolioItem>}
  */
-proto.AskPortfolioResponse.prototype.getPortfolioList = function() {
+proto.AskPortfolioResponse.prototype.getPortfolioList = function () {
   return /** @type{!Array<!proto.PortfolioItem>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.PortfolioItem, 1));
+    jspb.Message.getRepeatedWrapperField(this, proto.PortfolioItem, 1)
+  );
 };
-
 
 /**
  * @param {!Array<!proto.PortfolioItem>} value
  * @return {!proto.AskPortfolioResponse} returns this
-*/
-proto.AskPortfolioResponse.prototype.setPortfolioList = function(value) {
+ */
+proto.AskPortfolioResponse.prototype.setPortfolioList = function (value) {
   return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
-
 
 /**
  * @param {!proto.PortfolioItem=} opt_value
  * @param {number=} opt_index
  * @return {!proto.PortfolioItem}
  */
-proto.AskPortfolioResponse.prototype.addPortfolio = function(opt_value, opt_index) {
+proto.AskPortfolioResponse.prototype.addPortfolio = function (opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.PortfolioItem, opt_index);
 };
-
 
 /**
  * Clears the list making it empty but non-null.
  * @return {!proto.AskPortfolioResponse} returns this
  */
-proto.AskPortfolioResponse.prototype.clearPortfolioList = function() {
+proto.AskPortfolioResponse.prototype.clearPortfolioList = function () {
   return this.setPortfolioList([]);
 };
-
-

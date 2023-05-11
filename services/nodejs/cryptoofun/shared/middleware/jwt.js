@@ -1,8 +1,8 @@
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 function extractJwtPayloadNoVerify(req, res, next) {
-  const authnHeader = req.headers["authorization"];
-  const token = authnHeader.split(" ")[1];
+  const authnHeader = req.headers['authorization'];
+  const token = authnHeader.split(' ')[1];
 
   if (!token) {
     return res.sendStatus(401);

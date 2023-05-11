@@ -14,12 +14,14 @@
 var jspb = require('google-protobuf');
 var goog = jspb;
 var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+  (typeof globalThis !== 'undefined' && globalThis) ||
+  (typeof window !== 'undefined' && window) ||
+  (typeof global !== 'undefined' && global) ||
+  (typeof self !== 'undefined' && self) ||
+  function () {
+    return this;
+  }.call(null) ||
+  Function('return this')();
 
 goog.exportSymbol('proto.AskPortfolioRequest', null, global);
 goog.exportSymbol('proto.AskPortfolioResponse', null, global);
@@ -36,7 +38,7 @@ goog.exportSymbol('proto.PortfolioItem', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.AskPortfolioRequest = function(opt_data) {
+proto.AskPortfolioRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.AskPortfolioRequest, jspb.Message);
@@ -57,7 +59,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.AskPortfolioResponse = function(opt_data) {
+proto.AskPortfolioResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, proto.AskPortfolioResponse.repeatedFields_, null);
 };
 goog.inherits(proto.AskPortfolioResponse, jspb.Message);
@@ -78,7 +80,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.PortfolioItem = function(opt_data) {
+proto.PortfolioItem = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.PortfolioItem, jspb.Message);
@@ -99,7 +101,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ModifySingleTickerRequest = function(opt_data) {
+proto.ModifySingleTickerRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.ModifySingleTickerRequest, jspb.Message);
@@ -120,7 +122,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ModifySingleTickerResponse = function(opt_data) {
+proto.ModifySingleTickerResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.ModifySingleTickerResponse, jspb.Message);
@@ -132,59 +134,55 @@ if (goog.DEBUG && !COMPILED) {
   proto.ModifySingleTickerResponse.displayName = 'proto.ModifySingleTickerResponse';
 }
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.AskPortfolioRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.AskPortfolioRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.AskPortfolioRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.AskPortfolioRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.AskPortfolioRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.AskPortfolioRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.AskPortfolioRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.AskPortfolioRequest.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.AskPortfolioRequest}
  */
-proto.AskPortfolioRequest.deserializeBinary = function(bytes) {
+proto.AskPortfolioRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.AskPortfolioRequest;
+  var msg = new proto.AskPortfolioRequest();
   return proto.AskPortfolioRequest.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -193,36 +191,34 @@ proto.AskPortfolioRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.AskPortfolioRequest}
  */
-proto.AskPortfolioRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.AskPortfolioRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUserId(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.AskPortfolioRequest.prototype.serializeBinary = function() {
+proto.AskPortfolioRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.AskPortfolioRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -231,36 +227,29 @@ proto.AskPortfolioRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.AskPortfolioRequest.serializeBinaryToWriter = function(message, writer) {
+proto.AskPortfolioRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserId();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
 };
-
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.AskPortfolioRequest.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.AskPortfolioRequest.prototype.getUserId = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.AskPortfolioRequest} returns this
  */
-proto.AskPortfolioRequest.prototype.setUserId = function(value) {
+proto.AskPortfolioRequest.prototype.setUserId = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
-
 
 /**
  * List of repeated fields within this message type.
@@ -269,60 +258,59 @@ proto.AskPortfolioRequest.prototype.setUserId = function(value) {
  */
 proto.AskPortfolioResponse.repeatedFields_ = [1];
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.AskPortfolioResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.AskPortfolioResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.AskPortfolioResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.AskPortfolioResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    portfolioList: jspb.Message.toObjectList(msg.getPortfolioList(),
-    proto.PortfolioItem.toObject, includeInstance)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.AskPortfolioResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.AskPortfolioResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.AskPortfolioResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.AskPortfolioResponse.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        portfolioList: jspb.Message.toObjectList(
+          msg.getPortfolioList(),
+          proto.PortfolioItem.toObject,
+          includeInstance
+        ),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.AskPortfolioResponse}
  */
-proto.AskPortfolioResponse.deserializeBinary = function(bytes) {
+proto.AskPortfolioResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.AskPortfolioResponse;
+  var msg = new proto.AskPortfolioResponse();
   return proto.AskPortfolioResponse.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -331,37 +319,35 @@ proto.AskPortfolioResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.AskPortfolioResponse}
  */
-proto.AskPortfolioResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.AskPortfolioResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = new proto.PortfolioItem;
-      reader.readMessage(value,proto.PortfolioItem.deserializeBinaryFromReader);
-      msg.addPortfolio(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = new proto.PortfolioItem();
+        reader.readMessage(value, proto.PortfolioItem.deserializeBinaryFromReader);
+        msg.addPortfolio(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.AskPortfolioResponse.prototype.serializeBinary = function() {
+proto.AskPortfolioResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.AskPortfolioResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -370,113 +356,100 @@ proto.AskPortfolioResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.AskPortfolioResponse.serializeBinaryToWriter = function(message, writer) {
+proto.AskPortfolioResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getPortfolioList();
   if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      1,
-      f,
-      proto.PortfolioItem.serializeBinaryToWriter
-    );
+    writer.writeRepeatedMessage(1, f, proto.PortfolioItem.serializeBinaryToWriter);
   }
 };
-
 
 /**
  * repeated PortfolioItem portfolio = 1;
  * @return {!Array<!proto.PortfolioItem>}
  */
-proto.AskPortfolioResponse.prototype.getPortfolioList = function() {
+proto.AskPortfolioResponse.prototype.getPortfolioList = function () {
   return /** @type{!Array<!proto.PortfolioItem>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.PortfolioItem, 1));
+    jspb.Message.getRepeatedWrapperField(this, proto.PortfolioItem, 1)
+  );
 };
-
 
 /**
  * @param {!Array<!proto.PortfolioItem>} value
  * @return {!proto.AskPortfolioResponse} returns this
-*/
-proto.AskPortfolioResponse.prototype.setPortfolioList = function(value) {
+ */
+proto.AskPortfolioResponse.prototype.setPortfolioList = function (value) {
   return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
-
 
 /**
  * @param {!proto.PortfolioItem=} opt_value
  * @param {number=} opt_index
  * @return {!proto.PortfolioItem}
  */
-proto.AskPortfolioResponse.prototype.addPortfolio = function(opt_value, opt_index) {
+proto.AskPortfolioResponse.prototype.addPortfolio = function (opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.PortfolioItem, opt_index);
 };
-
 
 /**
  * Clears the list making it empty but non-null.
  * @return {!proto.AskPortfolioResponse} returns this
  */
-proto.AskPortfolioResponse.prototype.clearPortfolioList = function() {
+proto.AskPortfolioResponse.prototype.clearPortfolioList = function () {
   return this.setPortfolioList([]);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.PortfolioItem.prototype.toObject = function(opt_includeInstance) {
-  return proto.PortfolioItem.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.PortfolioItem} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.PortfolioItem.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    ticker: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    cost: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
-    amount: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.PortfolioItem.prototype.toObject = function (opt_includeInstance) {
+    return proto.PortfolioItem.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.PortfolioItem} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.PortfolioItem.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        ticker: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        cost: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
+        amount: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.PortfolioItem}
  */
-proto.PortfolioItem.deserializeBinary = function(bytes) {
+proto.PortfolioItem.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.PortfolioItem;
+  var msg = new proto.PortfolioItem();
   return proto.PortfolioItem.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -485,44 +458,42 @@ proto.PortfolioItem.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.PortfolioItem}
  */
-proto.PortfolioItem.deserializeBinaryFromReader = function(msg, reader) {
+proto.PortfolioItem.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTicker(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setCost(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setAmount(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setTicker(value);
+        break;
+      case 2:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setCost(value);
+        break;
+      case 3:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setAmount(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.PortfolioItem.prototype.serializeBinary = function() {
+proto.PortfolioItem.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.PortfolioItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -531,143 +502,122 @@ proto.PortfolioItem.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.PortfolioItem.serializeBinaryToWriter = function(message, writer) {
+proto.PortfolioItem.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getTicker();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getCost();
   if (f !== 0.0) {
-    writer.writeDouble(
-      2,
-      f
-    );
+    writer.writeDouble(2, f);
   }
   f = message.getAmount();
   if (f !== 0.0) {
-    writer.writeDouble(
-      3,
-      f
-    );
+    writer.writeDouble(3, f);
   }
 };
-
 
 /**
  * optional string ticker = 1;
  * @return {string}
  */
-proto.PortfolioItem.prototype.getTicker = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.PortfolioItem.prototype.getTicker = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.PortfolioItem} returns this
  */
-proto.PortfolioItem.prototype.setTicker = function(value) {
+proto.PortfolioItem.prototype.setTicker = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional double cost = 2;
  * @return {number}
  */
-proto.PortfolioItem.prototype.getCost = function() {
+proto.PortfolioItem.prototype.getCost = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 2, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.PortfolioItem} returns this
  */
-proto.PortfolioItem.prototype.setCost = function(value) {
+proto.PortfolioItem.prototype.setCost = function (value) {
   return jspb.Message.setProto3FloatField(this, 2, value);
 };
-
 
 /**
  * optional double amount = 3;
  * @return {number}
  */
-proto.PortfolioItem.prototype.getAmount = function() {
+proto.PortfolioItem.prototype.getAmount = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 3, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.PortfolioItem} returns this
  */
-proto.PortfolioItem.prototype.setAmount = function(value) {
+proto.PortfolioItem.prototype.setAmount = function (value) {
   return jspb.Message.setProto3FloatField(this, 3, value);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.ModifySingleTickerRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.ModifySingleTickerRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.ModifySingleTickerRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.ModifySingleTickerRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    ticker: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    cost: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
-    amount: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.ModifySingleTickerRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.ModifySingleTickerRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.ModifySingleTickerRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.ModifySingleTickerRequest.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        ticker: jspb.Message.getFieldWithDefault(msg, 2, ''),
+        cost: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
+        amount: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.ModifySingleTickerRequest}
  */
-proto.ModifySingleTickerRequest.deserializeBinary = function(bytes) {
+proto.ModifySingleTickerRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ModifySingleTickerRequest;
+  var msg = new proto.ModifySingleTickerRequest();
   return proto.ModifySingleTickerRequest.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -676,48 +626,46 @@ proto.ModifySingleTickerRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.ModifySingleTickerRequest}
  */
-proto.ModifySingleTickerRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.ModifySingleTickerRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTicker(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setCost(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setAmount(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUserId(value);
+        break;
+      case 2:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setTicker(value);
+        break;
+      case 3:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setCost(value);
+        break;
+      case 4:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setAmount(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ModifySingleTickerRequest.prototype.serializeBinary = function() {
+proto.ModifySingleTickerRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.ModifySingleTickerRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -726,165 +674,137 @@ proto.ModifySingleTickerRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ModifySingleTickerRequest.serializeBinaryToWriter = function(message, writer) {
+proto.ModifySingleTickerRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserId();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getTicker();
   if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
+    writer.writeString(2, f);
   }
   f = message.getCost();
   if (f !== 0.0) {
-    writer.writeDouble(
-      3,
-      f
-    );
+    writer.writeDouble(3, f);
   }
   f = message.getAmount();
   if (f !== 0.0) {
-    writer.writeDouble(
-      4,
-      f
-    );
+    writer.writeDouble(4, f);
   }
 };
-
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.ModifySingleTickerRequest.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.ModifySingleTickerRequest.prototype.getUserId = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.ModifySingleTickerRequest} returns this
  */
-proto.ModifySingleTickerRequest.prototype.setUserId = function(value) {
+proto.ModifySingleTickerRequest.prototype.setUserId = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional string ticker = 2;
  * @return {string}
  */
-proto.ModifySingleTickerRequest.prototype.getTicker = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.ModifySingleTickerRequest.prototype.getTicker = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.ModifySingleTickerRequest} returns this
  */
-proto.ModifySingleTickerRequest.prototype.setTicker = function(value) {
+proto.ModifySingleTickerRequest.prototype.setTicker = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
-
 
 /**
  * optional double cost = 3;
  * @return {number}
  */
-proto.ModifySingleTickerRequest.prototype.getCost = function() {
+proto.ModifySingleTickerRequest.prototype.getCost = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 3, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.ModifySingleTickerRequest} returns this
  */
-proto.ModifySingleTickerRequest.prototype.setCost = function(value) {
+proto.ModifySingleTickerRequest.prototype.setCost = function (value) {
   return jspb.Message.setProto3FloatField(this, 3, value);
 };
-
 
 /**
  * optional double amount = 4;
  * @return {number}
  */
-proto.ModifySingleTickerRequest.prototype.getAmount = function() {
+proto.ModifySingleTickerRequest.prototype.getAmount = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 4, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.ModifySingleTickerRequest} returns this
  */
-proto.ModifySingleTickerRequest.prototype.setAmount = function(value) {
+proto.ModifySingleTickerRequest.prototype.setAmount = function (value) {
   return jspb.Message.setProto3FloatField(this, 4, value);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.ModifySingleTickerResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.ModifySingleTickerResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.ModifySingleTickerResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.ModifySingleTickerResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.ModifySingleTickerResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.ModifySingleTickerResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.ModifySingleTickerResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.ModifySingleTickerResponse.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {};
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.ModifySingleTickerResponse}
  */
-proto.ModifySingleTickerResponse.deserializeBinary = function(bytes) {
+proto.ModifySingleTickerResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ModifySingleTickerResponse;
+  var msg = new proto.ModifySingleTickerResponse();
   return proto.ModifySingleTickerResponse.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -893,32 +813,30 @@ proto.ModifySingleTickerResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.ModifySingleTickerResponse}
  */
-proto.ModifySingleTickerResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.ModifySingleTickerResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    default:
-      reader.skipField();
-      break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ModifySingleTickerResponse.prototype.serializeBinary = function() {
+proto.ModifySingleTickerResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.ModifySingleTickerResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -927,9 +845,8 @@ proto.ModifySingleTickerResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ModifySingleTickerResponse.serializeBinaryToWriter = function(message, writer) {
+proto.ModifySingleTickerResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
 };
-
 
 goog.object.extend(exports, proto);

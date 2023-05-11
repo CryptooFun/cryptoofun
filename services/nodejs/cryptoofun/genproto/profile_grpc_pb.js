@@ -26,8 +26,7 @@ function deserialize_GetProfileInfoByUserIdsResponse(buffer_arg) {
   return profile_pb.GetProfileInfoByUserIdsResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-
-var ProfileServiceService = exports.ProfileServiceService = {
+var ProfileServiceService = (exports.ProfileServiceService = {
   getProfileInfoByUserIds: {
     path: '/ProfileService/GetProfileInfoByUserIds',
     requestStream: false,
@@ -39,6 +38,6 @@ var ProfileServiceService = exports.ProfileServiceService = {
     responseSerialize: serialize_GetProfileInfoByUserIdsResponse,
     responseDeserialize: deserialize_GetProfileInfoByUserIdsResponse,
   },
-};
+});
 
 exports.ProfileServiceClient = grpc.makeGenericClientConstructor(ProfileServiceService);

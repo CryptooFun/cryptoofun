@@ -14,12 +14,14 @@
 var jspb = require('google-protobuf');
 var goog = jspb;
 var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+  (typeof globalThis !== 'undefined' && globalThis) ||
+  (typeof window !== 'undefined' && window) ||
+  (typeof global !== 'undefined' && global) ||
+  (typeof self !== 'undefined' && self) ||
+  function () {
+    return this;
+  }.call(null) ||
+  Function('return this')();
 
 goog.exportSymbol('proto.GetProfileInfoByUserIdsRequest', null, global);
 goog.exportSymbol('proto.GetProfileInfoByUserIdsResponse', null, global);
@@ -34,8 +36,15 @@ goog.exportSymbol('proto.ProfileInfo', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.GetProfileInfoByUserIdsRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.GetProfileInfoByUserIdsRequest.repeatedFields_, null);
+proto.GetProfileInfoByUserIdsRequest = function (opt_data) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    proto.GetProfileInfoByUserIdsRequest.repeatedFields_,
+    null
+  );
 };
 goog.inherits(proto.GetProfileInfoByUserIdsRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -55,7 +64,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ProfileInfo = function(opt_data) {
+proto.ProfileInfo = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.ProfileInfo, jspb.Message);
@@ -76,8 +85,15 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.GetProfileInfoByUserIdsResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.GetProfileInfoByUserIdsResponse.repeatedFields_, null);
+proto.GetProfileInfoByUserIdsResponse = function (opt_data) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    proto.GetProfileInfoByUserIdsResponse.repeatedFields_,
+    null
+  );
 };
 goog.inherits(proto.GetProfileInfoByUserIdsResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -95,59 +111,55 @@ if (goog.DEBUG && !COMPILED) {
  */
 proto.GetProfileInfoByUserIdsRequest.repeatedFields_ = [1];
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.GetProfileInfoByUserIdsRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.GetProfileInfoByUserIdsRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.GetProfileInfoByUserIdsRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.GetProfileInfoByUserIdsRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userIdsList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.GetProfileInfoByUserIdsRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.GetProfileInfoByUserIdsRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.GetProfileInfoByUserIdsRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.GetProfileInfoByUserIdsRequest.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userIdsList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.GetProfileInfoByUserIdsRequest}
  */
-proto.GetProfileInfoByUserIdsRequest.deserializeBinary = function(bytes) {
+proto.GetProfileInfoByUserIdsRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.GetProfileInfoByUserIdsRequest;
+  var msg = new proto.GetProfileInfoByUserIdsRequest();
   return proto.GetProfileInfoByUserIdsRequest.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -156,36 +168,34 @@ proto.GetProfileInfoByUserIdsRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.GetProfileInfoByUserIdsRequest}
  */
-proto.GetProfileInfoByUserIdsRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.GetProfileInfoByUserIdsRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addUserIds(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.addUserIds(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.GetProfileInfoByUserIdsRequest.prototype.serializeBinary = function() {
+proto.GetProfileInfoByUserIdsRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.GetProfileInfoByUserIdsRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -194,110 +204,97 @@ proto.GetProfileInfoByUserIdsRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.GetProfileInfoByUserIdsRequest.serializeBinaryToWriter = function(message, writer) {
+proto.GetProfileInfoByUserIdsRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserIdsList();
   if (f.length > 0) {
-    writer.writeRepeatedString(
-      1,
-      f
-    );
+    writer.writeRepeatedString(1, f);
   }
 };
-
 
 /**
  * repeated string user_ids = 1;
  * @return {!Array<string>}
  */
-proto.GetProfileInfoByUserIdsRequest.prototype.getUserIdsList = function() {
+proto.GetProfileInfoByUserIdsRequest.prototype.getUserIdsList = function () {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 1));
 };
-
 
 /**
  * @param {!Array<string>} value
  * @return {!proto.GetProfileInfoByUserIdsRequest} returns this
  */
-proto.GetProfileInfoByUserIdsRequest.prototype.setUserIdsList = function(value) {
+proto.GetProfileInfoByUserIdsRequest.prototype.setUserIdsList = function (value) {
   return jspb.Message.setField(this, 1, value || []);
 };
-
 
 /**
  * @param {string} value
  * @param {number=} opt_index
  * @return {!proto.GetProfileInfoByUserIdsRequest} returns this
  */
-proto.GetProfileInfoByUserIdsRequest.prototype.addUserIds = function(value, opt_index) {
+proto.GetProfileInfoByUserIdsRequest.prototype.addUserIds = function (value, opt_index) {
   return jspb.Message.addToRepeatedField(this, 1, value, opt_index);
 };
-
 
 /**
  * Clears the list making it empty but non-null.
  * @return {!proto.GetProfileInfoByUserIdsRequest} returns this
  */
-proto.GetProfileInfoByUserIdsRequest.prototype.clearUserIdsList = function() {
+proto.GetProfileInfoByUserIdsRequest.prototype.clearUserIdsList = function () {
   return this.setUserIdsList([]);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.ProfileInfo.prototype.toObject = function(opt_includeInstance) {
-  return proto.ProfileInfo.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.ProfileInfo} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.ProfileInfo.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    username: jspb.Message.getFieldWithDefault(msg, 2, "")
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.ProfileInfo.prototype.toObject = function (opt_includeInstance) {
+    return proto.ProfileInfo.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.ProfileInfo} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.ProfileInfo.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        username: jspb.Message.getFieldWithDefault(msg, 2, ''),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.ProfileInfo}
  */
-proto.ProfileInfo.deserializeBinary = function(bytes) {
+proto.ProfileInfo.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ProfileInfo;
+  var msg = new proto.ProfileInfo();
   return proto.ProfileInfo.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -306,40 +303,38 @@ proto.ProfileInfo.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.ProfileInfo}
  */
-proto.ProfileInfo.deserializeBinaryFromReader = function(msg, reader) {
+proto.ProfileInfo.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUsername(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUserId(value);
+        break;
+      case 2:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUsername(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ProfileInfo.prototype.serializeBinary = function() {
+proto.ProfileInfo.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.ProfileInfo.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -348,61 +343,49 @@ proto.ProfileInfo.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ProfileInfo.serializeBinaryToWriter = function(message, writer) {
+proto.ProfileInfo.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserId();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getUsername();
   if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
+    writer.writeString(2, f);
   }
 };
-
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.ProfileInfo.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.ProfileInfo.prototype.getUserId = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.ProfileInfo} returns this
  */
-proto.ProfileInfo.prototype.setUserId = function(value) {
+proto.ProfileInfo.prototype.setUserId = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional string username = 2;
  * @return {string}
  */
-proto.ProfileInfo.prototype.getUsername = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.ProfileInfo.prototype.getUsername = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.ProfileInfo} returns this
  */
-proto.ProfileInfo.prototype.setUsername = function(value) {
+proto.ProfileInfo.prototype.setUsername = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
-
-
 
 /**
  * List of repeated fields within this message type.
@@ -411,60 +394,59 @@ proto.ProfileInfo.prototype.setUsername = function(value) {
  */
 proto.GetProfileInfoByUserIdsResponse.repeatedFields_ = [1];
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.GetProfileInfoByUserIdsResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.GetProfileInfoByUserIdsResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.GetProfileInfoByUserIdsResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.GetProfileInfoByUserIdsResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    profileInfoList: jspb.Message.toObjectList(msg.getProfileInfoList(),
-    proto.ProfileInfo.toObject, includeInstance)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.GetProfileInfoByUserIdsResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.GetProfileInfoByUserIdsResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.GetProfileInfoByUserIdsResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.GetProfileInfoByUserIdsResponse.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        profileInfoList: jspb.Message.toObjectList(
+          msg.getProfileInfoList(),
+          proto.ProfileInfo.toObject,
+          includeInstance
+        ),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.GetProfileInfoByUserIdsResponse}
  */
-proto.GetProfileInfoByUserIdsResponse.deserializeBinary = function(bytes) {
+proto.GetProfileInfoByUserIdsResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.GetProfileInfoByUserIdsResponse;
+  var msg = new proto.GetProfileInfoByUserIdsResponse();
   return proto.GetProfileInfoByUserIdsResponse.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -473,37 +455,35 @@ proto.GetProfileInfoByUserIdsResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.GetProfileInfoByUserIdsResponse}
  */
-proto.GetProfileInfoByUserIdsResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.GetProfileInfoByUserIdsResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = new proto.ProfileInfo;
-      reader.readMessage(value,proto.ProfileInfo.deserializeBinaryFromReader);
-      msg.addProfileInfo(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = new proto.ProfileInfo();
+        reader.readMessage(value, proto.ProfileInfo.deserializeBinaryFromReader);
+        msg.addProfileInfo(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.GetProfileInfoByUserIdsResponse.prototype.serializeBinary = function() {
+proto.GetProfileInfoByUserIdsResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.GetProfileInfoByUserIdsResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -512,55 +492,47 @@ proto.GetProfileInfoByUserIdsResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.GetProfileInfoByUserIdsResponse.serializeBinaryToWriter = function(message, writer) {
+proto.GetProfileInfoByUserIdsResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getProfileInfoList();
   if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      1,
-      f,
-      proto.ProfileInfo.serializeBinaryToWriter
-    );
+    writer.writeRepeatedMessage(1, f, proto.ProfileInfo.serializeBinaryToWriter);
   }
 };
-
 
 /**
  * repeated ProfileInfo profile_info = 1;
  * @return {!Array<!proto.ProfileInfo>}
  */
-proto.GetProfileInfoByUserIdsResponse.prototype.getProfileInfoList = function() {
+proto.GetProfileInfoByUserIdsResponse.prototype.getProfileInfoList = function () {
   return /** @type{!Array<!proto.ProfileInfo>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.ProfileInfo, 1));
+    jspb.Message.getRepeatedWrapperField(this, proto.ProfileInfo, 1)
+  );
 };
-
 
 /**
  * @param {!Array<!proto.ProfileInfo>} value
  * @return {!proto.GetProfileInfoByUserIdsResponse} returns this
-*/
-proto.GetProfileInfoByUserIdsResponse.prototype.setProfileInfoList = function(value) {
+ */
+proto.GetProfileInfoByUserIdsResponse.prototype.setProfileInfoList = function (value) {
   return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
-
 
 /**
  * @param {!proto.ProfileInfo=} opt_value
  * @param {number=} opt_index
  * @return {!proto.ProfileInfo}
  */
-proto.GetProfileInfoByUserIdsResponse.prototype.addProfileInfo = function(opt_value, opt_index) {
+proto.GetProfileInfoByUserIdsResponse.prototype.addProfileInfo = function (opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.ProfileInfo, opt_index);
 };
-
 
 /**
  * Clears the list making it empty but non-null.
  * @return {!proto.GetProfileInfoByUserIdsResponse} returns this
  */
-proto.GetProfileInfoByUserIdsResponse.prototype.clearProfileInfoList = function() {
+proto.GetProfileInfoByUserIdsResponse.prototype.clearProfileInfoList = function () {
   return this.setProfileInfoList([]);
 };
-
 
 goog.object.extend(exports, proto);

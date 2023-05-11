@@ -14,12 +14,14 @@
 var jspb = require('google-protobuf');
 var goog = jspb;
 var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+  (typeof globalThis !== 'undefined' && globalThis) ||
+  (typeof window !== 'undefined' && window) ||
+  (typeof global !== 'undefined' && global) ||
+  (typeof self !== 'undefined' && self) ||
+  function () {
+    return this;
+  }.call(null) ||
+  Function('return this')();
 
 goog.exportSymbol('proto.EnquireMarketPriceRequest', null, global);
 goog.exportSymbol('proto.EnquireMarketPriceResponse', null, global);
@@ -33,7 +35,7 @@ goog.exportSymbol('proto.EnquireMarketPriceResponse', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.EnquireMarketPriceRequest = function(opt_data) {
+proto.EnquireMarketPriceRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.EnquireMarketPriceRequest, jspb.Message);
@@ -54,7 +56,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.EnquireMarketPriceResponse = function(opt_data) {
+proto.EnquireMarketPriceResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.EnquireMarketPriceResponse, jspb.Message);
@@ -66,60 +68,56 @@ if (goog.DEBUG && !COMPILED) {
   proto.EnquireMarketPriceResponse.displayName = 'proto.EnquireMarketPriceResponse';
 }
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.EnquireMarketPriceRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.EnquireMarketPriceRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.EnquireMarketPriceRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.EnquireMarketPriceRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    timestampMs: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    ticker: jspb.Message.getFieldWithDefault(msg, 2, "")
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.EnquireMarketPriceRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.EnquireMarketPriceRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.EnquireMarketPriceRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.EnquireMarketPriceRequest.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        timestampMs: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        ticker: jspb.Message.getFieldWithDefault(msg, 2, ''),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.EnquireMarketPriceRequest}
  */
-proto.EnquireMarketPriceRequest.deserializeBinary = function(bytes) {
+proto.EnquireMarketPriceRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.EnquireMarketPriceRequest;
+  var msg = new proto.EnquireMarketPriceRequest();
   return proto.EnquireMarketPriceRequest.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -128,40 +126,38 @@ proto.EnquireMarketPriceRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.EnquireMarketPriceRequest}
  */
-proto.EnquireMarketPriceRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.EnquireMarketPriceRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTimestampMs(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTicker(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setTimestampMs(value);
+        break;
+      case 2:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setTicker(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.EnquireMarketPriceRequest.prototype.serializeBinary = function() {
+proto.EnquireMarketPriceRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.EnquireMarketPriceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -170,118 +166,102 @@ proto.EnquireMarketPriceRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.EnquireMarketPriceRequest.serializeBinaryToWriter = function(message, writer) {
+proto.EnquireMarketPriceRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getTimestampMs();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getTicker();
   if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
+    writer.writeString(2, f);
   }
 };
-
 
 /**
  * optional string timestamp_ms = 1;
  * @return {string}
  */
-proto.EnquireMarketPriceRequest.prototype.getTimestampMs = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.EnquireMarketPriceRequest.prototype.getTimestampMs = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.EnquireMarketPriceRequest} returns this
  */
-proto.EnquireMarketPriceRequest.prototype.setTimestampMs = function(value) {
+proto.EnquireMarketPriceRequest.prototype.setTimestampMs = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional string ticker = 2;
  * @return {string}
  */
-proto.EnquireMarketPriceRequest.prototype.getTicker = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.EnquireMarketPriceRequest.prototype.getTicker = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.EnquireMarketPriceRequest} returns this
  */
-proto.EnquireMarketPriceRequest.prototype.setTicker = function(value) {
+proto.EnquireMarketPriceRequest.prototype.setTicker = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.EnquireMarketPriceResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.EnquireMarketPriceResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.EnquireMarketPriceResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.EnquireMarketPriceResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    timestampMs: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    ticker: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    bidPrice: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
-    askPrice: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.EnquireMarketPriceResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.EnquireMarketPriceResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.EnquireMarketPriceResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.EnquireMarketPriceResponse.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        timestampMs: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        ticker: jspb.Message.getFieldWithDefault(msg, 2, ''),
+        bidPrice: jspb.Message.getFloatingPointFieldWithDefault(msg, 3, 0.0),
+        askPrice: jspb.Message.getFloatingPointFieldWithDefault(msg, 4, 0.0),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.EnquireMarketPriceResponse}
  */
-proto.EnquireMarketPriceResponse.deserializeBinary = function(bytes) {
+proto.EnquireMarketPriceResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.EnquireMarketPriceResponse;
+  var msg = new proto.EnquireMarketPriceResponse();
   return proto.EnquireMarketPriceResponse.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -290,48 +270,46 @@ proto.EnquireMarketPriceResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.EnquireMarketPriceResponse}
  */
-proto.EnquireMarketPriceResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.EnquireMarketPriceResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTimestampMs(value);
-      break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setTicker(value);
-      break;
-    case 3:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setBidPrice(value);
-      break;
-    case 4:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setAskPrice(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setTimestampMs(value);
+        break;
+      case 2:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setTicker(value);
+        break;
+      case 3:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setBidPrice(value);
+        break;
+      case 4:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setAskPrice(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.EnquireMarketPriceResponse.prototype.serializeBinary = function() {
+proto.EnquireMarketPriceResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.EnquireMarketPriceResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -340,109 +318,88 @@ proto.EnquireMarketPriceResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.EnquireMarketPriceResponse.serializeBinaryToWriter = function(message, writer) {
+proto.EnquireMarketPriceResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getTimestampMs();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getTicker();
   if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
+    writer.writeString(2, f);
   }
   f = message.getBidPrice();
   if (f !== 0.0) {
-    writer.writeDouble(
-      3,
-      f
-    );
+    writer.writeDouble(3, f);
   }
   f = message.getAskPrice();
   if (f !== 0.0) {
-    writer.writeDouble(
-      4,
-      f
-    );
+    writer.writeDouble(4, f);
   }
 };
-
 
 /**
  * optional string timestamp_ms = 1;
  * @return {string}
  */
-proto.EnquireMarketPriceResponse.prototype.getTimestampMs = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.EnquireMarketPriceResponse.prototype.getTimestampMs = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.EnquireMarketPriceResponse} returns this
  */
-proto.EnquireMarketPriceResponse.prototype.setTimestampMs = function(value) {
+proto.EnquireMarketPriceResponse.prototype.setTimestampMs = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional string ticker = 2;
  * @return {string}
  */
-proto.EnquireMarketPriceResponse.prototype.getTicker = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+proto.EnquireMarketPriceResponse.prototype.getTicker = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.EnquireMarketPriceResponse} returns this
  */
-proto.EnquireMarketPriceResponse.prototype.setTicker = function(value) {
+proto.EnquireMarketPriceResponse.prototype.setTicker = function (value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
-
 
 /**
  * optional double bid_price = 3;
  * @return {number}
  */
-proto.EnquireMarketPriceResponse.prototype.getBidPrice = function() {
+proto.EnquireMarketPriceResponse.prototype.getBidPrice = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 3, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.EnquireMarketPriceResponse} returns this
  */
-proto.EnquireMarketPriceResponse.prototype.setBidPrice = function(value) {
+proto.EnquireMarketPriceResponse.prototype.setBidPrice = function (value) {
   return jspb.Message.setProto3FloatField(this, 3, value);
 };
-
 
 /**
  * optional double ask_price = 4;
  * @return {number}
  */
-proto.EnquireMarketPriceResponse.prototype.getAskPrice = function() {
+proto.EnquireMarketPriceResponse.prototype.getAskPrice = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 4, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.EnquireMarketPriceResponse} returns this
  */
-proto.EnquireMarketPriceResponse.prototype.setAskPrice = function(value) {
+proto.EnquireMarketPriceResponse.prototype.setAskPrice = function (value) {
   return jspb.Message.setProto3FloatField(this, 4, value);
 };
-
 
 goog.object.extend(exports, proto);

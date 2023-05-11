@@ -14,12 +14,14 @@
 var jspb = require('google-protobuf');
 var goog = jspb;
 var global =
-    (typeof globalThis !== 'undefined' && globalThis) ||
-    (typeof window !== 'undefined' && window) ||
-    (typeof global !== 'undefined' && global) ||
-    (typeof self !== 'undefined' && self) ||
-    (function () { return this; }).call(null) ||
-    Function('return this')();
+  (typeof globalThis !== 'undefined' && globalThis) ||
+  (typeof window !== 'undefined' && window) ||
+  (typeof global !== 'undefined' && global) ||
+  (typeof self !== 'undefined' && self) ||
+  function () {
+    return this;
+  }.call(null) ||
+  Function('return this')();
 
 goog.exportSymbol('proto.AskCashBalanceRequest', null, global);
 goog.exportSymbol('proto.AskCashBalanceResponse', null, global);
@@ -38,7 +40,7 @@ goog.exportSymbol('proto.ModifyCashBalanceResponse', null, global);
  * @extends {jspb.Message}
  * @constructor
  */
-proto.AskCashBalanceRequest = function(opt_data) {
+proto.AskCashBalanceRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.AskCashBalanceRequest, jspb.Message);
@@ -59,7 +61,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.AskCashBalanceResponse = function(opt_data) {
+proto.AskCashBalanceResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.AskCashBalanceResponse, jspb.Message);
@@ -80,7 +82,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ModifyCashBalanceRequest = function(opt_data) {
+proto.ModifyCashBalanceRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.ModifyCashBalanceRequest, jspb.Message);
@@ -101,7 +103,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.ModifyCashBalanceResponse = function(opt_data) {
+proto.ModifyCashBalanceResponse = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.ModifyCashBalanceResponse, jspb.Message);
@@ -122,7 +124,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.AskTopBalancesDescendingRequest = function(opt_data) {
+proto.AskTopBalancesDescendingRequest = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.AskTopBalancesDescendingRequest, jspb.Message);
@@ -143,8 +145,15 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.AskTopBalancesDescendingResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.AskTopBalancesDescendingResponse.repeatedFields_, null);
+proto.AskTopBalancesDescendingResponse = function (opt_data) {
+  jspb.Message.initialize(
+    this,
+    opt_data,
+    0,
+    -1,
+    proto.AskTopBalancesDescendingResponse.repeatedFields_,
+    null
+  );
 };
 goog.inherits(proto.AskTopBalancesDescendingResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -164,7 +173,7 @@ if (goog.DEBUG && !COMPILED) {
  * @extends {jspb.Message}
  * @constructor
  */
-proto.BalanceItem = function(opt_data) {
+proto.BalanceItem = function (opt_data) {
   jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.BalanceItem, jspb.Message);
@@ -176,59 +185,55 @@ if (goog.DEBUG && !COMPILED) {
   proto.BalanceItem.displayName = 'proto.BalanceItem';
 }
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.AskCashBalanceRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.AskCashBalanceRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.AskCashBalanceRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.AskCashBalanceRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, "")
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.AskCashBalanceRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.AskCashBalanceRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.AskCashBalanceRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.AskCashBalanceRequest.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.AskCashBalanceRequest}
  */
-proto.AskCashBalanceRequest.deserializeBinary = function(bytes) {
+proto.AskCashBalanceRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.AskCashBalanceRequest;
+  var msg = new proto.AskCashBalanceRequest();
   return proto.AskCashBalanceRequest.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -237,36 +242,34 @@ proto.AskCashBalanceRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.AskCashBalanceRequest}
  */
-proto.AskCashBalanceRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.AskCashBalanceRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUserId(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.AskCashBalanceRequest.prototype.serializeBinary = function() {
+proto.AskCashBalanceRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.AskCashBalanceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -275,91 +278,80 @@ proto.AskCashBalanceRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.AskCashBalanceRequest.serializeBinaryToWriter = function(message, writer) {
+proto.AskCashBalanceRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserId();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
 };
-
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.AskCashBalanceRequest.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.AskCashBalanceRequest.prototype.getUserId = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.AskCashBalanceRequest} returns this
  */
-proto.AskCashBalanceRequest.prototype.setUserId = function(value) {
+proto.AskCashBalanceRequest.prototype.setUserId = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.AskCashBalanceResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.AskCashBalanceResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.AskCashBalanceResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.AskCashBalanceResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    balance: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.AskCashBalanceResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.AskCashBalanceResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.AskCashBalanceResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.AskCashBalanceResponse.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        balance: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.AskCashBalanceResponse}
  */
-proto.AskCashBalanceResponse.deserializeBinary = function(bytes) {
+proto.AskCashBalanceResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.AskCashBalanceResponse;
+  var msg = new proto.AskCashBalanceResponse();
   return proto.AskCashBalanceResponse.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -368,40 +360,38 @@ proto.AskCashBalanceResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.AskCashBalanceResponse}
  */
-proto.AskCashBalanceResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.AskCashBalanceResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setBalance(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUserId(value);
+        break;
+      case 2:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setBalance(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.AskCashBalanceResponse.prototype.serializeBinary = function() {
+proto.AskCashBalanceResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.AskCashBalanceResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -410,116 +400,100 @@ proto.AskCashBalanceResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.AskCashBalanceResponse.serializeBinaryToWriter = function(message, writer) {
+proto.AskCashBalanceResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserId();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getBalance();
   if (f !== 0.0) {
-    writer.writeDouble(
-      2,
-      f
-    );
+    writer.writeDouble(2, f);
   }
 };
-
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.AskCashBalanceResponse.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.AskCashBalanceResponse.prototype.getUserId = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.AskCashBalanceResponse} returns this
  */
-proto.AskCashBalanceResponse.prototype.setUserId = function(value) {
+proto.AskCashBalanceResponse.prototype.setUserId = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional double balance = 2;
  * @return {number}
  */
-proto.AskCashBalanceResponse.prototype.getBalance = function() {
+proto.AskCashBalanceResponse.prototype.getBalance = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 2, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.AskCashBalanceResponse} returns this
  */
-proto.AskCashBalanceResponse.prototype.setBalance = function(value) {
+proto.AskCashBalanceResponse.prototype.setBalance = function (value) {
   return jspb.Message.setProto3FloatField(this, 2, value);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.ModifyCashBalanceRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.ModifyCashBalanceRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.ModifyCashBalanceRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.ModifyCashBalanceRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    delta: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.ModifyCashBalanceRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.ModifyCashBalanceRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.ModifyCashBalanceRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.ModifyCashBalanceRequest.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        delta: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.ModifyCashBalanceRequest}
  */
-proto.ModifyCashBalanceRequest.deserializeBinary = function(bytes) {
+proto.ModifyCashBalanceRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ModifyCashBalanceRequest;
+  var msg = new proto.ModifyCashBalanceRequest();
   return proto.ModifyCashBalanceRequest.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -528,40 +502,38 @@ proto.ModifyCashBalanceRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.ModifyCashBalanceRequest}
  */
-proto.ModifyCashBalanceRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.ModifyCashBalanceRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setDelta(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUserId(value);
+        break;
+      case 2:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setDelta(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ModifyCashBalanceRequest.prototype.serializeBinary = function() {
+proto.ModifyCashBalanceRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.ModifyCashBalanceRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -570,116 +542,100 @@ proto.ModifyCashBalanceRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ModifyCashBalanceRequest.serializeBinaryToWriter = function(message, writer) {
+proto.ModifyCashBalanceRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserId();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getDelta();
   if (f !== 0.0) {
-    writer.writeDouble(
-      2,
-      f
-    );
+    writer.writeDouble(2, f);
   }
 };
-
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.ModifyCashBalanceRequest.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.ModifyCashBalanceRequest.prototype.getUserId = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.ModifyCashBalanceRequest} returns this
  */
-proto.ModifyCashBalanceRequest.prototype.setUserId = function(value) {
+proto.ModifyCashBalanceRequest.prototype.setUserId = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional double delta = 2;
  * @return {number}
  */
-proto.ModifyCashBalanceRequest.prototype.getDelta = function() {
+proto.ModifyCashBalanceRequest.prototype.getDelta = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 2, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.ModifyCashBalanceRequest} returns this
  */
-proto.ModifyCashBalanceRequest.prototype.setDelta = function(value) {
+proto.ModifyCashBalanceRequest.prototype.setDelta = function (value) {
   return jspb.Message.setProto3FloatField(this, 2, value);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.ModifyCashBalanceResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.ModifyCashBalanceResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.ModifyCashBalanceResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.ModifyCashBalanceResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    balanceAfter: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.ModifyCashBalanceResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.ModifyCashBalanceResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.ModifyCashBalanceResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.ModifyCashBalanceResponse.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        balanceAfter: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.ModifyCashBalanceResponse}
  */
-proto.ModifyCashBalanceResponse.deserializeBinary = function(bytes) {
+proto.ModifyCashBalanceResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.ModifyCashBalanceResponse;
+  var msg = new proto.ModifyCashBalanceResponse();
   return proto.ModifyCashBalanceResponse.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -688,40 +644,38 @@ proto.ModifyCashBalanceResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.ModifyCashBalanceResponse}
  */
-proto.ModifyCashBalanceResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.ModifyCashBalanceResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setBalanceAfter(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUserId(value);
+        break;
+      case 2:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setBalanceAfter(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.ModifyCashBalanceResponse.prototype.serializeBinary = function() {
+proto.ModifyCashBalanceResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.ModifyCashBalanceResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -730,116 +684,100 @@ proto.ModifyCashBalanceResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.ModifyCashBalanceResponse.serializeBinaryToWriter = function(message, writer) {
+proto.ModifyCashBalanceResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserId();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getBalanceAfter();
   if (f !== 0.0) {
-    writer.writeDouble(
-      2,
-      f
-    );
+    writer.writeDouble(2, f);
   }
 };
-
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.ModifyCashBalanceResponse.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.ModifyCashBalanceResponse.prototype.getUserId = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.ModifyCashBalanceResponse} returns this
  */
-proto.ModifyCashBalanceResponse.prototype.setUserId = function(value) {
+proto.ModifyCashBalanceResponse.prototype.setUserId = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional double balance_after = 2;
  * @return {number}
  */
-proto.ModifyCashBalanceResponse.prototype.getBalanceAfter = function() {
+proto.ModifyCashBalanceResponse.prototype.getBalanceAfter = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 2, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.ModifyCashBalanceResponse} returns this
  */
-proto.ModifyCashBalanceResponse.prototype.setBalanceAfter = function(value) {
+proto.ModifyCashBalanceResponse.prototype.setBalanceAfter = function (value) {
   return jspb.Message.setProto3FloatField(this, 2, value);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.AskTopBalancesDescendingRequest.prototype.toObject = function(opt_includeInstance) {
-  return proto.AskTopBalancesDescendingRequest.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.AskTopBalancesDescendingRequest} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.AskTopBalancesDescendingRequest.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    skip: jspb.Message.getFieldWithDefault(msg, 1, 0),
-    take: jspb.Message.getFieldWithDefault(msg, 2, 0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.AskTopBalancesDescendingRequest.prototype.toObject = function (opt_includeInstance) {
+    return proto.AskTopBalancesDescendingRequest.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.AskTopBalancesDescendingRequest} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.AskTopBalancesDescendingRequest.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        skip: jspb.Message.getFieldWithDefault(msg, 1, 0),
+        take: jspb.Message.getFieldWithDefault(msg, 2, 0),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.AskTopBalancesDescendingRequest}
  */
-proto.AskTopBalancesDescendingRequest.deserializeBinary = function(bytes) {
+proto.AskTopBalancesDescendingRequest.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.AskTopBalancesDescendingRequest;
+  var msg = new proto.AskTopBalancesDescendingRequest();
   return proto.AskTopBalancesDescendingRequest.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -848,40 +786,38 @@ proto.AskTopBalancesDescendingRequest.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.AskTopBalancesDescendingRequest}
  */
-proto.AskTopBalancesDescendingRequest.deserializeBinaryFromReader = function(msg, reader) {
+proto.AskTopBalancesDescendingRequest.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setSkip(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readUint32());
-      msg.setTake(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {number} */ (reader.readUint32());
+        msg.setSkip(value);
+        break;
+      case 2:
+        var value = /** @type {number} */ (reader.readUint32());
+        msg.setTake(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.AskTopBalancesDescendingRequest.prototype.serializeBinary = function() {
+proto.AskTopBalancesDescendingRequest.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.AskTopBalancesDescendingRequest.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -890,61 +826,49 @@ proto.AskTopBalancesDescendingRequest.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.AskTopBalancesDescendingRequest.serializeBinaryToWriter = function(message, writer) {
+proto.AskTopBalancesDescendingRequest.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getSkip();
   if (f !== 0) {
-    writer.writeUint32(
-      1,
-      f
-    );
+    writer.writeUint32(1, f);
   }
   f = message.getTake();
   if (f !== 0) {
-    writer.writeUint32(
-      2,
-      f
-    );
+    writer.writeUint32(2, f);
   }
 };
-
 
 /**
  * optional uint32 skip = 1;
  * @return {number}
  */
-proto.AskTopBalancesDescendingRequest.prototype.getSkip = function() {
+proto.AskTopBalancesDescendingRequest.prototype.getSkip = function () {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.AskTopBalancesDescendingRequest} returns this
  */
-proto.AskTopBalancesDescendingRequest.prototype.setSkip = function(value) {
+proto.AskTopBalancesDescendingRequest.prototype.setSkip = function (value) {
   return jspb.Message.setProto3IntField(this, 1, value);
 };
-
 
 /**
  * optional uint32 take = 2;
  * @return {number}
  */
-proto.AskTopBalancesDescendingRequest.prototype.getTake = function() {
+proto.AskTopBalancesDescendingRequest.prototype.getTake = function () {
   return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.AskTopBalancesDescendingRequest} returns this
  */
-proto.AskTopBalancesDescendingRequest.prototype.setTake = function(value) {
+proto.AskTopBalancesDescendingRequest.prototype.setTake = function (value) {
   return jspb.Message.setProto3IntField(this, 2, value);
 };
-
-
 
 /**
  * List of repeated fields within this message type.
@@ -953,60 +877,59 @@ proto.AskTopBalancesDescendingRequest.prototype.setTake = function(value) {
  */
 proto.AskTopBalancesDescendingResponse.repeatedFields_ = [1];
 
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.AskTopBalancesDescendingResponse.prototype.toObject = function(opt_includeInstance) {
-  return proto.AskTopBalancesDescendingResponse.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.AskTopBalancesDescendingResponse} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.AskTopBalancesDescendingResponse.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    balancesList: jspb.Message.toObjectList(msg.getBalancesList(),
-    proto.BalanceItem.toObject, includeInstance)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.AskTopBalancesDescendingResponse.prototype.toObject = function (opt_includeInstance) {
+    return proto.AskTopBalancesDescendingResponse.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.AskTopBalancesDescendingResponse} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.AskTopBalancesDescendingResponse.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        balancesList: jspb.Message.toObjectList(
+          msg.getBalancesList(),
+          proto.BalanceItem.toObject,
+          includeInstance
+        ),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.AskTopBalancesDescendingResponse}
  */
-proto.AskTopBalancesDescendingResponse.deserializeBinary = function(bytes) {
+proto.AskTopBalancesDescendingResponse.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.AskTopBalancesDescendingResponse;
+  var msg = new proto.AskTopBalancesDescendingResponse();
   return proto.AskTopBalancesDescendingResponse.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -1015,37 +938,35 @@ proto.AskTopBalancesDescendingResponse.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.AskTopBalancesDescendingResponse}
  */
-proto.AskTopBalancesDescendingResponse.deserializeBinaryFromReader = function(msg, reader) {
+proto.AskTopBalancesDescendingResponse.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = new proto.BalanceItem;
-      reader.readMessage(value,proto.BalanceItem.deserializeBinaryFromReader);
-      msg.addBalances(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = new proto.BalanceItem();
+        reader.readMessage(value, proto.BalanceItem.deserializeBinaryFromReader);
+        msg.addBalances(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.AskTopBalancesDescendingResponse.prototype.serializeBinary = function() {
+proto.AskTopBalancesDescendingResponse.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.AskTopBalancesDescendingResponse.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -1054,112 +975,99 @@ proto.AskTopBalancesDescendingResponse.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.AskTopBalancesDescendingResponse.serializeBinaryToWriter = function(message, writer) {
+proto.AskTopBalancesDescendingResponse.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getBalancesList();
   if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      1,
-      f,
-      proto.BalanceItem.serializeBinaryToWriter
-    );
+    writer.writeRepeatedMessage(1, f, proto.BalanceItem.serializeBinaryToWriter);
   }
 };
-
 
 /**
  * repeated BalanceItem balances = 1;
  * @return {!Array<!proto.BalanceItem>}
  */
-proto.AskTopBalancesDescendingResponse.prototype.getBalancesList = function() {
+proto.AskTopBalancesDescendingResponse.prototype.getBalancesList = function () {
   return /** @type{!Array<!proto.BalanceItem>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.BalanceItem, 1));
+    jspb.Message.getRepeatedWrapperField(this, proto.BalanceItem, 1)
+  );
 };
-
 
 /**
  * @param {!Array<!proto.BalanceItem>} value
  * @return {!proto.AskTopBalancesDescendingResponse} returns this
-*/
-proto.AskTopBalancesDescendingResponse.prototype.setBalancesList = function(value) {
+ */
+proto.AskTopBalancesDescendingResponse.prototype.setBalancesList = function (value) {
   return jspb.Message.setRepeatedWrapperField(this, 1, value);
 };
-
 
 /**
  * @param {!proto.BalanceItem=} opt_value
  * @param {number=} opt_index
  * @return {!proto.BalanceItem}
  */
-proto.AskTopBalancesDescendingResponse.prototype.addBalances = function(opt_value, opt_index) {
+proto.AskTopBalancesDescendingResponse.prototype.addBalances = function (opt_value, opt_index) {
   return jspb.Message.addToRepeatedWrapperField(this, 1, opt_value, proto.BalanceItem, opt_index);
 };
-
 
 /**
  * Clears the list making it empty but non-null.
  * @return {!proto.AskTopBalancesDescendingResponse} returns this
  */
-proto.AskTopBalancesDescendingResponse.prototype.clearBalancesList = function() {
+proto.AskTopBalancesDescendingResponse.prototype.clearBalancesList = function () {
   return this.setBalancesList([]);
 };
 
-
-
-
-
 if (jspb.Message.GENERATE_TO_OBJECT) {
-/**
- * Creates an object representation of this proto.
- * Field names that are reserved in JavaScript and will be renamed to pb_name.
- * Optional fields that are not set will be set to undefined.
- * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
- * For the list of reserved names please see:
- *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
- * @param {boolean=} opt_includeInstance Deprecated. whether to include the
- *     JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @return {!Object}
- */
-proto.BalanceItem.prototype.toObject = function(opt_includeInstance) {
-  return proto.BalanceItem.toObject(opt_includeInstance, this);
-};
-
-
-/**
- * Static version of the {@see toObject} method.
- * @param {boolean|undefined} includeInstance Deprecated. Whether to include
- *     the JSPB instance for transitional soy proto support:
- *     http://goto/soy-param-migration
- * @param {!proto.BalanceItem} msg The msg instance to transform.
- * @return {!Object}
- * @suppress {unusedLocalVariables} f is only used for nested messages
- */
-proto.BalanceItem.toObject = function(includeInstance, msg) {
-  var f, obj = {
-    userId: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    balance: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0)
+  /**
+   * Creates an object representation of this proto.
+   * Field names that are reserved in JavaScript and will be renamed to pb_name.
+   * Optional fields that are not set will be set to undefined.
+   * To access a reserved field use, foo.pb_<name>, eg, foo.pb_default.
+   * For the list of reserved names please see:
+   *     net/proto2/compiler/js/internal/generator.cc#kKeyword.
+   * @param {boolean=} opt_includeInstance Deprecated. whether to include the
+   *     JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @return {!Object}
+   */
+  proto.BalanceItem.prototype.toObject = function (opt_includeInstance) {
+    return proto.BalanceItem.toObject(opt_includeInstance, this);
   };
 
-  if (includeInstance) {
-    obj.$jspbMessageInstance = msg;
-  }
-  return obj;
-};
-}
+  /**
+   * Static version of the {@see toObject} method.
+   * @param {boolean|undefined} includeInstance Deprecated. Whether to include
+   *     the JSPB instance for transitional soy proto support:
+   *     http://goto/soy-param-migration
+   * @param {!proto.BalanceItem} msg The msg instance to transform.
+   * @return {!Object}
+   * @suppress {unusedLocalVariables} f is only used for nested messages
+   */
+  proto.BalanceItem.toObject = function (includeInstance, msg) {
+    var f,
+      obj = {
+        userId: jspb.Message.getFieldWithDefault(msg, 1, ''),
+        balance: jspb.Message.getFloatingPointFieldWithDefault(msg, 2, 0.0),
+      };
 
+    if (includeInstance) {
+      obj.$jspbMessageInstance = msg;
+    }
+    return obj;
+  };
+}
 
 /**
  * Deserializes binary data (in protobuf wire format).
  * @param {jspb.ByteSource} bytes The bytes to deserialize.
  * @return {!proto.BalanceItem}
  */
-proto.BalanceItem.deserializeBinary = function(bytes) {
+proto.BalanceItem.deserializeBinary = function (bytes) {
   var reader = new jspb.BinaryReader(bytes);
-  var msg = new proto.BalanceItem;
+  var msg = new proto.BalanceItem();
   return proto.BalanceItem.deserializeBinaryFromReader(msg, reader);
 };
-
 
 /**
  * Deserializes binary data (in protobuf wire format) from the
@@ -1168,40 +1076,38 @@ proto.BalanceItem.deserializeBinary = function(bytes) {
  * @param {!jspb.BinaryReader} reader The BinaryReader to use.
  * @return {!proto.BalanceItem}
  */
-proto.BalanceItem.deserializeBinaryFromReader = function(msg, reader) {
+proto.BalanceItem.deserializeBinaryFromReader = function (msg, reader) {
   while (reader.nextField()) {
     if (reader.isEndGroup()) {
       break;
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setUserId(value);
-      break;
-    case 2:
-      var value = /** @type {number} */ (reader.readDouble());
-      msg.setBalance(value);
-      break;
-    default:
-      reader.skipField();
-      break;
+      case 1:
+        var value = /** @type {string} */ (reader.readString());
+        msg.setUserId(value);
+        break;
+      case 2:
+        var value = /** @type {number} */ (reader.readDouble());
+        msg.setBalance(value);
+        break;
+      default:
+        reader.skipField();
+        break;
     }
   }
   return msg;
 };
 
-
 /**
  * Serializes the message to binary data (in protobuf wire format).
  * @return {!Uint8Array}
  */
-proto.BalanceItem.prototype.serializeBinary = function() {
+proto.BalanceItem.prototype.serializeBinary = function () {
   var writer = new jspb.BinaryWriter();
   proto.BalanceItem.serializeBinaryToWriter(this, writer);
   return writer.getResultBuffer();
 };
-
 
 /**
  * Serializes the given message to binary data (in protobuf wire
@@ -1210,59 +1116,48 @@ proto.BalanceItem.prototype.serializeBinary = function() {
  * @param {!jspb.BinaryWriter} writer
  * @suppress {unusedLocalVariables} f is only used for nested messages
  */
-proto.BalanceItem.serializeBinaryToWriter = function(message, writer) {
+proto.BalanceItem.serializeBinaryToWriter = function (message, writer) {
   var f = undefined;
   f = message.getUserId();
   if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
+    writer.writeString(1, f);
   }
   f = message.getBalance();
   if (f !== 0.0) {
-    writer.writeDouble(
-      2,
-      f
-    );
+    writer.writeDouble(2, f);
   }
 };
-
 
 /**
  * optional string user_id = 1;
  * @return {string}
  */
-proto.BalanceItem.prototype.getUserId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.BalanceItem.prototype.getUserId = function () {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ''));
 };
-
 
 /**
  * @param {string} value
  * @return {!proto.BalanceItem} returns this
  */
-proto.BalanceItem.prototype.setUserId = function(value) {
+proto.BalanceItem.prototype.setUserId = function (value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
-
 
 /**
  * optional double balance = 2;
  * @return {number}
  */
-proto.BalanceItem.prototype.getBalance = function() {
+proto.BalanceItem.prototype.getBalance = function () {
   return /** @type {number} */ (jspb.Message.getFloatingPointFieldWithDefault(this, 2, 0.0));
 };
-
 
 /**
  * @param {number} value
  * @return {!proto.BalanceItem} returns this
  */
-proto.BalanceItem.prototype.setBalance = function(value) {
+proto.BalanceItem.prototype.setBalance = function (value) {
   return jspb.Message.setProto3FloatField(this, 2, value);
 };
-
 
 goog.object.extend(exports, proto);

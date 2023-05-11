@@ -34,7 +34,9 @@ function serialize_AskTopBalancesDescendingRequest(arg) {
 }
 
 function deserialize_AskTopBalancesDescendingRequest(buffer_arg) {
-  return cash_wallet_pb.AskTopBalancesDescendingRequest.deserializeBinary(new Uint8Array(buffer_arg));
+  return cash_wallet_pb.AskTopBalancesDescendingRequest.deserializeBinary(
+    new Uint8Array(buffer_arg)
+  );
 }
 
 function serialize_AskTopBalancesDescendingResponse(arg) {
@@ -45,7 +47,9 @@ function serialize_AskTopBalancesDescendingResponse(arg) {
 }
 
 function deserialize_AskTopBalancesDescendingResponse(buffer_arg) {
-  return cash_wallet_pb.AskTopBalancesDescendingResponse.deserializeBinary(new Uint8Array(buffer_arg));
+  return cash_wallet_pb.AskTopBalancesDescendingResponse.deserializeBinary(
+    new Uint8Array(buffer_arg)
+  );
 }
 
 function serialize_ModifyCashBalanceRequest(arg) {
@@ -70,8 +74,7 @@ function deserialize_ModifyCashBalanceResponse(buffer_arg) {
   return cash_wallet_pb.ModifyCashBalanceResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
-
-var CashWalletServiceService = exports.CashWalletServiceService = {
+var CashWalletServiceService = (exports.CashWalletServiceService = {
   askCashBalance: {
     path: '/CashWalletService/AskCashBalance',
     requestStream: false,
@@ -105,6 +108,6 @@ var CashWalletServiceService = exports.CashWalletServiceService = {
     responseSerialize: serialize_AskTopBalancesDescendingResponse,
     responseDeserialize: deserialize_AskTopBalancesDescendingResponse,
   },
-};
+});
 
 exports.CashWalletServiceClient = grpc.makeGenericClientConstructor(CashWalletServiceService);

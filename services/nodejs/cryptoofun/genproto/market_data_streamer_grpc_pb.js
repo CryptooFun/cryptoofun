@@ -12,7 +12,9 @@ function serialize_EnquireMarketPriceRequest(arg) {
 }
 
 function deserialize_EnquireMarketPriceRequest(buffer_arg) {
-  return market_data_streamer_pb.EnquireMarketPriceRequest.deserializeBinary(new Uint8Array(buffer_arg));
+  return market_data_streamer_pb.EnquireMarketPriceRequest.deserializeBinary(
+    new Uint8Array(buffer_arg)
+  );
 }
 
 function serialize_EnquireMarketPriceResponse(arg) {
@@ -23,11 +25,12 @@ function serialize_EnquireMarketPriceResponse(arg) {
 }
 
 function deserialize_EnquireMarketPriceResponse(buffer_arg) {
-  return market_data_streamer_pb.EnquireMarketPriceResponse.deserializeBinary(new Uint8Array(buffer_arg));
+  return market_data_streamer_pb.EnquireMarketPriceResponse.deserializeBinary(
+    new Uint8Array(buffer_arg)
+  );
 }
 
-
-var MarketDataStreamerServiceService = exports.MarketDataStreamerServiceService = {
+var MarketDataStreamerServiceService = (exports.MarketDataStreamerServiceService = {
   enquireMarketPrice: {
     path: '/MarketDataStreamerService/EnquireMarketPrice',
     requestStream: false,
@@ -39,6 +42,8 @@ var MarketDataStreamerServiceService = exports.MarketDataStreamerServiceService 
     responseSerialize: serialize_EnquireMarketPriceResponse,
     responseDeserialize: deserialize_EnquireMarketPriceResponse,
   },
-};
+});
 
-exports.MarketDataStreamerServiceClient = grpc.makeGenericClientConstructor(MarketDataStreamerServiceService);
+exports.MarketDataStreamerServiceClient = grpc.makeGenericClientConstructor(
+  MarketDataStreamerServiceService
+);

@@ -3,276 +3,339 @@
  * compiler version: 0.0.0
  * source: profile.proto
  * git: https://github.com/thesayyn/protoc-gen-ts */
-import * as pb_1 from "google-protobuf";
-import * as grpc_1 from "@grpc/grpc-js";
+import * as pb_1 from 'google-protobuf';
+import * as grpc_1 from '@grpc/grpc-js';
 export class GetProfileInfoByUserIdsRequest extends pb_1.Message {
-    #one_of_decls: number[][] = [];
-    constructor(data?: any[] | {
-        user_ids?: string[];
-    }) {
-        super();
-        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [1], this.#one_of_decls);
-        if (!Array.isArray(data) && typeof data == "object") {
-            if ("user_ids" in data && data.user_ids != undefined) {
-                this.user_ids = data.user_ids;
-            }
+  #one_of_decls: number[][] = [];
+  constructor(
+    data?:
+      | any[]
+      | {
+          user_ids?: string[];
         }
+  ) {
+    super();
+    pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [1], this.#one_of_decls);
+    if (!Array.isArray(data) && typeof data == 'object') {
+      if ('user_ids' in data && data.user_ids != undefined) {
+        this.user_ids = data.user_ids;
+      }
     }
-    get user_ids() {
-        return pb_1.Message.getFieldWithDefault(this, 1, []) as string[];
+  }
+  get user_ids() {
+    return pb_1.Message.getFieldWithDefault(this, 1, []) as string[];
+  }
+  set user_ids(value: string[]) {
+    pb_1.Message.setField(this, 1, value);
+  }
+  static fromObject(data: { user_ids?: string[] }): GetProfileInfoByUserIdsRequest {
+    const message = new GetProfileInfoByUserIdsRequest({});
+    if (data.user_ids != null) {
+      message.user_ids = data.user_ids;
     }
-    set user_ids(value: string[]) {
-        pb_1.Message.setField(this, 1, value);
+    return message;
+  }
+  toObject() {
+    const data: {
+      user_ids?: string[];
+    } = {};
+    if (this.user_ids != null) {
+      data.user_ids = this.user_ids;
     }
-    static fromObject(data: {
-        user_ids?: string[];
-    }): GetProfileInfoByUserIdsRequest {
-        const message = new GetProfileInfoByUserIdsRequest({});
-        if (data.user_ids != null) {
-            message.user_ids = data.user_ids;
-        }
-        return message;
+    return data;
+  }
+  serialize(): Uint8Array;
+  serialize(w: pb_1.BinaryWriter): void;
+  serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+    const writer = w || new pb_1.BinaryWriter();
+    if (this.user_ids.length) writer.writeRepeatedString(1, this.user_ids);
+    if (!w) return writer.getResultBuffer();
+  }
+  static deserialize(bytes: Uint8Array | pb_1.BinaryReader): GetProfileInfoByUserIdsRequest {
+    const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes),
+      message = new GetProfileInfoByUserIdsRequest();
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) break;
+      switch (reader.getFieldNumber()) {
+        case 1:
+          pb_1.Message.addToRepeatedField(message, 1, reader.readString());
+          break;
+        default:
+          reader.skipField();
+      }
     }
-    toObject() {
-        const data: {
-            user_ids?: string[];
-        } = {};
-        if (this.user_ids != null) {
-            data.user_ids = this.user_ids;
-        }
-        return data;
-    }
-    serialize(): Uint8Array;
-    serialize(w: pb_1.BinaryWriter): void;
-    serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
-        const writer = w || new pb_1.BinaryWriter();
-        if (this.user_ids.length)
-            writer.writeRepeatedString(1, this.user_ids);
-        if (!w)
-            return writer.getResultBuffer();
-    }
-    static deserialize(bytes: Uint8Array | pb_1.BinaryReader): GetProfileInfoByUserIdsRequest {
-        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new GetProfileInfoByUserIdsRequest();
-        while (reader.nextField()) {
-            if (reader.isEndGroup())
-                break;
-            switch (reader.getFieldNumber()) {
-                case 1:
-                    pb_1.Message.addToRepeatedField(message, 1, reader.readString());
-                    break;
-                default: reader.skipField();
-            }
-        }
-        return message;
-    }
-    serializeBinary(): Uint8Array {
-        return this.serialize();
-    }
-    static deserializeBinary(bytes: Uint8Array): GetProfileInfoByUserIdsRequest {
-        return GetProfileInfoByUserIdsRequest.deserialize(bytes);
-    }
+    return message;
+  }
+  serializeBinary(): Uint8Array {
+    return this.serialize();
+  }
+  static deserializeBinary(bytes: Uint8Array): GetProfileInfoByUserIdsRequest {
+    return GetProfileInfoByUserIdsRequest.deserialize(bytes);
+  }
 }
 export class ProfileInfo extends pb_1.Message {
-    #one_of_decls: number[][] = [];
-    constructor(data?: any[] | {
-        user_id?: string;
-        username?: string;
-    }) {
-        super();
-        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
-        if (!Array.isArray(data) && typeof data == "object") {
-            if ("user_id" in data && data.user_id != undefined) {
-                this.user_id = data.user_id;
-            }
-            if ("username" in data && data.username != undefined) {
-                this.username = data.username;
-            }
+  #one_of_decls: number[][] = [];
+  constructor(
+    data?:
+      | any[]
+      | {
+          user_id?: string;
+          username?: string;
         }
+  ) {
+    super();
+    pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [], this.#one_of_decls);
+    if (!Array.isArray(data) && typeof data == 'object') {
+      if ('user_id' in data && data.user_id != undefined) {
+        this.user_id = data.user_id;
+      }
+      if ('username' in data && data.username != undefined) {
+        this.username = data.username;
+      }
     }
-    get user_id() {
-        return pb_1.Message.getFieldWithDefault(this, 1, "") as string;
+  }
+  get user_id() {
+    return pb_1.Message.getFieldWithDefault(this, 1, '') as string;
+  }
+  set user_id(value: string) {
+    pb_1.Message.setField(this, 1, value);
+  }
+  get username() {
+    return pb_1.Message.getFieldWithDefault(this, 2, '') as string;
+  }
+  set username(value: string) {
+    pb_1.Message.setField(this, 2, value);
+  }
+  static fromObject(data: { user_id?: string; username?: string }): ProfileInfo {
+    const message = new ProfileInfo({});
+    if (data.user_id != null) {
+      message.user_id = data.user_id;
     }
-    set user_id(value: string) {
-        pb_1.Message.setField(this, 1, value);
+    if (data.username != null) {
+      message.username = data.username;
     }
-    get username() {
-        return pb_1.Message.getFieldWithDefault(this, 2, "") as string;
+    return message;
+  }
+  toObject() {
+    const data: {
+      user_id?: string;
+      username?: string;
+    } = {};
+    if (this.user_id != null) {
+      data.user_id = this.user_id;
     }
-    set username(value: string) {
-        pb_1.Message.setField(this, 2, value);
+    if (this.username != null) {
+      data.username = this.username;
     }
-    static fromObject(data: {
-        user_id?: string;
-        username?: string;
-    }): ProfileInfo {
-        const message = new ProfileInfo({});
-        if (data.user_id != null) {
-            message.user_id = data.user_id;
-        }
-        if (data.username != null) {
-            message.username = data.username;
-        }
-        return message;
+    return data;
+  }
+  serialize(): Uint8Array;
+  serialize(w: pb_1.BinaryWriter): void;
+  serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+    const writer = w || new pb_1.BinaryWriter();
+    if (this.user_id.length) writer.writeString(1, this.user_id);
+    if (this.username.length) writer.writeString(2, this.username);
+    if (!w) return writer.getResultBuffer();
+  }
+  static deserialize(bytes: Uint8Array | pb_1.BinaryReader): ProfileInfo {
+    const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes),
+      message = new ProfileInfo();
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) break;
+      switch (reader.getFieldNumber()) {
+        case 1:
+          message.user_id = reader.readString();
+          break;
+        case 2:
+          message.username = reader.readString();
+          break;
+        default:
+          reader.skipField();
+      }
     }
-    toObject() {
-        const data: {
-            user_id?: string;
-            username?: string;
-        } = {};
-        if (this.user_id != null) {
-            data.user_id = this.user_id;
-        }
-        if (this.username != null) {
-            data.username = this.username;
-        }
-        return data;
-    }
-    serialize(): Uint8Array;
-    serialize(w: pb_1.BinaryWriter): void;
-    serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
-        const writer = w || new pb_1.BinaryWriter();
-        if (this.user_id.length)
-            writer.writeString(1, this.user_id);
-        if (this.username.length)
-            writer.writeString(2, this.username);
-        if (!w)
-            return writer.getResultBuffer();
-    }
-    static deserialize(bytes: Uint8Array | pb_1.BinaryReader): ProfileInfo {
-        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new ProfileInfo();
-        while (reader.nextField()) {
-            if (reader.isEndGroup())
-                break;
-            switch (reader.getFieldNumber()) {
-                case 1:
-                    message.user_id = reader.readString();
-                    break;
-                case 2:
-                    message.username = reader.readString();
-                    break;
-                default: reader.skipField();
-            }
-        }
-        return message;
-    }
-    serializeBinary(): Uint8Array {
-        return this.serialize();
-    }
-    static deserializeBinary(bytes: Uint8Array): ProfileInfo {
-        return ProfileInfo.deserialize(bytes);
-    }
+    return message;
+  }
+  serializeBinary(): Uint8Array {
+    return this.serialize();
+  }
+  static deserializeBinary(bytes: Uint8Array): ProfileInfo {
+    return ProfileInfo.deserialize(bytes);
+  }
 }
 export class GetProfileInfoByUserIdsResponse extends pb_1.Message {
-    #one_of_decls: number[][] = [];
-    constructor(data?: any[] | {
-        profile_info?: ProfileInfo[];
-    }) {
-        super();
-        pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [1], this.#one_of_decls);
-        if (!Array.isArray(data) && typeof data == "object") {
-            if ("profile_info" in data && data.profile_info != undefined) {
-                this.profile_info = data.profile_info;
-            }
+  #one_of_decls: number[][] = [];
+  constructor(
+    data?:
+      | any[]
+      | {
+          profile_info?: ProfileInfo[];
         }
+  ) {
+    super();
+    pb_1.Message.initialize(this, Array.isArray(data) ? data : [], 0, -1, [1], this.#one_of_decls);
+    if (!Array.isArray(data) && typeof data == 'object') {
+      if ('profile_info' in data && data.profile_info != undefined) {
+        this.profile_info = data.profile_info;
+      }
     }
-    get profile_info() {
-        return pb_1.Message.getRepeatedWrapperField(this, ProfileInfo, 1) as ProfileInfo[];
+  }
+  get profile_info() {
+    return pb_1.Message.getRepeatedWrapperField(this, ProfileInfo, 1) as ProfileInfo[];
+  }
+  set profile_info(value: ProfileInfo[]) {
+    pb_1.Message.setRepeatedWrapperField(this, 1, value);
+  }
+  static fromObject(data: {
+    profile_info?: ReturnType<typeof ProfileInfo.prototype.toObject>[];
+  }): GetProfileInfoByUserIdsResponse {
+    const message = new GetProfileInfoByUserIdsResponse({});
+    if (data.profile_info != null) {
+      message.profile_info = data.profile_info.map(item => ProfileInfo.fromObject(item));
     }
-    set profile_info(value: ProfileInfo[]) {
-        pb_1.Message.setRepeatedWrapperField(this, 1, value);
+    return message;
+  }
+  toObject() {
+    const data: {
+      profile_info?: ReturnType<typeof ProfileInfo.prototype.toObject>[];
+    } = {};
+    if (this.profile_info != null) {
+      data.profile_info = this.profile_info.map((item: ProfileInfo) => item.toObject());
     }
-    static fromObject(data: {
-        profile_info?: ReturnType<typeof ProfileInfo.prototype.toObject>[];
-    }): GetProfileInfoByUserIdsResponse {
-        const message = new GetProfileInfoByUserIdsResponse({});
-        if (data.profile_info != null) {
-            message.profile_info = data.profile_info.map(item => ProfileInfo.fromObject(item));
-        }
-        return message;
+    return data;
+  }
+  serialize(): Uint8Array;
+  serialize(w: pb_1.BinaryWriter): void;
+  serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
+    const writer = w || new pb_1.BinaryWriter();
+    if (this.profile_info.length)
+      writer.writeRepeatedMessage(1, this.profile_info, (item: ProfileInfo) =>
+        item.serialize(writer)
+      );
+    if (!w) return writer.getResultBuffer();
+  }
+  static deserialize(bytes: Uint8Array | pb_1.BinaryReader): GetProfileInfoByUserIdsResponse {
+    const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes),
+      message = new GetProfileInfoByUserIdsResponse();
+    while (reader.nextField()) {
+      if (reader.isEndGroup()) break;
+      switch (reader.getFieldNumber()) {
+        case 1:
+          reader.readMessage(message.profile_info, () =>
+            pb_1.Message.addToRepeatedWrapperField(
+              message,
+              1,
+              ProfileInfo.deserialize(reader),
+              ProfileInfo
+            )
+          );
+          break;
+        default:
+          reader.skipField();
+      }
     }
-    toObject() {
-        const data: {
-            profile_info?: ReturnType<typeof ProfileInfo.prototype.toObject>[];
-        } = {};
-        if (this.profile_info != null) {
-            data.profile_info = this.profile_info.map((item: ProfileInfo) => item.toObject());
-        }
-        return data;
-    }
-    serialize(): Uint8Array;
-    serialize(w: pb_1.BinaryWriter): void;
-    serialize(w?: pb_1.BinaryWriter): Uint8Array | void {
-        const writer = w || new pb_1.BinaryWriter();
-        if (this.profile_info.length)
-            writer.writeRepeatedMessage(1, this.profile_info, (item: ProfileInfo) => item.serialize(writer));
-        if (!w)
-            return writer.getResultBuffer();
-    }
-    static deserialize(bytes: Uint8Array | pb_1.BinaryReader): GetProfileInfoByUserIdsResponse {
-        const reader = bytes instanceof pb_1.BinaryReader ? bytes : new pb_1.BinaryReader(bytes), message = new GetProfileInfoByUserIdsResponse();
-        while (reader.nextField()) {
-            if (reader.isEndGroup())
-                break;
-            switch (reader.getFieldNumber()) {
-                case 1:
-                    reader.readMessage(message.profile_info, () => pb_1.Message.addToRepeatedWrapperField(message, 1, ProfileInfo.deserialize(reader), ProfileInfo));
-                    break;
-                default: reader.skipField();
-            }
-        }
-        return message;
-    }
-    serializeBinary(): Uint8Array {
-        return this.serialize();
-    }
-    static deserializeBinary(bytes: Uint8Array): GetProfileInfoByUserIdsResponse {
-        return GetProfileInfoByUserIdsResponse.deserialize(bytes);
-    }
+    return message;
+  }
+  serializeBinary(): Uint8Array {
+    return this.serialize();
+  }
+  static deserializeBinary(bytes: Uint8Array): GetProfileInfoByUserIdsResponse {
+    return GetProfileInfoByUserIdsResponse.deserialize(bytes);
+  }
 }
 interface GrpcUnaryServiceInterface<P, R> {
-    (message: P, metadata: grpc_1.Metadata, options: grpc_1.CallOptions, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
-    (message: P, metadata: grpc_1.Metadata, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
-    (message: P, options: grpc_1.CallOptions, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
-    (message: P, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
+  (
+    message: P,
+    metadata: grpc_1.Metadata,
+    options: grpc_1.CallOptions,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientUnaryCall;
+  (
+    message: P,
+    metadata: grpc_1.Metadata,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientUnaryCall;
+  (
+    message: P,
+    options: grpc_1.CallOptions,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientUnaryCall;
+  (message: P, callback: grpc_1.requestCallback<R>): grpc_1.ClientUnaryCall;
 }
 interface GrpcStreamServiceInterface<P, R> {
-    (message: P, metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): grpc_1.ClientReadableStream<R>;
-    (message: P, options?: grpc_1.CallOptions): grpc_1.ClientReadableStream<R>;
+  (
+    message: P,
+    metadata: grpc_1.Metadata,
+    options?: grpc_1.CallOptions
+  ): grpc_1.ClientReadableStream<R>;
+  (message: P, options?: grpc_1.CallOptions): grpc_1.ClientReadableStream<R>;
 }
 interface GrpWritableServiceInterface<P, R> {
-    (metadata: grpc_1.Metadata, options: grpc_1.CallOptions, callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
-    (metadata: grpc_1.Metadata, callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
-    (options: grpc_1.CallOptions, callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
-    (callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
+  (
+    metadata: grpc_1.Metadata,
+    options: grpc_1.CallOptions,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientWritableStream<P>;
+  (metadata: grpc_1.Metadata, callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
+  (
+    options: grpc_1.CallOptions,
+    callback: grpc_1.requestCallback<R>
+  ): grpc_1.ClientWritableStream<P>;
+  (callback: grpc_1.requestCallback<R>): grpc_1.ClientWritableStream<P>;
 }
 interface GrpcChunkServiceInterface<P, R> {
-    (metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): grpc_1.ClientDuplexStream<P, R>;
-    (options?: grpc_1.CallOptions): grpc_1.ClientDuplexStream<P, R>;
+  (metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): grpc_1.ClientDuplexStream<P, R>;
+  (options?: grpc_1.CallOptions): grpc_1.ClientDuplexStream<P, R>;
 }
 interface GrpcPromiseServiceInterface<P, R> {
-    (message: P, metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): Promise<R>;
-    (message: P, options?: grpc_1.CallOptions): Promise<R>;
+  (message: P, metadata: grpc_1.Metadata, options?: grpc_1.CallOptions): Promise<R>;
+  (message: P, options?: grpc_1.CallOptions): Promise<R>;
 }
 export abstract class UnimplementedProfileServiceService {
-    static definition = {
-        GetProfileInfoByUserIds: {
-            path: "/ProfileService/GetProfileInfoByUserIds",
-            requestStream: false,
-            responseStream: false,
-            requestSerialize: (message: GetProfileInfoByUserIdsRequest) => Buffer.from(message.serialize()),
-            requestDeserialize: (bytes: Buffer) => GetProfileInfoByUserIdsRequest.deserialize(new Uint8Array(bytes)),
-            responseSerialize: (message: GetProfileInfoByUserIdsResponse) => Buffer.from(message.serialize()),
-            responseDeserialize: (bytes: Buffer) => GetProfileInfoByUserIdsResponse.deserialize(new Uint8Array(bytes))
-        }
-    };
-    [method: string]: grpc_1.UntypedHandleCall;
-    abstract GetProfileInfoByUserIds(call: grpc_1.ServerUnaryCall<GetProfileInfoByUserIdsRequest, GetProfileInfoByUserIdsResponse>, callback: grpc_1.sendUnaryData<GetProfileInfoByUserIdsResponse>): void;
+  static definition = {
+    GetProfileInfoByUserIds: {
+      path: '/ProfileService/GetProfileInfoByUserIds',
+      requestStream: false,
+      responseStream: false,
+      requestSerialize: (message: GetProfileInfoByUserIdsRequest) =>
+        Buffer.from(message.serialize()),
+      requestDeserialize: (bytes: Buffer) =>
+        GetProfileInfoByUserIdsRequest.deserialize(new Uint8Array(bytes)),
+      responseSerialize: (message: GetProfileInfoByUserIdsResponse) =>
+        Buffer.from(message.serialize()),
+      responseDeserialize: (bytes: Buffer) =>
+        GetProfileInfoByUserIdsResponse.deserialize(new Uint8Array(bytes)),
+    },
+  };
+  [method: string]: grpc_1.UntypedHandleCall;
+  abstract GetProfileInfoByUserIds(
+    call: grpc_1.ServerUnaryCall<GetProfileInfoByUserIdsRequest, GetProfileInfoByUserIdsResponse>,
+    callback: grpc_1.sendUnaryData<GetProfileInfoByUserIdsResponse>
+  ): void;
 }
-export class ProfileServiceClient extends grpc_1.makeGenericClientConstructor(UnimplementedProfileServiceService.definition, "ProfileService", {}) {
-    constructor(address: string, credentials: grpc_1.ChannelCredentials, options?: Partial<grpc_1.ChannelOptions>) {
-        super(address, credentials, options);
-    }
-    GetProfileInfoByUserIds: GrpcUnaryServiceInterface<GetProfileInfoByUserIdsRequest, GetProfileInfoByUserIdsResponse> = (message: GetProfileInfoByUserIdsRequest, metadata: grpc_1.Metadata | grpc_1.CallOptions | grpc_1.requestCallback<GetProfileInfoByUserIdsResponse>, options?: grpc_1.CallOptions | grpc_1.requestCallback<GetProfileInfoByUserIdsResponse>, callback?: grpc_1.requestCallback<GetProfileInfoByUserIdsResponse>): grpc_1.ClientUnaryCall => {
-        return super.GetProfileInfoByUserIds(message, metadata, options, callback);
-    };
+export class ProfileServiceClient extends grpc_1.makeGenericClientConstructor(
+  UnimplementedProfileServiceService.definition,
+  'ProfileService',
+  {}
+) {
+  constructor(
+    address: string,
+    credentials: grpc_1.ChannelCredentials,
+    options?: Partial<grpc_1.ChannelOptions>
+  ) {
+    super(address, credentials, options);
+  }
+  GetProfileInfoByUserIds: GrpcUnaryServiceInterface<
+    GetProfileInfoByUserIdsRequest,
+    GetProfileInfoByUserIdsResponse
+  > = (
+    message: GetProfileInfoByUserIdsRequest,
+    metadata:
+      | grpc_1.Metadata
+      | grpc_1.CallOptions
+      | grpc_1.requestCallback<GetProfileInfoByUserIdsResponse>,
+    options?: grpc_1.CallOptions | grpc_1.requestCallback<GetProfileInfoByUserIdsResponse>,
+    callback?: grpc_1.requestCallback<GetProfileInfoByUserIdsResponse>
+  ): grpc_1.ClientUnaryCall => {
+    return super.GetProfileInfoByUserIds(message, metadata, options, callback);
+  };
 }
