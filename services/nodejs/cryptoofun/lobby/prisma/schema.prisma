@@ -1,0 +1,36 @@
+generator client {
+  provider   = "prisma-client-js"
+  output     = "../../node_modules/@prisma/client-lobby"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "cockroachdb"
+  url      = env("DATABASE_URL")
+}
+
+model Lobby {
+  id                  String    @id @default(uuid())
+  title               String
+  description         String?
+  users               User[]
+  requiredCashBalance Float?    @db.Float8()
+  challenge           Challenge
+  cashAward           Float     @db.Float8()
+  isAwardDistributed  Boolean   @default(false)
+  opensAt             DateTime
+  closesAt            DateTime
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @default(now()) @updatedAt
+}
+
+model User {
+  id                 String  @id
+  initialCashBalance Float   @db.Float8()
+  Lobby              Lobby?  @relation(fields: [lobbyId], references: [id])
+  lobbyId            String?
+}
+
+enum Challenge {
+  BEST_PROFIT
+}

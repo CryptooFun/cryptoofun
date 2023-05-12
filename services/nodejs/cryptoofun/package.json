@@ -10,7 +10,8 @@
     "portfolio",
     "profile",
     "shared",
-    "leaderboard"
+    "leaderboard",
+    "lobby"
   ],
   "scripts": {
     "build": "turbo run build",
