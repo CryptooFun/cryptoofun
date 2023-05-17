@@ -10,18 +10,21 @@ datasource db {
 }
 
 model Lobby {
-  id                  String    @id @default(uuid())
+  id                  String     @id @default(uuid())
   title               String
   description         String?
   users               User[]
-  requiredCashBalance Float?    @db.Float8()
+  requiredCashBalance Float?     @db.Float8()
   challenge           Challenge
-  cashAward           Float     @db.Float8()
-  isAwardDistributed  Boolean   @default(false)
+  cashAward           Float      @db.Float8()
+  isAwardDistributed  Boolean    @default(false)
   opensAt             DateTime
   closesAt            DateTime
-  createdAt           DateTime  @default(now())
-  updatedAt           DateTime  @default(now()) @updatedAt
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @default(now()) @updatedAt
+  atOpeningStage      Boolean    @default(false)
+  atAftermathStage    Boolean    @default(false)
+  Aftermath           Aftermath?
 }
 
 model User {
@@ -29,6 +32,24 @@ model User {
   initialCashBalance Float   @db.Float8()
   Lobby              Lobby?  @relation(fields: [lobbyId], references: [id])
   lobbyId            String?
+}
+
+model Aftermath {
+  id        String          @id @default(uuid())
+  users     AftermathUser[]
+  Lobby     Lobby           @relation(fields: [lobbyId], references: [id])
+  lobbyId   String          @unique
+  createdAt DateTime        @default(now())
+}
+
+model AftermathUser {
+  id          String    @id @default(uuid())
+  userId      String
+  cashBefore  Float     @db.Float8
+  cashAfter   Float     @db.Float8
+  profitPct   Float     @db.Float8
+  Aftermath   Aftermath @relation(fields: [aftermathId], references: [id])
+  aftermathId String
 }
 
 enum Challenge {

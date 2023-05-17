@@ -2,6 +2,7 @@ const { setTimeout } = require('timers/promises');
 const helmet = require('helmet');
 const cors = require('cors');
 const express = require('express');
+const tasksManager = require('./tasks');
 
 const app = express();
 
@@ -10,12 +11,15 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/', require('./handlers/lobby'));
+app.use('/', require('./handlers/aftermath'));
 app.use('/', require('./handlers/user'));
 
 let httpServerInstance;
 const port = process.env.PORT || 5004;
 const start = async () => {
   try {
+    tasksManager.start();
+
     httpServerInstance = app.listen(port, () =>
       console.log(`[info] http server is listening on port ${port}...`)
     );
@@ -26,6 +30,9 @@ const start = async () => {
 
 process.on('SIGTERM', async () => {
   console.log('[info] shutting down the service...');
+
+  tasksManager.stop();
+
   httpServerInstance.close(err => {
     if (err) {
       console.error('[error] an error occured while closing the http server:', err);

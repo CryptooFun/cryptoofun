@@ -34,7 +34,7 @@ async function searchLobbies({ title }, take = 12, cursorId = null) {
     },
     where: {
       opensAt: {
-        gt: new Date(),
+        gt: new Date().toISOString(),
       },
       title: {
         contains: title,
@@ -49,12 +49,7 @@ async function searchLobbies({ title }, take = 12, cursorId = null) {
   });
 }
 
-async function awardTheWinner(lobbyId, userId) {
-  // TODO: ...
-}
-
 module.exports = {
   getLobbyById,
   searchLobbies,
-  awardTheWinner,
 };

@@ -19,12 +19,13 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.8.14",
     "@prisma/client": "^4.14.0",
+    "bullmq": "^3.13.4",
     "cors": "^2.8.5",
     "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "helmet": "^7.0.0",
     "genproto": "*",
+    "helmet": "^7.0.0",
     "shared": "*"
   }
 }

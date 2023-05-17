@@ -1,13 +1,4 @@
 const { prisma } = require('../db');
-const grpc = require('@grpc/grpc-js');
-
-const cashWalletMsgs = require('genproto/cash_wallet_pb');
-const cashWalletSvc = require('genproto/cash_wallet_grpc_pb');
-
-const cashWalletClient = new cashWalletSvc.CashWalletServiceClient(
-  process.env.GRPC_CASH_WALLET_SV,
-  grpc.credentials.createInsecure()
-);
 
 async function getLobbyUser(userId) {
   return await prisma.user.findUnique({
@@ -51,34 +42,10 @@ async function joinToLobbyAsUser({ userId, lobbyId }) {
     throw err;
   }
 
-  const cashWalletReq = new cashWalletMsgs.AskCashBalanceRequest();
-  cashWalletReq.setUserId(userId);
-
-  const balance = await new Promise((resolve, reject) => {
-    cashWalletClient.askCashBalance(cashWalletReq, (err, res) => {
-      if (err) {
-        return reject(err);
-      }
-      const balance = res.getBalance();
-      return resolve(balance);
-    });
-  });
-
   const targetLobby = await prisma.lobby.findUnique({
     where: { id: lobbyId },
-    select: {
-      opensAt: true,
-      requiredCashBalance: true,
-    },
+    select: { opensAt: true },
   });
-
-  if (targetLobby.requiredCashBalance) {
-    if (balance < targetLobby.requiredCashBalance) {
-      const err = new Error('Insufficient cash balance');
-      err.status = 400;
-      throw err;
-    }
-  }
 
   if (new Date() > targetLobby.opensAt) {
     const err = new Error('Cannot join lobby after opening');
@@ -86,17 +53,14 @@ async function joinToLobbyAsUser({ userId, lobbyId }) {
     throw err;
   }
 
-  await prisma.user.upsert({
-    where: { id: userId },
-    create: { initialCashBalance: balance, id: userId },
-    update: { initialCashBalance: balance },
-  });
-
   await prisma.lobby.update({
     where: { id: lobbyId },
     data: {
       users: {
-        connect: { id: userId },
+        connectOrCreate: {
+          create: { id: userId, initialCashBalance: -1 },
+          where: { id: userId },
+        },
       },
     },
   });
