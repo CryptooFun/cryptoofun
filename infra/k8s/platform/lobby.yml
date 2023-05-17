@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby
+  labels:
+    app: lobby
+    service: lobby
+spec:
+  ports:
+    - port: 7373
+      name: http
+  selector:
+    app: lobby
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cryptoofun-lobby
+  labels:
+    account: lobby
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lobby-v1
+  labels:
+    app: lobby
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: lobby
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: lobby
+        version: v1
+    spec:
+      serviceAccountName: cryptoofun-lobby
+      containers:
+        - name: lobby
+          image: gcr.io/cryptoofun/lobby:1.0-SNAPSHOT
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: "7373"
+              # TODO: redis cluster installation
+            - name: REDIS_HOST
+              value:
+            - name: REDIS_PORT
+              value: "6379"
+            - name: GRPC_CASH_WALLET_SV
+              value: "cash-wallet.cf.svc.cluster.local:57370"
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: crdb-secrets
+                  key: lobby_conn_str
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 7373
+              hostPort: 7373
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 500Mi

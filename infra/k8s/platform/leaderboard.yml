@@ -1,0 +1,71 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: leaderboard
+  labels:
+    app: leaderboard
+    service: leaderboard
+spec:
+  ports:
+    - port: 7372
+      name: http
+  selector:
+    app: leaderboard
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cryptoofun-leaderboard
+  labels:
+    account: leaderboard
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leaderboard-v1
+  labels:
+    app: leaderboard
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: leaderboard
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: leaderboard
+        version: v1
+    spec:
+      serviceAccountName: cryptoofun-leaderboard
+      containers:
+        - name: leaderboard
+          image: gcr.io/cryptoofun/leaderboard:1.0-SNAPSHOT
+          imagePullPolicy: Always
+          env:
+            - name: NODE_ENV
+              value: production
+            - name: PORT
+              value: "7372"
+              # TODO: redis cluster installation
+            - name: REDIS_HOST
+              value:
+            - name: REDIS_PORT
+              value: "6379"
+            - name: GRPC_CASH_WALLET_SV
+              value: "cash-wallet.cf.svc.cluster.local:57370"
+            - name: GRPC_PROFILE_SV
+              value: "profile.cf.svc.cluster.local:57372"
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 7372
+              hostPort: 7372
+          resources:
+            limits:
+              cpu: "1"
+              memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 500Mi
