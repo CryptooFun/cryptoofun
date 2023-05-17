@@ -9,11 +9,11 @@ const profileServices = require('genproto/profile_grpc_pb');
 
 module.exports = function () {
   const CashWalletClient = new cashWalletMessageServices.CashWalletServiceClient(
-    '0.0.0.0:50051',
+    process.env.GRPC_CASH_WALLET_SV || '0.0.0.0:50051',
     grpc.credentials.createInsecure()
   );
   const ProfileClient = new profileServices.ProfileServiceClient(
-    '0.0.0.0:50053',
+    process.env.GRPC_PROFILE_SV || '0.0.0.0:50053',
     grpc.credentials.createInsecure()
   );
 
