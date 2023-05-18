@@ -1,6 +1,6 @@
 const { prisma } = require('../db/dbConnect');
 
-const FREE_CREDITS_FOR_NEWBIES = 50_000;
+const FREE_CREDITS_FOR_NEWBIES = 5_000;
 
 const getBalance = async userId => {
   const cashWallet = await prisma.cashWallet.findUnique({

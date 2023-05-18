@@ -38,6 +38,7 @@ ENV GRPC_CASH_WALLET_SV ''
 ENV DATABASE_URL ''
 ENV REDIS_HOST ''
 ENV REDIS_PORT ''
+ENV REDIS_PWD ''
 
 WORKDIR /app
 RUN addgroup --system --gid 1001 nodejs

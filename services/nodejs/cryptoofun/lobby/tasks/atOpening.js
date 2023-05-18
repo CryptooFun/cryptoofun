@@ -6,6 +6,7 @@ const queue = new Queue('opening', {
   connection: {
     host: process.env.REDIS_HOST,
     port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PWD,
   },
 });
 
@@ -49,6 +50,7 @@ const worker = new Worker('opening', processOpenedLobby, {
   connection: {
     host: process.env.REDIS_HOST,
     port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PWD,
   },
 });
 
