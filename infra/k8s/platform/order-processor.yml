@@ -46,9 +46,9 @@ spec:
             - name: GRPC_SV_CASH_WALLET
               value: static://cash-wallet.cf.svc.cluster.local:57370
             - name: GRPC_SV_MARKET_DATA
-              value: static://market-data-streamer.cf.svc.cluster.local:57172
+              value: static://market-data-streamer.cf.svc.cluster.local:57171
             - name: GRPC_SV_PORTFOLIO
-              value: static://porfolio.cf.svc.cluster.local:57371
+              value: static://portfolio.cf.svc.cluster.local:57371
             - name: KAFKA_BS
               valueFrom:
                 secretKeyRef:

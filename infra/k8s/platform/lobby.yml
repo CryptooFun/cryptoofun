@@ -27,7 +27,7 @@ metadata:
     app: lobby
     version: v1
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: lobby
@@ -48,11 +48,15 @@ spec:
               value: production
             - name: PORT
               value: "7373"
-              # TODO: redis cluster installation
             - name: REDIS_HOST
-              value:
+              value: redis-release-master.redis.svc.cluster.local
             - name: REDIS_PORT
               value: "6379"
+            - name: REDIS_PWD
+              valueFrom:
+                secretKeyRef:
+                  name: redis-secrets
+                  key: password
             - name: GRPC_CASH_WALLET_SV
               value: "cash-wallet.cf.svc.cluster.local:57370"
             - name: DATABASE_URL

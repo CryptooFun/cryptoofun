@@ -1,18 +1,14 @@
 apiVersion: "security.istio.io/v1beta1"
 kind: "AuthorizationPolicy"
 metadata:
-  name: cash-wallet-policy
+  name: progression-policy
   namespace: cf
 spec:
   action: ALLOW
   selector:
     matchLabels:
-      app: cash-wallet
+      app: progression
   rules:
     - when:
         - key: request.auth.claims[permissions]
           values: ["read:services", "write:services"]
-    - to:
-        - operation:
-            methods: ["POST"]
-            paths: ["/CashWalletService/*"]

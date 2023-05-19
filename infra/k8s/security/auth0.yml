@@ -7,3 +7,4 @@ spec:
   jwtRules:
     - issuer: "https://cryptoofun.eu.auth0.com/"
       jwksUri: "https://cryptoofun.eu.auth0.com/.well-known/jwks.json"
+      forwardOriginalToken: true
