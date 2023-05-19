@@ -11,14 +11,18 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-      'turkuaz': '#34E0CE',
-      'gri': '#5C5C5C',
-      'white': '#FFFFFF',
-      'dark': '#3E3D3D',
-      'black': '#000000',
+      turkuaz: '#34E0CE',
+      gri: '#5C5C5C',
+      white: '#FFFFFF',
+      dark: '#3E3D3D',
+      black: '#000000',
+    },
+    screens: {
+      'max-lg': {
+        max: '1023px',
+      },
     },
     extend: {},
   },
   plugins: [],
 };
-
