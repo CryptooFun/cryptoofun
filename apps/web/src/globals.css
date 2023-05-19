@@ -3,14 +3,11 @@
 @tailwind utilities;
 
 @layer base {
-  
-
   .blur {
     filter: blur(8px); /* Adjust the blur amount as desired */
   }
 
   .transparent {
     opacity: 0.08; /* Adjust the opacity value (0 to 1) to control the transparency */
-  
-}
+  }
 }
