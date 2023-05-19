@@ -6,16 +6,17 @@ function DefaultLayout({ children }) {
   return (
     <>
       <Header />
-      <div className="bg-dark w-full justify-center items-center h-full">
+
+      <div className="absolute -z-10 bg-dark w-full justify-center items-center h-full">
         <Image
           className="max-h-screen mx-auto transparent"
           src={'/bg.png'}
-          alt="BackGround"
+          alt="Background"
           fill
         />
       </div>
 
-      {children}
+      <main className="max-w-max mx-auto text-center">{children}</main>
 
       <div className="bottom-0 mx-auto w-full fixed">
         <Footer />

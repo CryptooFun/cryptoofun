@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import TVCandlesticks from '@/components/tradingview/TVCandlesticks';
+import DefaultLayout from '@/components/layouts/DefaultLayout';
 
 function TradingPage() {
   const router = useRouter();
@@ -42,7 +43,7 @@ function TradingPage() {
   // }, []);
 
   return (
-    <>
+    <DefaultLayout>
       <br />
 
       {/* TODO: 4 hours window */}
@@ -91,7 +92,7 @@ function TradingPage() {
       >
         SELL
       </button>
-    </>
+    </DefaultLayout>
   );
 }
 

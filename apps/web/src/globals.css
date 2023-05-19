@@ -3,8 +3,17 @@
 @tailwind utilities;
 
 @layer base {
-  img {
-    position: relative !important;
+
+  body {
+    @apply text-white;
+  }
+
+  th, td {
+    padding: .5em 2em;
+  }
+  
+  th {
+    border-bottom: .15em white solid;
   }
 
   .blur {
@@ -14,4 +23,5 @@
   .transparent {
     opacity: 0.08; /* Adjust the opacity value (0 to 1) to control the transparency */
   }
+  
 }
