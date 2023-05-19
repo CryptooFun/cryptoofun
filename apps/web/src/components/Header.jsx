@@ -1,5 +1,4 @@
 import React from 'react';
-import Cryptoofun from '../assets/cryptoofun.svg';
 import Market from '../assets/market.svg';
 import Leaderboard from '../assets/leaderboard.svg';
 import LogOut from '@/assets/logout.svg';
@@ -56,11 +55,17 @@ const Header = () => {
   const { user } = useUser();
 
   return (
-    <div className="bg-dark fixed w-full z-10 items-center">
+    <div className="bg-dark w-full items-center">
       <div className="flex rounded-b-3xl w-full relative h-14 bg-gradient-to-r from-turkuaz via-gri to-gri">
-        <div className="flex items-center mt-1 ml-3 w-52 cursor-pointer">
+        <div className="self-center ml-3 w-52 cursor-pointer">
           <Link href={'/'}>
-            <Image className="" src={Cryptoofun} alt="logo" />
+            <Image
+              className=""
+              src={'/cryptoofun.png'}
+              alt="logo"
+              width={320}
+              height={96}
+            />
           </Link>
         </div>
 
@@ -70,8 +75,6 @@ const Header = () => {
               <HeaderLink {...route} />
             </li>
           ))}
-
-          <hr className="" />
 
           {user ? (
             <>
