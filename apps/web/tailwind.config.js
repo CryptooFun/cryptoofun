@@ -8,7 +8,17 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      'turkuaz': '#34E0CE',
+      'gri': '#5C5C5C',
+      'white': '#FFFFFF',
+      'dark': '#3E3D3D',
+      'black': '#000000',
+    },
     extend: {},
   },
   plugins: [],
 };
+

@@ -1,9 +1,11 @@
-function Footer() {
+import React from 'react'
+
+const Footer = () => {
   return (
-    <footer className="text-teal-500">
+    <div className='h-8 bg-gri opacity-20 text-white flex items-center justify-center'>
       © 2022 - {new Date().getFullYear()}
-    </footer>
+    </div>
   );
-}
+};
 
 export default Footer;
