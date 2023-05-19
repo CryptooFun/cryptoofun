@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  img {
+    position: relative !important;
+  }
+
   .blur {
     filter: blur(8px); /* Adjust the blur amount as desired */
   }
