@@ -25,6 +25,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "genproto": "*",
+    "google-protobuf": "^3.21.2",
     "helmet": "^7.0.0",
     "shared": "*"
   }

@@ -15,10 +15,11 @@ public class HttpApiController {
     private ExperienceRecordsRepository xpRecordsRepository;
 
     @GetMapping("/{userId}")
-    public ResponseEntity getLevelByUserId(@PathVariable String userId) {
+    public ResponseEntity<GetLevelByUserIdResponse> getLevelByUserId(@PathVariable String userId) {
         var recordOpt = xpRecordsRepository.findById(userId);
         if (recordOpt.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            var newbieResponse = new GetLevelByUserIdResponse(userId, 0, 0);
+            return new ResponseEntity<>(newbieResponse, HttpStatus.OK);
         }
         var record = recordOpt.get();
         var response = new GetLevelByUserIdResponse(

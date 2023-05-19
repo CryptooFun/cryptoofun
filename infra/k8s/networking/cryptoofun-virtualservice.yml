@@ -63,6 +63,28 @@ spec:
             port:
               number: 7371
 
+    - match:
+        - uri:
+            prefix: /api/v1/leaderboard/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: leaderboard
+            port:
+              number: 7372
+
+    - match:
+        - uri:
+            prefix: /api/v1/lobby/
+      rewrite:
+        uri: /
+      route:
+        - destination:
+            host: lobby
+            port:
+              number: 7373
+
     # The route for web app MUST always be at the end. (Istio matches paths in top-down order)
     # The web app catches all remaining routes.
     - match:

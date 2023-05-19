@@ -70,7 +70,7 @@ public class KafkaHandlers {
                         .setDelta(cashReserved)
                         .build());
             }
-            kafkaPublishers.sendBlocking(new TradeOrderCancelledEvent(command.getOrderID(), command.getUserID(), "Unknown reason"));
+            kafkaPublishers.sendBlocking(new TradeOrderCancelledEvent(command.getOrderID(), command.getUserID(), e.getMessage()));
         }
     }
 }

@@ -12,3 +12,7 @@ spec:
     - when:
         - key: request.auth.claims[permissions]
           values: ["read:services", "write:services"]
+    - to:
+        - operation:
+            methods: ["POST"]
+            paths: ["/PortfolioService/*"]
