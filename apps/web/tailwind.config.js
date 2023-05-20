@@ -17,6 +17,9 @@ module.exports = {
       dark: '#3E3D3D',
       black: '#000000',
     },
+    boxShadow: {
+      default: "0px 16px 16px rgba(0, 0, 0, 0.160784)",
+    },
     screens: {
       'max-lg': {
         max: '1023px',

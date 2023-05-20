@@ -2,6 +2,7 @@ import React from 'react';
 import Market from '../assets/market.svg';
 import Leaderboard from '../assets/leaderboard.svg';
 import LogOut from '@/assets/logout.svg';
+import LogIn from '@/assets/login.svg';
 import Wallet from '../assets/wallet.svg';
 import Lobbies from '../assets/lobbies.svg';
 import Profile from '../assets/profile.svg';
@@ -36,7 +37,7 @@ const routes = [
 const loginRoute = {
   name: 'Log In',
   href: '/api/auth/login',
-  icon: LogOut, // TODO: Change with LogIn icon
+  icon: LogIn,
 };
 
 const profileRoute = {
@@ -81,12 +82,12 @@ const Header = () => {
               <li className="mx-2 hover:scale-110">
                 <HeaderLink {...profileRoute} />
               </li>
-              <li className="mx-2">
+              <li className="mx-2 hover:scale-110">
                 <HeaderLink {...logoutRoute} />
               </li>
             </>
           ) : (
-            <li className="mx-2">
+            <li className="mx-2 hover:scale-110">
               <HeaderLink {...loginRoute} />
             </li>
           )}

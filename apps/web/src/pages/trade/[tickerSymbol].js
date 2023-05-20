@@ -52,46 +52,52 @@ function TradingPage() {
       {mutation.isSuccess ? <div>Success!</div> : <></>}
       <p>{router.query.tickerSymbol}</p>
       <br />
-      <input
-        className="text-black"
-        id="buy-amount"
-        onChange={e => {
-          const value = Number(e.target.value);
-          if (!isNaN(value)) {
-            setBuyAmount(value);
-          }
-        }}
-        value={buyAmount}
-      />
-      <button
-        id="buy-btn"
-        onClick={() => {
-          mutation.mutate({ intent: 'buy', amount: buyAmount });
-        }}
-      >
-        BUY
-      </button>
-      <br />
-      <br />
-      <input
-        className="text-black"
-        id="sell-amount"
-        onChange={e => {
-          const value = Number(e.target.value);
-          if (!isNaN(value)) {
-            setSellAmount(value);
-          }
-        }}
-        value={sellAmount}
-      />
-      <button
-        id="sell-btn"
-        onClick={() => {
-          mutation.mutate({ intent: 'sell', amount: sellAmount });
-        }}
-      >
-        SELL
-      </button>
+      <div className=' flex justify-center '>
+        <div className='flex flex-col w-60 mr-4'>
+          <input
+            className="text-black rounded-md p-1"
+            id="buy-amount"
+            onChange={e => {
+              const value = Number(e.target.value);
+              if (!isNaN(value)) {
+                setBuyAmount(value);
+              }
+            }}
+            value={buyAmount}
+          />
+          <button className=' bg-turkuaz text-dark font-bold rounded-xl p-2 mt-4 '
+            id="buy-btn"
+            onClick={() => {
+              mutation.mutate({ intent: 'buy', amount: buyAmount });
+            }}
+          >
+            BUY
+          </button>
+        </div>
+        <br />
+        <br />
+        <div className='flex flex-col w-60 ml-4'>
+          <input
+            className="text-black rounded-md p-1"
+            id="sell-amount"
+            onChange={e => {
+              const value = Number(e.target.value);
+              if (!isNaN(value)) {
+                setSellAmount(value);
+              }
+            }}
+            value={sellAmount}
+          />
+          <button className=' bg-gri text-turkuaz font-bold rounded-xl p-2 mt-4'
+            id="sell-btn"
+            onClick={() => {
+              mutation.mutate({ intent: 'sell', amount: sellAmount });
+            }}
+          >
+            SELL
+          </button>
+        </div>
+      </div>
     </DefaultLayout>
   );
 }

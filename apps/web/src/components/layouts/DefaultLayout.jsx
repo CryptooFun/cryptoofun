@@ -5,9 +5,9 @@ import Image from 'next/image';
 function DefaultLayout({ children }) {
   return (
     <>
-      <Header />
+      <Header className="fixed top-0 w-full bg-dark z-10" />
 
-      <div className="absolute -z-10 bg-dark w-full justify-center items-center h-full">
+      <div className="fixed  -z-10 bg-dark w-full justify-center items-center h-full">
         <Image
           className="max-h-screen mx-auto transparent"
           src={'/bg.png'}

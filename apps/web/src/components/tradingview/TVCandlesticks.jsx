@@ -33,8 +33,8 @@ export default function TradingViewWidget({ symbol }) {
       ) {
         new window.TradingView.widget({
           autosize: false,
-          width: 910,
-          height: 610,
+          width: 1000,
+          height: 470,
           symbol: `${symbol}USDT`,
           interval: 'D',
           timezone: 'Etc/UTC',

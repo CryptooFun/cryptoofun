@@ -6,6 +6,7 @@
 
   body {
     @apply text-white;
+    @apply bg-dark;
   }
 
   th, td {
