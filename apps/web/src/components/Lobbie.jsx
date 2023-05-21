@@ -24,6 +24,9 @@ const Lobbie = () => {
           <tr>Goal: %8 Profit </tr>
           <tr>Prize: Profit + $400</tr>
         </span>
+        <button className=" justify-center items-center  bg-dark opacity-75 py-1 px-6 mt-6 hover:scale-110 rounded-2xl">
+          JOIN
+        </button>
       </div>
     </div>
   );

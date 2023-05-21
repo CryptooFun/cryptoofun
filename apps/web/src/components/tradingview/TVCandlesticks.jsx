@@ -33,15 +33,15 @@ export default function TradingViewWidget({ symbol }) {
       ) {
         new window.TradingView.widget({
           autosize: false,
-          width: 1000,
-          height: 470,
+          width: 1100,
+          height: 440,
           symbol: `${symbol}USDT`,
           interval: 'D',
           timezone: 'Etc/UTC',
           theme: 'dark',
           style: '1',
           locale: 'en',
-          toolbar_bg: '#f1f3f6',
+          toolbar_bg: '#5C5C5C',
           enable_publishing: false,
           allow_symbol_change: true,
           container_id: 'tradingview_51965',

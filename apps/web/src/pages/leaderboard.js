@@ -19,7 +19,6 @@ function Leaderboard() {
 
 
           <td>{username}</td>
-
           <td>{profit}</td>
           <td>{balance}</td>
 

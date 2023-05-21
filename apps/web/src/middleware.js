@@ -3,5 +3,7 @@ import { withMiddlewareAuthRequired } from '@auth0/nextjs-auth0/edge';
 export default withMiddlewareAuthRequired();
 
 export const config = {
-  matcher: ['/trade/:path*', '/lobby/:path*', '/wallet', '/profile'],
+  matcher: ['/trade/:path*', '/lobby/:path*',],
 };
+
+// '/wallet'

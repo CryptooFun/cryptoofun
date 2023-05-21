@@ -91,8 +91,9 @@ function Market() {
   return (
     <DefaultLayout>
       <h1 className="mt-8 mb-3 text-turkuaz font-bold text-3xl">Market</h1>
-      <div class="">
-        <div class="relative mb-4 flex w-60 flex-wrap items-stretch">
+      <div className=' w-50 h-0.5 bg-turkuaz rounded-3xl '></div>
+      <div class="mt-4 ml-96">
+        <div class="relative ml-96 mb-4 flex w-60 flex-wrap items-stretch">
           <input
             type="search"
             class="relative m-0 -mr-0.5 block w-[1px] min-w-0 flex-auto rounded-l border border-solid border-gri opacity-80 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none   "
@@ -128,7 +129,7 @@ function Market() {
         </tr>
 
         {data.map(({ symbol, name, price, change, volume, marketCap }, i) => (
-          <tr className='hover:bg-gri' key={i} onClick={ }>
+          <tr className='hover:bg-gri' key={i} onClick={""}>
 
             <td>
               {/* TODO: Change image src with ${symbol}.svg */}
