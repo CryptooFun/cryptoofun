@@ -41,31 +41,33 @@ function Assets() {
       <h1 className="mt-8 mb-3 text-turkuaz font-bold text-3xl">Assets</h1>
       <div className=" w-50 h-0.5 bg-turkuaz rounded-3xl "></div>
 
-      {balance && (
-        <div className="text-right">
-          <div className="text-center font-extrabold rounded-2xl p-3 w-auto bg-gri text-2xl mt-4 inline-block">
+      <div className="text-right">
+        <div className="text-center font-extrabold rounded-2xl p-3 w-auto bg-gri text-2xl mt-4 inline-block">
+          {balance ? (
             <p className="text-turkuaz">
               $ {hideBalance ? '*******' : Number(balance)}
             </p>
+          ) : (
+            <p className="font-normal text-sm">
+              <i>Loading...</i>
+            </p>
+          )}
 
-            <div
-              className="hover:cursor-pointer"
-              onClick={() => setHideBalance(!hideBalance)}
-            >
-              <p className="text-white text-lg inline-block mr-2">
-                Cash Balance
-              </p>
-              <Image
-                className="inline-block"
-                src={`/icons/${hideBalanceIcon().icon}.png`}
-                width={20}
-                height={20}
-                alt={hideBalanceIcon().alt}
-              />
-            </div>
+          <div
+            className="hover:cursor-pointer"
+            onClick={() => setHideBalance(!hideBalance)}
+          >
+            <p className="text-white text-lg inline-block mr-2">Cash Balance</p>
+            <Image
+              className="inline-block"
+              src={`/icons/${hideBalanceIcon().icon}.png`}
+              width={20}
+              height={20}
+              alt={hideBalanceIcon().alt}
+            />
           </div>
         </div>
-      )}
+      </div>
 
       <h3 className="mt-4 font-bold text-xl text-left">Portfolio</h3>
       <table className="w-full  mt-4 text-left">
