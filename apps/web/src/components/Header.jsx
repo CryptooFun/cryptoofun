@@ -22,6 +22,9 @@ const routes = [
     href: '/leaderboard',
     icon: Leaderboard,
   },
+];
+
+const protectedRoutes = [
   {
     name: 'Lobbies',
     href: '/lobbies',
@@ -32,24 +35,22 @@ const routes = [
     href: '/wallet',
     icon: Wallet,
   },
+  {
+    name: 'Profile',
+    href: '/profile',
+    icon: Profile,
+  },
+  {
+    name: 'Log Out',
+    href: '/api/auth/logout',
+    icon: LogOut,
+  },
 ];
 
 const loginRoute = {
   name: 'Log In',
   href: '/api/auth/login',
   icon: LogIn,
-};
-
-const profileRoute = {
-  name: 'Profile',
-  href: '/profile',
-  icon: Profile,
-};
-
-const logoutRoute = {
-  name: 'Log Out',
-  href: '/api/auth/logout',
-  icon: LogOut,
 };
 
 const Header = () => {
@@ -79,12 +80,11 @@ const Header = () => {
 
           {user ? (
             <>
-              <li className="mx-2 hover:scale-110">
-                <HeaderLink {...profileRoute} />
-              </li>
-              <li className="mx-2 hover:scale-110">
-                <HeaderLink {...logoutRoute} />
-              </li>
+              {protectedRoutes.map((route, i) => (
+                <li key={i} className="mx-2 hover:scale-110">
+                  <HeaderLink {...route} />
+                </li>
+              ))}
             </>
           ) : (
             <li className="mx-2 hover:scale-110">
