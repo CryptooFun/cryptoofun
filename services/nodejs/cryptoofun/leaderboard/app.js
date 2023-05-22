@@ -8,7 +8,7 @@ const { CronJob } = require('cron');
 const express = require('express');
 const app = express();
 
-const job = new CronJob('*/5 * * * *', require('./leaderboardConstructor'), null, true);
+const job = new CronJob('*/1 * * * *', require('./leaderboardConstructor'), null, true);
 
 // Routers
 const leaderboardRouter = require('./leaderboardRoute');

@@ -23,6 +23,7 @@ module.exports = function () {
 
   CashWalletClient.askTopBalancesDescending(cashWalletRequest, (err, result) => {
     if (err) {
+      console.error('cash-wallet[grpc]:', err);
       return;
     }
     var balanceItems = result.getBalancesList();
@@ -35,6 +36,7 @@ module.exports = function () {
 
     ProfileClient.getProfileInfoByUserIds(userNameRequest, (err, result) => {
       if (err) {
+        console.error('profile[grpc]:', err);
         return;
       }
 
