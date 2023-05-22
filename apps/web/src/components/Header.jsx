@@ -31,8 +31,8 @@ const protectedRoutes = [
     icon: Lobbies,
   },
   {
-    name: 'Wallet',
-    href: '/wallet',
+    name: 'Assets',
+    href: '/assets',
     icon: Wallet,
   },
   {
