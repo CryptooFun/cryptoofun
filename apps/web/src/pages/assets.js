@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 function Assets() {
   const router = useRouter();
@@ -10,61 +11,30 @@ function Assets() {
   const { data: balance } = useQuery({
     queryKey: ['user-wallet-balance'],
     queryFn: async () => {
-      const res = await axios.get('/api/assets/');
+      const res = await axios.get('/api/assets/wallet/');
       return res.data;
     },
   });
 
-  const data = [
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
+  const { data: portfolio } = useQuery({
+    queryKey: ['user-portfolio'],
+    queryFn: async () => {
+      const res = await axios.get('/api/assets/portfolio/');
+      return res.data;
     },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'AVAX',
-      name: 'Avalanche',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-  ];
+  });
+
+  const [hideBalance, setHideBalance] = useState(false);
+  const hideBalanceIcon = () =>
+    hideBalance
+      ? {
+          icon: 'eye-close',
+          alt: 'Eyes close',
+        }
+      : {
+          icon: 'eye-open',
+          alt: 'Eyes open',
+        };
 
   return (
     <DefaultLayout>
@@ -72,51 +42,73 @@ function Assets() {
       <div className=" w-50 h-0.5 bg-turkuaz rounded-3xl "></div>
 
       {balance && (
-        <div className="text-left">
-          <span className="text-xl">
-            <b>Cash Balance = </b>
-          </span>
-          <div className="font-extrabold rounded-2xl p-3 w-auto items-center justify-center bg-gri text-2xl mt-4 inline-block">
-            <span className="text-turkuaz">${Number(balance)} </span>
+        <div className="text-right">
+          <div className="text-center font-extrabold rounded-2xl p-3 w-auto bg-gri text-2xl mt-4 inline-block">
+            <p className="text-turkuaz">
+              $ {hideBalance ? '*******' : Number(balance)}
+            </p>
+
+            <div
+              className="hover:cursor-pointer"
+              onClick={() => setHideBalance(!hideBalance)}
+            >
+              <p className="text-white text-lg inline-block mr-2">
+                Cash Balance
+              </p>
+              <Image
+                className="inline-block"
+                src={`/icons/${hideBalanceIcon().icon}.png`}
+                width={20}
+                height={20}
+                alt={hideBalanceIcon().alt}
+              />
+            </div>
           </div>
         </div>
       )}
 
+      <h3 className="mt-4 font-bold text-xl text-left">Portfolio</h3>
       <table className="w-full  mt-4 text-left">
         <thead className="bg-gri  text-white opacity-80 ">
           <tr>
             <th>Coin</th>
-            <th>Available Amount</th>
-            <th>Value</th>
+            <th>Amount</th>
+            <th>Cost</th>
             <th></th>
           </tr>
         </thead>
 
-        <tbody>
-          {data.map(({ name, symbol }, i) => (
-            <tr
-              key={i}
-              className="hover:cursor-pointer hover:bg-gri"
-              onClick={() => router.push(`/trade/${symbol}_USDT`)}
-            >
-              <td>
-                <Image
-                  className="mr-2 inline-block"
-                  src={`/currency/${symbol.toLowerCase()}.svg`}
-                  alt={''}
-                  width={24}
-                  height={24}
-                />
-                <span>
-                  <b>{symbol}</b> {name}
-                </span>
-              </td>
-              <td>0.245</td>
-              <td>$4165</td>
-              <td className="text-turkuaz font-bold">Trade Now</td>
-            </tr>
-          ))}
-        </tbody>
+        {portfolio && (
+          <tbody>
+            {portfolio.map(({ ticker, amount, cost }, i) => {
+              const pair = ticker.split(/[-_\s]/);
+
+              return (
+                <tr
+                  key={i}
+                  className="h-16 hover:cursor-pointer hover:bg-gri"
+                  onClick={() => router.push(`/trade/${ticker}`)}
+                >
+                  <td>
+                    <Image
+                      className="mr-4 inline-block"
+                      src={`/currency/${pair[0].toLowerCase()}.svg`}
+                      alt={''}
+                      width={28}
+                      height={28}
+                    />
+                    <span>
+                      <b>{pair[0]}</b> {pair[0] + pair[1]}
+                    </span>
+                  </td>
+                  <td>{amount}</td>
+                  <td>$ {cost}</td>
+                  <td className="text-turkuaz font-bold">Trade Now</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        )}
       </table>
     </DefaultLayout>
   );
