@@ -9,13 +9,11 @@ import Image from 'next/image';
 function TradingPage() {
   const router = useRouter();
   const mutation = useMutation({
-    mutationFn: ({ intent, amount }) => (
-      axios.post`/api/trade/market/${intent}`,
-      {
+    mutationFn: ({ intent, amount }) =>
+      axios.post(`/api/trade/market/${intent}`, {
         ticker: router.query.tickerSymbol,
         amount,
-      }
-    ),
+      }),
   });
   const data = [
     {
@@ -129,7 +127,8 @@ function TradingPage() {
       change: 12.512,
       volume: 32_000_546,
       marketCap: 322_712_080_040,
-    },]
+    },
+  ];
 
   const [symbol, setSymbol] = useState();
 
@@ -166,11 +165,10 @@ function TradingPage() {
           <tr className="flex sticky rounded-t-xl justify-center bg-turkuaz text-dark opacity-90 p-1">
             Favourite Coins
           </tr>
-          <div className='overflow-y-scroll cursor-pointer'>
-            {data.map(({ symbol, name, }, i) => (
-              <tr className='hover:bg-gri flex' key={i} onClick={""}>
-
-                <td className='flex font-normal items-center  justify-center'>
+          <div className="overflow-y-scroll cursor-pointer">
+            {data.map(({ symbol, name }, i) => (
+              <tr className="hover:bg-gri flex" key={i} onClick={''}>
+                <td className="flex font-normal items-center  justify-center">
                   {/* TODO: Change image src with ${symbol}.svg */}
                   <Image
                     className=" mr-2 inline-block"
@@ -179,8 +177,8 @@ function TradingPage() {
                     width={24}
                     height={24}
                   />
-                  <span className='text-sm flex'>
-                    <b className='mr-2'>{symbol}</b> {name}
+                  <span className="text-sm flex">
+                    <b className="mr-2">{symbol}</b> {name}
                   </span>
                 </td>
               </tr>

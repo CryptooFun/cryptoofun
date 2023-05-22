@@ -25,9 +25,11 @@ export default function Leaderboard() {
         data && (
           <table className="w-full  mt-14 text-left">
             <thead className="bg-gri text-white opacity-80">
-              <th>#</th>
-              <th>Username</th>
-              <th>Total Wallet Balance</th>
+              <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>Total Wallet Balance</th>
+              </tr>
             </thead>
 
             <tbody>

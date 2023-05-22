@@ -8,58 +8,52 @@ import Image from 'next/image';
 import Card from '@/components/Card';
 
 function Home() {
-  return <DefaultLayout>
-    <div className='my-10 flex flex-col items-center '>
-      <Image
-        className="mb-4"
-        src={CryptooFun}
-        alt="Name"
-        width={350}
-        height={120}
-      />
-      <Image
-        className="mb-5"
-        src={Line}
-        alt="line"
-        width={700}
-        height={120}
-      />
-      <Image
-        className=" mb-8"
-        src={Text1}
-        alt="Text 1"
-        width={700}
-        height={120}
-      />
-      <Image
-        className=" "
-        src={Title}
-        alt="Title"
-        width={500}
-        height={120}
-      />
-      <Image
-        className="mt-4"
-        src={Line}
-        alt="Line"
-        width={700}
-        height={120}
-      />
+  return (
+    <DefaultLayout>
+      <div className="my-10 flex flex-col items-center">
+        <Image
+          className="mb-4"
+          src={CryptooFun}
+          alt="Name"
+          width={350}
+          height={120}
+        />
+        <Image
+          className="mb-5"
+          src={Line}
+          alt="line"
+          width={700}
+          height={120}
+        />
+        <Image
+          className=" mb-8"
+          src={Text1}
+          alt="Text 1"
+          width={700}
+          height={120}
+        />
+        <Image className=" " src={Title} alt="Title" width={500} height={120} />
+        <Image
+          className="mt-4"
+          src={Line}
+          alt="Line"
+          width={700}
+          height={120}
+        />
 
-
-      <div className=' grid grid-cols-4 mt-8 gap-6'>
-
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
-        <Card></Card>
+        <div className=" grid grid-cols-4 mt-8 gap-6">
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+          <Card></Card>
+        </div>
       </div>
-    </div>
-  </DefaultLayout>;
+    </DefaultLayout>
+  );
 }
 
 export default Home;
