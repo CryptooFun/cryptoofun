@@ -19,11 +19,17 @@ module.exports = {
       green: '#32CD32',
     },
     boxShadow: {
-      default: "0px 16px 16px rgba(0, 0, 0, 0.160784)",
+      default: '0px 16px 16px rgba(0, 0, 0, 0.160784)',
     },
     screens: {
       'max-lg': {
         max: '1023px',
+      },
+      'max-md': {
+        max: '767px',
+      },
+      'max-sm': {
+        max: '639px',
       },
     },
     extend: {},
