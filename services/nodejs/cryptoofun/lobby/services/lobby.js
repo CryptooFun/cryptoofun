@@ -4,13 +4,13 @@ async function getLobbyById(lobbyId) {
   return await prisma.lobby.findUnique({ where: { id: lobbyId } });
 }
 
-async function searchLobbies({ title }, take = 12, cursorId = null) {
+async function searchLobbies({ title }, take, cursorId = null) {
   // Return nothing if the title keyword's provided but does not satisfy >= 3 characters.
-  if (title.length >= 1 && title.length < 3) {
+  if (title?.length >= 1 && title?.length < 3) {
     return [];
   }
 
-  take = Number(take);
+  take = Number(take) || 12;
   // Do not allow to search for more than 20 records (becuase of performance concerns).
   const TakeConstraintMax = 20;
   if (take > TakeConstraintMax) {
