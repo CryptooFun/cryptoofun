@@ -21,6 +21,11 @@ async function getAftermathsByUserId(userId) {
               users: true,
             },
           },
+          Lobby: {
+            select: {
+              title: true,
+            },
+          },
         },
       },
     },

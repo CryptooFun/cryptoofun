@@ -153,7 +153,7 @@ function Market() {
                 href={`/trade/${symbol}_USDT`}
                 className="text-turkuaz font-bold"
               >
-                Trade
+                Trade Now
               </Link>
             </td>
           </tr>

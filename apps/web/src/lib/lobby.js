@@ -18,6 +18,19 @@ export async function GetAllLobbies(query) {
   return await response.json();
 }
 
+export async function GetMyAftermaths(authnToken) {
+  const url = new URL('/lobby/me/aftermath', apiOriginUrl);
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authnToken}`,
+      'Content-Type': 'application/json',
+    },
+  });
+  return await response.json();
+}
+
 export async function JoinToLobby(authnToken, id) {
   const url = new URL('/lobby/join', apiOriginUrl);
 
