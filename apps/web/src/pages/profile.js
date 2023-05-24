@@ -37,6 +37,14 @@ function Profile() {
     },
   });
 
+  const { data: progression } = useQuery({
+    queryKey: ['user-progression'],
+    queryFn: async () => {
+      const res = await axios.get('/api/progression/');
+      return res.data;
+    },
+  });
+
   const handleEditProfile = () => {
     setIsEditing(true);
   };
@@ -55,7 +63,7 @@ function Profile() {
     } else {
       setSelectedAvatar(avatarOptions[0]);
     }
-  }, []);
+  }, [avatarOptions]);
 
   const handleEditAvatar = () => {
     setShowAvatarOptions(!showAvatarOptions);
@@ -130,18 +138,26 @@ function Profile() {
         <div className="text-xl p-4 w-full rounded-2xl bg-gri opacity-70 mt-4">
           <div className="flex flex-col items-left justify-center mt-2">
             <div className="mb-4 flex justify-between">
+              <span className="bg-dark px-3 rounded-xl py-1 w-44">Level</span>
+              <span className="ml-2 self-end">{progression?.level}</span>
+            </div>
+            <div className="mb-4 flex justify-between">
+              <span className="bg-dark px-3 rounded-xl py-1 w-44">XP</span>
+              <span className="ml-2 self-end">{progression?.xp}</span>
+            </div>
+            <div className="mb-4 flex justify-between">
               <span className="bg-dark px-3 rounded-xl py-1 self-start w-44">
                 Username:
               </span>
               {isEditing ? (
                 <input
                   type="text"
-                  value={user.nickname}
+                  value={user?.nickname}
                   onChange={e => setUsername(e.target.value)}
                   className="ml-2 rounded-lg p-1 text-dark focus:outline-none self-end"
                 />
               ) : (
-                <span className="ml-2 self-end">{user.nickname}</span>
+                <span className="ml-2 self-end">{user?.nickname}</span>
               )}
             </div>
             <div className="mb-4 flex justify-between">
@@ -151,12 +167,12 @@ function Profile() {
               {isEditing ? (
                 <input
                   type="text"
-                  value={user.email}
+                  value={user?.email}
                   onChange={e => setEmail(e.target.value)}
                   className="ml-2 rounded-lg p-1 text-dark focus:outline-none self-end"
                 />
               ) : (
-                <span className="ml-2 self-end">{user.email}</span>
+                <span className="ml-2 self-end">{user?.email}</span>
               )}
             </div>
             <div className="mb-4 flex justify-between">
