@@ -7,9 +7,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class TickerRecapData {
+public class TickerData {
     private String symbol;
     private String lastPrice;
     private String priceChangePercent;
     private String volume;
+    private String bidPrice;
+    private String askPrice;
+    private String bidQty;
+    private String askQty;
 }

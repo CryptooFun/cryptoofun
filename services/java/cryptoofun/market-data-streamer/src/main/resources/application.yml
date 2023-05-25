@@ -8,3 +8,10 @@ grpc:
 binance:
   api-key: ${BINANCE_API_KEY:}
   secret-key: ${BINANCE_SECRET_KEY:}
+
+spring:
+  redis:
+    host: ${REDIS_HOST:0.0.0.0}
+    port: ${REDIS_PORT:6379}
+    username: ${REDIS_USERNAME:}
+    password: ${REDIS_PASSWORD:}

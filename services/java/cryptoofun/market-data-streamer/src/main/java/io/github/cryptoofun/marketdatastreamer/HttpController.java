@@ -22,13 +22,13 @@ public class HttpController {
     }
 
     @GetMapping("/market/data/recap")
-    public ResponseEntity<List<TickerRecapData>> getMarketRecap() throws JsonProcessingException {
+    public ResponseEntity<List<TickerData>> getMarketRecap() throws JsonProcessingException {
         var body = binanceMarketService.QueryAvailableTickersRecap();
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
 
     @GetMapping("/market/data/popular")
-    public ResponseEntity<List<TickerRecapData>> getMarketPopular() throws JsonProcessingException {
+    public ResponseEntity<List<TickerData>> getMarketPopular() throws JsonProcessingException {
         var body = binanceMarketService.QueryPopularTickersRecap();
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
