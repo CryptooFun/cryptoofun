@@ -1,136 +1,39 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import TVCandlesticks from '@/components/tradingview/TVCandlesticks';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import Image from 'next/image';
+import { toast } from 'react-toastify';
 
 function TradingPage() {
   const router = useRouter();
+
+  const { data: symbolsData } = useQuery({
+    queryKey: ['allowed-symbols'],
+    queryFn: async () => {
+      const response = await axios.get('/api/market/symbols');
+      return response.data;
+    },
+  });
+
   const mutation = useMutation({
     mutationFn: ({ intent, amount }) =>
       axios.post(`/api/trade/market/${intent}`, {
         ticker: router.query.tickerSymbol,
         amount,
       }),
+    onSuccess: () => {
+      toast.success('Successfully created!');
+    },
+    onError: () => {
+      toast.error('Failed to create...', {});
+    },
   });
-  const data = [
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-    {
-      symbol: 'BTC',
-      name: 'Bitcoin',
-      price: 1000,
-      change: 12.512,
-      volume: 32_000_546,
-      marketCap: 322_712_080_040,
-    },
-  ];
 
   const [symbol, setSymbol] = useState();
+  const [listQuery, setListQuery] = useState('');
 
   const [buyAmount, setBuyAmount] = useState(1.0);
   const [sellAmount, setSellAmount] = useState(1.0);
@@ -142,54 +45,65 @@ function TradingPage() {
     }
   }, [router.query.tickerSymbol, setSymbol]);
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     if (
-  //       document.getElementById('header-toolbar-symbol-search') &&
-  //       document.getElementById('header-toolbar-compare')
-  //     ) {
-  //       document.getElementById('header-toolbar-symbol-search').disabled = true;
-  //       document.getElementById('header-toolbar-compare').remove();
-  //     }
-  //   }, 1000);
-  //   return () => clearInterval(interval);
-  // }, []);
-
   return (
     <DefaultLayout>
       <br />
       <div className="flex">
-        {/* TODO: 4 hours window */}
         {symbol ? <TVCandlesticks symbol={symbol}></TVCandlesticks> : <></>}
-        <div className="ml-2 flex  overflow-x-hidden flex-col text-lg font-semibold ring-2 ring-gri rounded-xl max-w-40 max-h-[430px] mb-2 mr-1">
-          <tr className="flex sticky rounded-t-xl justify-center bg-turkuaz text-dark opacity-90 p-1">
-            Favourite Coins
-          </tr>
+        <div className="ml-2 flex  overflow-x-hidden flex-col text-lg font-semibold ring-2 ring-gri rounded-xl w-45 max-h-[430px] mb-2 mr-1">
+          <div>
+            <div className="flex flex-row">
+              <input
+                type="search"
+                className="relative m-0 -mr-0.5 block w-[2px] min-w-0 flex-auto rounded-l border border-solid border-gri opacity-80 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none   "
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="button-addon1"
+                onChange={e => setListQuery(e.target.value)}
+                value={listQuery}
+              />
+            </div>
+          </div>
+          <div className="flex sticky rounded-t-xl justify-center bg-turkuaz text-dark opacity-90 p-1">
+            Coin List
+          </div>
           <div className="overflow-y-scroll cursor-pointer">
-            {data.map(({ symbol, name }, i) => (
-              <tr className="hover:bg-gri flex" key={i} onClick={''}>
-                <td className="flex font-normal items-center  justify-center">
-                  {/* TODO: Change image src with ${symbol}.svg */}
-                  <Image
-                    className=" mr-2 inline-block"
-                    src={'/favicon.ico'}
-                    alt={name}
-                    width={24}
-                    height={24}
-                  />
-                  <span className="text-sm flex">
-                    <b className="mr-2">{symbol}</b> {name}
-                  </span>
-                </td>
-              </tr>
-            ))}
+            {symbolsData &&
+              symbolsData
+                .filter(symbol => {
+                  if (listQuery == '') {
+                    return true;
+                  }
+                  return symbol.toLowerCase().includes(listQuery.toLowerCase());
+                })
+                .map((symbol, i) => {
+                  const pair0 = symbol.split('_USDT')[0];
+
+                  return (
+                    <div
+                      className="hover:bg-gri flex"
+                      key={i}
+                      onClick={() => router.push(`/trade/${pair0}_USDT`)}
+                    >
+                      <td className="flex font-normal items-center  justify-center">
+                        <Image
+                          className=" mr-2 inline-block"
+                          src={`/currency/${pair0.toLowerCase()}.svg`}
+                          alt={pair0}
+                          width={24}
+                          height={24}
+                        />
+                        <span className="text-sm flex">
+                          <b className="mr-2">{pair0}</b>
+                        </span>
+                      </td>
+                    </div>
+                  );
+                })}
           </div>
         </div>
       </div>
 
-      <div className=" flex bg-green items-center justify-center px-4">
-        {mutation.isSuccess && <div>Success!</div>}
-      </div>
       <div className="h-8 font-bold text-lg bg-gradient-to-r flex justify-center from-gri to-turkuaz">
         <div className="flex items-center justify-center flex-1">
           <p className="">{router.query.tickerSymbol}</p>

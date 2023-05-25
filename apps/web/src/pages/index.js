@@ -1,13 +1,23 @@
 import DefaultLayout from '@/components/layouts/DefaultLayout';
+import PopularCurrencyCard from '@/components/PopularCurrencyCard';
 import CryptooFun from '../assets/cryptoofun.svg';
 import Line from '../assets/line.svg';
 import Text1 from '../assets/text.svg';
 import Title from '../assets/title2.svg';
 import Image from 'next/image';
-
-import Card from '@/components/Card';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
 
 function Home() {
+  const { data } = useQuery({
+    queryKey: ['populars'],
+    queryFn: async () => {
+      const response = await axios.get('/api/market/populars');
+      return response.data;
+    },
+    refetchInterval: 2000,
+  });
+
   return (
     <DefaultLayout>
       <div className="my-10 flex flex-col items-center">
@@ -41,15 +51,9 @@ function Home() {
           height={120}
         />
 
-        <div className=" grid grid-cols-4 mt-8 gap-6">
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
-          <Card></Card>
+        <div className="grid grid-cols-4 mt-8 gap-6">
+          {data &&
+            data.map((data, i) => <PopularCurrencyCard key={i} {...data} />)}
         </div>
       </div>
     </DefaultLayout>

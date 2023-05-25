@@ -1,9 +1,9 @@
 server:
-  port: 7172
+  port: 7171
 
 grpc:
   server:
-    port: 57172
+    port: 57171
 
 binance:
   api-key: ${BINANCE_API_KEY:}

@@ -1,6 +1,8 @@
 package io.github.cryptoofun.marketdatastreamer;
 
+import com.binance.connector.client.WebSocketApiClient;
 import com.binance.connector.client.impl.SpotClientImpl;
+import com.binance.connector.client.impl.WebSocketApiClientImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

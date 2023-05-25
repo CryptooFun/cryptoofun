@@ -20,7 +20,6 @@ function Lobbies() {
       } else {
         res = await axios.get('/api/lobby/all');
       }
-      console.log(showAftermath, 'data', data);
       return res.data;
     },
   });
