@@ -15,7 +15,7 @@ function Home() {
       const response = await axios.get('/api/market/populars');
       return response.data;
     },
-    refetchInterval: 2000,
+    refetchInterval: 1000,
   });
 
   return (

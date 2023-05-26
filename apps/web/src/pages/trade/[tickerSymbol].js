@@ -25,10 +25,12 @@ function TradingPage() {
         amount,
       }),
     onSuccess: () => {
-      toast.success('Successfully created!');
+      toast.success(
+        `Successfully created order for ${router.query.tickerSymbol}!`
+      );
     },
     onError: () => {
-      toast.error('Failed to create...', {});
+      toast.error(`Failed to create order for ${router.query.tickerSymbol}!`);
     },
   });
 

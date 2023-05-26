@@ -15,7 +15,7 @@ function Market() {
       const response = await axios.get('/api/market/recap/');
       return response.data;
     },
-    refetchInterval: 2000,
+    refetchInterval: 1000,
   });
 
   const [query, setQuery] = useState('');

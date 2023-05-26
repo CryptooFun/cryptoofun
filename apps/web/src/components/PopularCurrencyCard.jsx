@@ -6,7 +6,7 @@ const Card = ({ symbol, lastPrice, priceChangePercent }) => {
   const router = useRouter();
 
   const pair0 = symbol.split('USDT')[0];
-  const price = Number(lastPrice).toFixed(2);
+  const price = Number(lastPrice).toFixed(4);
   const change = Number(priceChangePercent).toFixed(3);
 
   return (

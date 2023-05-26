@@ -9,7 +9,7 @@ async function handler(req, res) {
     }
     return res.status(405).send('Method Not Allowed');
   } catch (err) {
-    console.log('[error]', err);
+    console.error('[error]', err);
     return res.status(500);
   }
 }
