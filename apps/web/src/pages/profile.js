@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import Image from 'next/image';
 import Edit from '../assets/edit.svg';
@@ -10,21 +10,27 @@ import { useUser } from '@auth0/nextjs-auth0/client';
 function Profile() {
   const { user } = useUser();
 
-  const avatarOptions = [
-    '/avatars/avatar1.jpg',
-    '/avatars/avatar2.jpg',
-    '/avatars/avatar3.jpg',
-    '/avatars/avatar4.jpg',
-    '/avatars/avatar5.jpg',
-    '/avatars/avatar6.jpg',
-    '/avatars/avatar7.jpg',
-    '/avatars/avatar8.jpg',
-    '/avatars/avatar9.jpg',
-    '/avatars/avatar10.jpg',
-    '/avatars/avatar11.jpg',
-    '/avatars/avatar12.jpg',
-  ];
+  const avatarOptions = useMemo(
+    () => [
+      '/avatars/avatar1.jpg',
+      '/avatars/avatar2.jpg',
+      '/avatars/avatar3.jpg',
+      '/avatars/avatar4.jpg',
+      '/avatars/avatar5.jpg',
+      '/avatars/avatar6.jpg',
+      '/avatars/avatar7.jpg',
+      '/avatars/avatar8.jpg',
+      '/avatars/avatar9.jpg',
+      '/avatars/avatar10.jpg',
+      '/avatars/avatar11.jpg',
+      '/avatars/avatar12.jpg',
+    ],
+    []
+  );
+
+  // eslint-disable-next-line no-unused-vars
   const [username, setUsername] = useState('Emrecan Erbay');
+  // eslint-disable-next-line no-unused-vars
   const [email, setEmail] = useState('emrerbay@');
   const [password, setPassword] = useState('******');
   const [isEditing, setIsEditing] = useState(false);
