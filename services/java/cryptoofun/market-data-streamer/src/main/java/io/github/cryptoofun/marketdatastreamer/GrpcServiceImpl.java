@@ -21,7 +21,7 @@ public class GrpcServiceImpl extends MarketDataStreamerServiceGrpc.MarketDataStr
                     .setTicker(bookTicker.getSymbol())
                     .setBidPrice(Double.parseDouble(bookTicker.getBidPrice()))
                     .setAskPrice(Double.parseDouble(bookTicker.getAskPrice()))
-                    .setTimestampMs(String.valueOf(System.currentTimeMillis()))
+                    .setTimestampMs(String.valueOf(bookTicker.getTime()))
                     .build();
             responseObserver.onNext(response);
             responseObserver.onCompleted();

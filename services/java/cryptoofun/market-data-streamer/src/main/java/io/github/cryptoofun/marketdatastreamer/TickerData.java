@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class TickerData {
+    private Long time;
     private String symbol;
     private String lastPrice;
     private String priceChangePercent;

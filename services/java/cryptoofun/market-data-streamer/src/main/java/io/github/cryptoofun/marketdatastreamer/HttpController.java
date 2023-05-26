@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class HttpController {
@@ -22,13 +21,13 @@ public class HttpController {
     }
 
     @GetMapping("/market/data/recap")
-    public ResponseEntity<List<TickerData>> getMarketRecap() throws JsonProcessingException {
+    public ResponseEntity<ArrayList<TickerData>> getMarketRecap() throws JsonProcessingException {
         var body = binanceMarketService.QueryAvailableTickersRecap();
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
 
     @GetMapping("/market/data/popular")
-    public ResponseEntity<List<TickerData>> getMarketPopular() throws JsonProcessingException {
+    public ResponseEntity<ArrayList<TickerData>> getMarketPopular() throws JsonProcessingException {
         var body = binanceMarketService.QueryPopularTickersRecap();
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
