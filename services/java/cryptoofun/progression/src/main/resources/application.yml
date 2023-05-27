@@ -13,7 +13,7 @@ spring:
       security:
         protocol: SASL_SSL
       sasl:
-        mechanism: SCRAM-SHA-256
+        mechanism: ${KAFKA_SASL_MECHANISM:PLAIN}
         jaas:
           config: ${KAFKA_JAAS_CONFIG}
 

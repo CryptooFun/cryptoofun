@@ -49,6 +49,11 @@ spec:
                 secretKeyRef:
                   name: kafka-secrets
                   key: bootstrap-servers
+            - name: KAFKA_SASL_MECHANISM
+              valueFrom:
+                secretKeyRef:
+                  name: kafka-secrets
+                  key: sasl-mechanism
             - name: KAFKA_JAAS_CONFIG
               valueFrom:
                 secretKeyRef:
