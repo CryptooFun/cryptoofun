@@ -4,12 +4,14 @@ import io.github.cryptoofun.genproto.*;
 import io.github.cryptoofun.messages.commands.ProcessTradeOrderCommand;
 import io.github.cryptoofun.messages.events.TradeOrderCancelledEvent;
 import io.github.cryptoofun.messages.events.TradeOrderProcessedEvent;
+import lombok.extern.slf4j.Slf4j;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class KafkaHandlers {
 
     @GrpcClient(value = "market-data-server")
@@ -26,6 +28,8 @@ public class KafkaHandlers {
 
     @KafkaListener(topics = "new_trade_orders", groupId = "order-processors")
     private void handleCommand(ProcessTradeOrderCommand command) {
+        log.info("[processing-engine] New Order: " + command);
+
         double cashReserved = 0;
         ModifyCashBalanceResponse modifiedCashBalance = null;
         try {
@@ -71,6 +75,7 @@ public class KafkaHandlers {
                         .build());
             }
             kafkaPublishers.sendBlocking(new TradeOrderCancelledEvent(command.getOrderID(), command.getUserID(), e.getMessage()));
+            log.error("[processing-engine] Error: " + e);
         }
     }
 }

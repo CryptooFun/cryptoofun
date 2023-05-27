@@ -16,5 +16,6 @@ public class KafkaPublisher {
 
     public void sendProcessTradeOrderCommandBlocking(@NonNull ProcessTradeOrderCommand message) {
         kafkaTemplate.send("new_trade_orders", message);
+        log.info("[new_trade_orders] Sent: " + message);
     }
 }
