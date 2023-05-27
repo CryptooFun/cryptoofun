@@ -41,7 +41,7 @@ spec:
       serviceAccountName: cryptoofun-profile
       containers:
         - name: profile
-          image: gcr.io/cryptoofun/profile:1.0-SNAPSHOT
+          image: gcr.io/cryptoofun/profile:1.0.0
           imagePullPolicy: Always
           env:
             - name: NODE_ENV
@@ -67,8 +67,8 @@ spec:
               hostPort: 57372
           resources:
             limits:
-              cpu: "1"
-              memory: 1Gi
-            requests:
               cpu: 500m
               memory: 500Mi
+            requests:
+              cpu: 250m
+              memory: 250Mi

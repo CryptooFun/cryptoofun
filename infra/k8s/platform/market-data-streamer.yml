@@ -29,7 +29,7 @@ metadata:
     app: market-data-streamer
     version: v1
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: market-data-streamer
@@ -43,22 +43,17 @@ spec:
       serviceAccountName: cryptoofun-market-data-streamer
       containers:
         - name: market-data-streamer
-          image: gcr.io/cryptoofun/market-data-streamer:1.0-SNAPSHOT
+          image: gcr.io/cryptoofun/market-data-streamer:1.0.0
           imagePullPolicy: Always
           env:
-            - name: CASSANDRA_CONTACT_POINTS
-              value: scylla-service.scylla.svc.cluster.local
-            - name: CASSANDRA_PORT
-              value: "9042"
-            - name: CASSANDRA_USERNAME
+            - name: REDIS_HOST
+              value: redis-release-master.redis.svc.cluster.local
+            - name: REDIS_PORT
+              value: "6379"
+            - name: REDIS_PWD
               valueFrom:
                 secretKeyRef:
-                  name: scylla-secrets
-                  key: username
-            - name: CASSANDRA_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: scylla-secrets
+                  name: redis-secrets
                   key: password
             - name: BINANCE_API_KEY
               valueFrom:
@@ -83,8 +78,8 @@ spec:
             runAsUser: 1000
           resources:
             limits:
-              cpu: 1500m
-              memory: 1.5Gi
-            requests:
               cpu: "1"
               memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 500Mi

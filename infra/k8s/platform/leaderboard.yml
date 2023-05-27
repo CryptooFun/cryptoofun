@@ -41,7 +41,7 @@ spec:
       serviceAccountName: cryptoofun-leaderboard
       containers:
         - name: leaderboard
-          image: gcr.io/cryptoofun/leaderboard:1.0-SNAPSHOT
+          image: gcr.io/cryptoofun/leaderboard:1.0.0
           imagePullPolicy: Always
           env:
             - name: NODE_ENV
@@ -68,8 +68,8 @@ spec:
               hostPort: 7372
           resources:
             limits:
-              cpu: "1"
-              memory: 1Gi
-            requests:
               cpu: 500m
               memory: 500Mi
+            requests:
+              cpu: 250m
+              memory: 250Mi

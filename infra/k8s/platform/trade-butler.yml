@@ -27,7 +27,7 @@ metadata:
     app: trade-butler
     version: v1
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: trade-butler
@@ -41,7 +41,7 @@ spec:
       serviceAccountName: cryptoofun-trade-butler
       containers:
         - name: trade-butler
-          image: gcr.io/cryptoofun/trade-butler:1.0-SNAPSHOT
+          image: gcr.io/cryptoofun/trade-butler:1.0.0
           imagePullPolicy: Always
           env:
             - name: KAFKA_BS
@@ -54,19 +54,20 @@ spec:
                 secretKeyRef:
                   name: kafka-secrets
                   key: cfg-with-secrets
-            - name: CASSANDRA_CONTACT_POINTS
-              value: scylla-service.scylla.svc.cluster.local
-            - name: CASSANDRA_PORT
-              value: "9042"
+            - name: CASSANDRA_CONNECT_BUNDLE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: cassandra-secrets
+                  key: connect-bundle-url
             - name: CASSANDRA_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: scylla-secrets
+                  name: cassandra-secrets
                   key: username
             - name: CASSANDRA_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: scylla-secrets
+                  name: cassandra-secrets
                   key: password
           ports:
             - containerPort: 7170
@@ -74,8 +75,8 @@ spec:
             runAsUser: 1000
           resources:
             limits:
-              cpu: 1500m
-              memory: 1.5Gi
-            requests:
               cpu: "1"
               memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 500Mi

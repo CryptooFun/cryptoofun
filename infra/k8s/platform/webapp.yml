@@ -41,7 +41,7 @@ spec:
       serviceAccountName: cryptoofun-webapp
       containers:
         - name: webapp
-          image: gcr.io/cryptoofun/webapp:1.0-SNAPSHOT
+          image: gcr.io/cryptoofun/webapp:1.0.0
           imagePullPolicy: Always
           env:
             - name: NODE_ENV
@@ -52,6 +52,18 @@ spec:
               value: "3000"
             - name: API_ROOT_DOMAIN
               value: cf.svc.cluster.local
+            - name: API_TRADEBUTLER_BASE_URL
+              value: trade-butler.cf.svc.cluster.local:7170
+            - name: API_MARKETDATASTREAMER_BASE_URL
+              value: market-data-streamer.cf.svc.cluster.local:7171
+            - name: API_LEADERBOARD_BASE_URL
+              value: leaderboard.cf.svc.cluster.local:7372
+            - name: API_CASHWALLET_BASE_URL
+              value: cash-wallet.cf.svc.cluster.local:7370
+            - name: API_LOBBY_BASE_URL
+              value: lobby.cf.svc.cluster.local:7373
+            - name: API_PROGRESSION_BASE_URL
+              value: progression.cf.svc.cluster.local:7172
             - name: AUTH0_BASE_URL
               value: "" # ! Override at runtime (self domain and/or IP address)
             - name: AUTH0_ISSUER_BASE_URL
@@ -82,8 +94,8 @@ spec:
             runAsUser: 1000
           resources:
             limits:
-              cpu: "1"
-              memory: 1Gi
-            requests:
               cpu: 500m
               memory: 500Mi
+            requests:
+              cpu: 250m
+              memory: 250Mi

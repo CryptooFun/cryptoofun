@@ -26,7 +26,7 @@ metadata:
     app: order-processor
     version: v1
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: order-processor
@@ -40,7 +40,7 @@ spec:
       serviceAccountName: cryptoofun-order-processor
       containers:
         - name: order-processor
-          image: gcr.io/cryptoofun/order-processor:1.0-SNAPSHOT
+          image: gcr.io/cryptoofun/order-processor:1.0.0
           imagePullPolicy: Always
           env:
             - name: GRPC_SV_CASH_WALLET
@@ -63,8 +63,8 @@ spec:
             runAsUser: 1000
           resources:
             limits:
-              cpu: 1500m
-              memory: 1.5Gi
-            requests:
               cpu: "1"
               memory: 1Gi
+            requests:
+              cpu: 500m
+              memory: 500Mi

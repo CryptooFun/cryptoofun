@@ -41,7 +41,7 @@ spec:
       serviceAccountName: cryptoofun-lobby
       containers:
         - name: lobby
-          image: gcr.io/cryptoofun/lobby:1.0-SNAPSHOT
+          image: gcr.io/cryptoofun/lobby:1.0.0
           imagePullPolicy: Always
           env:
             - name: NODE_ENV
@@ -71,8 +71,8 @@ spec:
               hostPort: 7373
           resources:
             limits:
-              cpu: "1"
-              memory: 1Gi
-            requests:
               cpu: 500m
               memory: 500Mi
+            requests:
+              cpu: 250m
+              memory: 250Mi
