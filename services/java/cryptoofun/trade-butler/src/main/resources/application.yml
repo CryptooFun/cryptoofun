@@ -7,24 +7,20 @@ spring:
     bootstrap-servers: ${KAFKA_BS}
     groupId: trade-butlers
     consumer:
+      auto-offset-reset: earliest
       properties:
         session.timeout.ms: 45000
     properties:
       security:
         protocol: SASL_SSL
       sasl:
-        mechanism: PLAIN
+        mechanism: SCRAM-SHA-256
         jaas:
           config: ${KAFKA_JAAS_CONFIG}
-      # Schema Registry configs [DISABLED] ==>
-      # basic.auth.credentials.source: USER_INFO
-      # basic.auth.user.info: { { SR_API_KEY } }:{{ SR_API_SECRET }}
-      # schema.registry.url: https://{{ SR_ENDPOINT }}
 
   data.cassandra:
-    contact-points: ${CASSANDRA_CONTACT_POINTS}
-    port: ${CASSANDRA_PORT}
+    cloudConnectBundleUrl: ${CASSANDRA_CONNECT_BUNDLE_URL}
     keyspace: tradebutler
-    username: ${CASSANDRA_USERNAME}
-    password: ${CASSANDRA_PASSWORD}
+    username: ${CASSANDRA_USERNAME:cassandra}
+    password: ${CASSANDRA_PASSWORD:cassandra}
     schema-action: CREATE_IF_NOT_EXISTS

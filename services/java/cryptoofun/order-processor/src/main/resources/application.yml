@@ -30,10 +30,6 @@ spring:
       security:
         protocol: SASL_SSL
       sasl:
-        mechanism: PLAIN
+        mechanism: SCRAM-SHA-256
         jaas:
           config: ${KAFKA_JAAS_CONFIG}
-      # Schema Registry configs [DISABLED] ==>
-      # basic.auth.credentials.source: USER_INFO
-      # basic.auth.user.info: { { SR_API_KEY } }:{{ SR_API_SECRET }}
-      # schema.registry.url: https://{{ SR_ENDPOINT }}

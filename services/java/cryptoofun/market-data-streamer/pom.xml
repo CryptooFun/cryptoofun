@@ -6,7 +6,7 @@
     <parent>
         <groupId>io.github.cryptoofun</groupId>
         <artifactId>cryptoofun</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
 
     <artifactId>market-data-streamer</artifactId>
@@ -54,7 +54,7 @@
         <dependency>
             <groupId>io.github.cryptoofun</groupId>
             <artifactId>genproto</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
 
