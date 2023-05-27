@@ -18,22 +18,34 @@ public class KafkaEventHandlers {
 
     @KafkaListener(topics = "processed_trade_orders", groupId = "trade-butlers")
     private void handleTradeOrderProcessedEvent(TradeOrderProcessedEvent event) {
-        orderRepository.findById(event.getOrderID())
-                .ifPresent(order -> {
-                    order.setActualizationPrice(event.getActualizationPrice());
-                    order.setProcessed(true);
-                    order.setUpdatedAt(Instant.now());
-                    orderRepository.save(order);
-                });
+        log.info("[processed_trade_orders] Consumed: " + event);
+        try {
+            orderRepository.findByIdAndUserID(event.getOrderID(), event.getUserID())
+                    .ifPresentOrElse(order -> {
+                        order.setActualizationPrice(event.getActualizationPrice());
+                        order.setProcessed(true);
+                        order.setUpdatedAt(Instant.now());
+                        orderRepository.save(order);
+                    }, () -> log.error("unable to find order for [event] " + event));
+        } catch (Exception e) {
+            log.error(e + "\n[event] " + event.toString());
+            throw e;
+        }
     }
 
     @KafkaListener(topics = "cancelled_trade_orders", groupId = "trade-butlers")
     private void handleTradeOrderCancelledEvent(TradeOrderCancelledEvent event) {
-        orderRepository.findById(event.getOrderID())
-                .ifPresent(order -> {
-                    order.setCancelled(true);
-                    order.setUpdatedAt(Instant.now());
-                    orderRepository.save(order);
-                });
+        log.info("[cancelled_trade_orders] Consumed: " + event);
+        try {
+            orderRepository.findByIdAndUserID(event.getOrderID(), event.getUserID())
+                    .ifPresentOrElse(order -> {
+                        order.setCancelled(true);
+                        order.setUpdatedAt(Instant.now());
+                        orderRepository.save(order);
+                    }, () -> log.error("unable to find order for [event] " + event));
+        } catch (Exception e) {
+            log.error(e + "\n[event] " + event.toString());
+            throw e;
+        }
     }
 }
