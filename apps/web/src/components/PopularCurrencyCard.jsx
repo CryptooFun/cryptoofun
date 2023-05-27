@@ -16,7 +16,7 @@ const Card = ({ symbol, lastPrice, priceChangePercent }) => {
     >
       <Image
         className=""
-        src={`/currency/${pair0}.svg`}
+        src={`/currency/${pair0.toLowerCase()}.svg`}
         alt={pair0}
         width={40}
         height={40}
