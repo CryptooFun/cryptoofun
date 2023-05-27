@@ -118,18 +118,17 @@ function TradingPage() {
           <input
             className="text-black rounded-md p-1"
             id="buy-amount"
-            onChange={e => {
-              const value = Number(e.target.value);
-              if (!isNaN(value)) {
-                setBuyAmount(value);
-              }
-            }}
+            onChange={e => setBuyAmount(e.target.value)}
             value={buyAmount}
           />
           <button
             className=" bg-turkuaz text-dark font-bold rounded-xl p-2 mt-4 "
             id="buy-btn"
             onClick={() => {
+              if (isNaN(Number(buyAmount))) {
+                toast.error('Invalid buy amount');
+                return;
+              }
               mutation.mutate({ intent: 'buy', amount: buyAmount });
             }}
           >
@@ -142,18 +141,17 @@ function TradingPage() {
           <input
             className="text-black rounded-md p-1"
             id="sell-amount"
-            onChange={e => {
-              const value = Number(e.target.value);
-              if (!isNaN(value)) {
-                setSellAmount(value);
-              }
-            }}
+            onChange={e => setSellAmount(e.target.value)}
             value={sellAmount}
           />
           <button
             className=" bg-gri text-turkuaz font-bold rounded-xl p-2 mt-4"
             id="sell-btn"
             onClick={() => {
+              if (isNaN(Number(sellAmount))) {
+                toast.error('Invalid sell amount');
+                return;
+              }
               mutation.mutate({ intent: 'sell', amount: sellAmount });
             }}
           >
