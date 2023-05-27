@@ -50,7 +50,7 @@ spec:
               value: redis-release-master.redis.svc.cluster.local
             - name: REDIS_PORT
               value: "6379"
-            - name: REDIS_PWD
+            - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: redis-secrets

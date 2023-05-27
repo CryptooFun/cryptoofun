@@ -27,7 +27,7 @@ metadata:
     app: webapp
     version: v1
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: webapp
@@ -53,19 +53,21 @@ spec:
             - name: API_ROOT_DOMAIN
               value: cf.svc.cluster.local
             - name: API_TRADEBUTLER_BASE_URL
-              value: trade-butler.cf.svc.cluster.local:7170
+              value: http://trade-butler.cf.svc.cluster.local:7170
             - name: API_MARKETDATASTREAMER_BASE_URL
-              value: market-data-streamer.cf.svc.cluster.local:7171
+              value: http://market-data-streamer.cf.svc.cluster.local:7171
             - name: API_LEADERBOARD_BASE_URL
-              value: leaderboard.cf.svc.cluster.local:7372
+              value: http://leaderboard.cf.svc.cluster.local:7372
             - name: API_CASHWALLET_BASE_URL
-              value: cash-wallet.cf.svc.cluster.local:7370
+              value: http://cash-wallet.cf.svc.cluster.local:7370
+            - name: API_PORTFOLIO_BASE_URL
+              value: http://portfolio.cf.svc.cluster.local:7371
             - name: API_LOBBY_BASE_URL
-              value: lobby.cf.svc.cluster.local:7373
+              value: http://lobby.cf.svc.cluster.local:7373
             - name: API_PROGRESSION_BASE_URL
-              value: progression.cf.svc.cluster.local:7172
+              value: http://progression.cf.svc.cluster.local:7172
             - name: AUTH0_BASE_URL
-              value: "" # ! Override at runtime (self domain and/or IP address)
+              value: "" # ! Override at runtime (represents external domain and/or IP address of the cluster). See k8s/exec_after_deploy.[ps1,sh] script.
             - name: AUTH0_ISSUER_BASE_URL
               value: https://cryptoofun.eu.auth0.com
             - name: AUTH0_AUDIENCE
@@ -90,6 +92,9 @@ spec:
               protocol: TCP
               containerPort: 3000
               hostPort: 80
+          volumeMounts:
+            - mountPath: /app/.next/cache
+              name: cache
           securityContext:
             runAsUser: 1000
           resources:
@@ -99,3 +104,6 @@ spec:
             requests:
               cpu: 250m
               memory: 250Mi
+      volumes:
+        - emptyDir: {}
+          name: cache

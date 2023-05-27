@@ -1,5 +1,5 @@
 server:
-  port: 7173
+  port: 7172
 
 spring:
   kafka:

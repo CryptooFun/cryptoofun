@@ -10,7 +10,7 @@ spec:
   http:
     - match:
         - uri:
-            prefix: /api/v1/tradebutler/
+            prefix: /_api/v1/tradebutler/
       rewrite:
         uri: /
       route:
@@ -21,7 +21,7 @@ spec:
 
     - match:
         - uri:
-            prefix: /api/v1/marketdatastreamer/
+            prefix: /_api/v1/marketdatastreamer/
       rewrite:
         uri: /
       route:
@@ -32,7 +32,7 @@ spec:
 
     - match:
         - uri:
-            prefix: /api/v1/progression/
+            prefix: /_api/v1/progression/
       rewrite:
         uri: /
       route:
@@ -43,7 +43,7 @@ spec:
 
     - match:
         - uri:
-            prefix: /api/v1/cashwallet/
+            prefix: /_api/v1/cashwallet/
       rewrite:
         uri: /
       route:
@@ -54,7 +54,7 @@ spec:
 
     - match:
         - uri:
-            prefix: /api/v1/portfolio/
+            prefix: /_api/v1/portfolio/
       rewrite:
         uri: /
       route:
@@ -65,7 +65,7 @@ spec:
 
     - match:
         - uri:
-            prefix: /api/v1/leaderboard/
+            prefix: /_api/v1/leaderboard/
       rewrite:
         uri: /
       route:
@@ -76,7 +76,7 @@ spec:
 
     - match:
         - uri:
-            prefix: /api/v1/lobby/
+            prefix: /_api/v1/lobby/
       rewrite:
         uri: /
       route:
@@ -86,7 +86,7 @@ spec:
               number: 7373
 
     # The route for web app MUST always be at the end. (Istio matches paths in top-down order)
-    # The web app catches all remaining routes.
+    # The web app catches all the remaining routes.
     - match:
         - uri:
             prefix: /
