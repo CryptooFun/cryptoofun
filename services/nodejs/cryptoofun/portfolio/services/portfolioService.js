@@ -20,6 +20,10 @@ const update = async (userId, ticker, cost, amount) => {
   });
 
   if (tickerRecord == null) {
+    if (amount < 0) {
+      throw new Error('Insufficient amount to be able to sell.');
+    }
+
     // If a ticker symbol does not exist in user's portfolio
     return await prisma.portfolio.create({
       data: {
@@ -29,6 +33,19 @@ const update = async (userId, ticker, cost, amount) => {
         amount,
       },
     });
+  }
+
+  if (tickerRecord.amount + amount == 0) {
+    return await prisma.portfolio.deleteMany({
+      where: {
+        userId,
+        ticker,
+      },
+    });
+  }
+
+  if (tickerRecord.amount + amount < 0) {
+    throw new Error('Insufficient amount to be able to sell.');
   }
 
   return await prisma.portfolio.updateMany({

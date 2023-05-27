@@ -20,6 +20,7 @@ function askPortfolio(call, callback) {
       callback(null, response);
     })
     .catch(err => {
+      console.error('[askPortfolio]', err);
       callback(err, null);
     });
 }
@@ -36,6 +37,7 @@ function modifySingleTicker(call, callback) {
       callback(null, response);
     })
     .catch(err => {
+      console.error('[modifySingleTicker]', err);
       callback(err, null);
     });
 }
