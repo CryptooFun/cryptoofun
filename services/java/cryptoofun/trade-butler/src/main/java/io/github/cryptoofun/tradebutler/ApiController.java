@@ -1,14 +1,13 @@
 package io.github.cryptoofun.tradebutler;
 
-import io.github.cryptoofun.tradebutler.dto.GetOrdersResponse;
 import io.github.cryptoofun.tradebutler.dto.PostOrderRequest;
-import io.github.cryptoofun.tradebutler.dto.PostOrderResponse;
+import io.github.cryptoofun.tradebutler.entity.Order;
 import io.github.cryptoofun.tradebutler.exception.CommandServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.util.Date;
 
@@ -19,11 +18,11 @@ public class ApiController {
     private TradeButlerService tradeButlerCommandService;
 
     @PostMapping("/")
-    public ResponseEntity<PostOrderResponse> postOrder(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
-                                                       @RequestBody PostOrderRequest request) throws CommandServiceException {
+    public Mono<Order> postOrder(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
+                                 @RequestBody PostOrderRequest request) throws CommandServiceException {
 
         // TODO: May utilize object mapping for less hustle.
-        var orderID = tradeButlerCommandService.NewOrder(TradeButlerService.NewOrderRequest.builder()
+        return tradeButlerCommandService.NewOrder(TradeButlerService.NewOrderRequest.builder()
                 .userID(userID)
                 .orderType(request.getOrderType())
                 .intent(request.getIntent())
@@ -31,21 +30,17 @@ public class ApiController {
                 .price(request.getPrice())
                 .amount(request.getAmount())
                 .build());
-        var response = new PostOrderResponse(orderID);
-        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping("/")
-    public ResponseEntity<GetOrdersResponse> getOrders(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
-                                                       @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateAfter,
-                                                       @RequestParam(defaultValue = "") String ticker) throws CommandServiceException {
+    public Flux<Order> getOrders(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
+                                 @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateAfter,
+                                 @RequestParam(defaultValue = "") String ticker) throws CommandServiceException {
 
-        var orders = tradeButlerCommandService.RetrieveOrdersByUser(TradeButlerService.RetrieveOrdersByUserRequest.builder()
+        return tradeButlerCommandService.RetrieveOrdersByUser(TradeButlerService.RetrieveOrdersByUserRequest.builder()
                 .userID(userID)
                 .dateAfter(dateAfter)
                 .tickerFilter(ticker)
                 .build());
-        var response = new GetOrdersResponse(orders);
-        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }

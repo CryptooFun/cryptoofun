@@ -50,6 +50,5 @@ export async function GetMyOrders({ authnToken, ticker }) {
       'Content-Type': 'application/json',
     },
   });
-  const { orders } = await response.json();
-  return orders;
+  return await response.json();
 }

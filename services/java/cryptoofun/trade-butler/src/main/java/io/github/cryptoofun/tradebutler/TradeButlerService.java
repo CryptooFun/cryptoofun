@@ -9,13 +9,14 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -42,7 +43,7 @@ public class TradeButlerService {
     /**
      * Create new trade order and return order ID.
      */
-    public String NewOrder(NewOrderRequest orderRequest) throws CommandServiceException {
+    public Mono<Order> NewOrder(NewOrderRequest orderRequest) throws CommandServiceException {
         try {
             var orderType = ProcessTradeOrderCommand.OrderType.valueOf(orderRequest
                     .getOrderType().toUpperCase());
@@ -51,7 +52,7 @@ public class TradeButlerService {
 
             var orderID = UUID.randomUUID().toString();
             // TODO: May utilize object mapping for less hustle.
-            orderRepository.save(Order.builder()
+            Mono<Order> savedOrder = orderRepository.save(Order.builder()
                     .id(orderID)
                     .userID(orderRequest.getUserID())
                     .orderType(orderRequest.getOrderType())
@@ -73,7 +74,7 @@ public class TradeButlerService {
                             orderRequest.getPrice(),
                             orderRequest.getAmount()
                     ));
-            return orderID;
+            return savedOrder;
         } catch (IllegalArgumentException e) {
             throw new CommandServiceException(e.getMessage(), HttpStatus.BAD_REQUEST);
         } catch (Exception e) {
@@ -93,7 +94,7 @@ public class TradeButlerService {
     /**
      * Return all trade orders owned by a user.
      */
-    public List<Order> RetrieveOrdersByUser(RetrieveOrdersByUserRequest request) throws CommandServiceException {
+    public Flux<Order> RetrieveOrdersByUser(RetrieveOrdersByUserRequest request) throws CommandServiceException {
         LocalDate lastWeekLocal = LocalDate.now().minusWeeks(1);
         Date lastWeek = Date.from(lastWeekLocal.atStartOfDay(ZoneId.systemDefault()).toInstant());
 
@@ -104,15 +105,11 @@ public class TradeButlerService {
         try {
             if (request.getTickerFilter().isBlank()) {
                 return orderRepository.findByUserIDAndCreatedAtAfter(request.getUserID(), request.getDateAfter())
-                        .stream()
-                        .sorted(Comparator.comparing(Order::getCreatedAt).reversed())
-                        .toList();
+                        .sort(Comparator.comparing(Order::getCreatedAt).reversed());
             }
             return orderRepository
                     .findByUserIDAndTickerAndCreatedAtAfter(request.getUserID(), request.getTickerFilter(), request.getDateAfter())
-                    .stream()
-                    .sorted(Comparator.comparing(Order::getCreatedAt).reversed())
-                    .toList();
+                    .sort(Comparator.comparing(Order::getCreatedAt).reversed());
         } catch (Exception e) {
             log.error(e.getCause().toString());
             throw new CommandServiceException("", HttpStatus.INTERNAL_SERVER_ERROR);
