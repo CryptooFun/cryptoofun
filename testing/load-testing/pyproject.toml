@@ -8,6 +8,7 @@ packages = [{ include = "load_testing" }]
 [tool.poetry.dependencies]
 python = "^3.7"
 locust = "^2.15.1"
+PyJWT = { extras = ["crypto"], version = "^2.7.0" }
 
 
 [build-system]
