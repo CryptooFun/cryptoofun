@@ -5,9 +5,12 @@ import io.github.cryptoofun.tradebutler.dto.PostOrderRequest;
 import io.github.cryptoofun.tradebutler.dto.PostOrderResponse;
 import io.github.cryptoofun.tradebutler.exception.CommandServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 @RestController
 public class ApiController {
@@ -34,10 +37,12 @@ public class ApiController {
 
     @GetMapping("/")
     public ResponseEntity<GetOrdersResponse> getOrders(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
+                                                       @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateAfter,
                                                        @RequestParam(defaultValue = "") String ticker) throws CommandServiceException {
 
         var orders = tradeButlerCommandService.RetrieveOrdersByUser(TradeButlerService.RetrieveOrdersByUserRequest.builder()
                 .userID(userID)
+                .dateAfter(dateAfter)
                 .tickerFilter(ticker)
                 .build());
         var response = new GetOrdersResponse(orders);

@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 const apiOriginUrl = `${process.env.API_TRADEBUTLER_BASE_URL}/`;
 
 async function CreateMarketOrder(authnToken, data) {
@@ -30,4 +32,24 @@ export async function CreateMarketSellOrder({ authnToken, ticker, amount }) {
     intent: 'SELL',
     price: -1,
   });
+}
+
+export async function GetMyOrders({ authnToken, ticker }) {
+  const url = new URL('/', apiOriginUrl);
+  if (ticker) {
+    url.searchParams.set('ticker', ticker);
+  }
+
+  const lastWeek = dayjs().subtract(1, 'week').format('YYYY-MM-DD');
+  url.searchParams.set('dateAfter', lastWeek);
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authnToken}`,
+      'Content-Type': 'application/json',
+    },
+  });
+  const { orders } = await response.json();
+  return orders;
 }

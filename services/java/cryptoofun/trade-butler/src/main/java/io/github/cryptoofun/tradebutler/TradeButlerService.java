@@ -11,6 +11,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -82,6 +86,7 @@ public class TradeButlerService {
     @Builder
     public static class RetrieveOrdersByUserRequest {
         private final String userID;
+        private final Date dateAfter;
         private final String tickerFilter;
     }
 
@@ -89,11 +94,25 @@ public class TradeButlerService {
      * Return all trade orders owned by a user.
      */
     public List<Order> RetrieveOrdersByUser(RetrieveOrdersByUserRequest request) throws CommandServiceException {
+        LocalDate lastWeekLocal = LocalDate.now().minusWeeks(1);
+        Date lastWeek = Date.from(lastWeekLocal.atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+        if (request.getDateAfter().before(lastWeek)) {
+            throw new CommandServiceException("Cannot view trade orders older than 1 week", HttpStatus.BAD_REQUEST);
+        }
+
         try {
             if (request.getTickerFilter().isBlank()) {
-                return orderRepository.findByUserID(request.getUserID());
+                return orderRepository.findByUserIDAndCreatedAtAfter(request.getUserID(), request.getDateAfter())
+                        .stream()
+                        .sorted(Comparator.comparing(Order::getCreatedAt).reversed())
+                        .toList();
             }
-            return orderRepository.findByUserIDAndTicker(request.getUserID(), request.getTickerFilter());
+            return orderRepository
+                    .findByUserIDAndTickerAndCreatedAtAfter(request.getUserID(), request.getTickerFilter(), request.getDateAfter())
+                    .stream()
+                    .sorted(Comparator.comparing(Order::getCreatedAt).reversed())
+                    .toList();
         } catch (Exception e) {
             log.error(e.getCause().toString());
             throw new CommandServiceException("", HttpStatus.INTERNAL_SERVER_ERROR);

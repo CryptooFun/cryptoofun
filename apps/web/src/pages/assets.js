@@ -2,6 +2,7 @@ import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 
@@ -39,10 +40,19 @@ function Assets() {
   return (
     <DefaultLayout>
       <h1 className="mt-8 mb-3 text-turkuaz font-bold text-3xl">Assets</h1>
-      <div className=" w-50 h-0.5 bg-turkuaz rounded-3xl "></div>
+      <div className="w-50 h-0.5 bg-turkuaz rounded-3xl "></div>
 
-      <div className="text-right">
-        <div className="text-center font-extrabold rounded-2xl p-3 w-auto bg-gri text-2xl mt-4 inline-block">
+      <div className="mt-4 text-right">
+        <Link
+          className="text-center text-turkuaz border border-solid rounded-md p-2 transition-all hover:bg-turkuaz hover:text-gri hover:semi-bold"
+          href={'/orders/history'}
+        >
+          See Order History {' >'}
+        </Link>
+      </div>
+
+      <div className="text-left">
+        <div className="text-center font-extrabold rounded-2xl p-3 w-auto bg-gri text-2xl mt-8 inline-block">
           {balance ? (
             <p className="text-turkuaz">
               $ {hideBalance ? '*******' : Number(balance)}
@@ -69,7 +79,7 @@ function Assets() {
         </div>
       </div>
 
-      <h3 className="mt-4 font-bold text-xl text-left">Portfolio</h3>
+      <h3 className="mt-8 font-bold text-xl text-left">Portfolio</h3>
       <table className="w-full  mt-4 text-left">
         <thead className="bg-gri  text-white opacity-80 ">
           <tr>

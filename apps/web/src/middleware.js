@@ -8,5 +8,6 @@ export const config = {
     '/lobbies/:path*',
     '/assets:path*',
     '/profile:path*',
+    '/orders/:path*',
   ],
 };
