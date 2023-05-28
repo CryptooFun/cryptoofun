@@ -63,7 +63,7 @@ public class TradeButlerService {
                     .cancelled(false)
                     .createdAt(Instant.now())
                     .build());
-            kafkaPublisher.sendProcessTradeOrderCommandBlocking(
+            kafkaPublisher.sendProcessTradeOrderCommand(
                     new ProcessTradeOrderCommand(
                             orderID,
                             orderRequest.getUserID(),
