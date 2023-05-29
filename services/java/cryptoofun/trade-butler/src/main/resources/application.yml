@@ -12,7 +12,7 @@ spring:
         session.timeout.ms: 45000
     properties:
       security:
-        protocol: SASL_SSL
+        protocol: ${KAFKA_SECURITY_PROTOCOL:SASL_PLAINTEXT}
       sasl:
         mechanism: ${KAFKA_SASL_MECHANISM:PLAIN}
         jaas:
