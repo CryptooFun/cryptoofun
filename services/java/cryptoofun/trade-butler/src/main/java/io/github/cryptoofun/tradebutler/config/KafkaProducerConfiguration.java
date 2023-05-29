@@ -8,12 +8,14 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.Resource;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 @Configuration
@@ -32,8 +34,14 @@ public class KafkaProducerConfiguration {
     @Value("${spring.kafka.properties.sasl.jaas.config}")
     private String jaasConfig;
 
+    @Value("${spring.kafka.properties.ssl.truststore.location}")
+    private Resource truststoreFile;
+
+    @Value("${spring.kafka.properties.ssl.truststore.password}")
+    private String truststorePwd;
+
     @Bean
-    public ProducerFactory<String, Object> producerFactory() {
+    public ProducerFactory<String, Object> producerFactory() throws IOException {
         var props = new HashMap<String, Object>();
         props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
@@ -42,11 +50,14 @@ public class KafkaProducerConfiguration {
         props.put(CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, protocol);
         props.put(SaslConfigs.SASL_MECHANISM, mechanism);
         props.put(SaslConfigs.SASL_JAAS_CONFIG, jaasConfig);
+        props.put("ssl.truststore.type", "JKS");
+        props.put("ssl.truststore.location", truststoreFile.getFile().getAbsolutePath());
+        props.put("ssl.truststore.password", truststorePwd);
         return new DefaultKafkaProducerFactory<>(props);
     }
 
     @Bean
-    public KafkaTemplate<String, Object> kafkaTemplate() {
+    public KafkaTemplate<String, Object> kafkaTemplate() throws IOException {
         return new KafkaTemplate<>(producerFactory());
     }
 }
