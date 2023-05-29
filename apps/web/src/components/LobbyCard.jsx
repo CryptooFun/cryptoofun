@@ -63,7 +63,7 @@ const Lobby = ({
           />
           <p className="mt-2 text-sm">
             {dayjs(opensAt).format('DD MMMM YYYY')} -{' '}
-            {dayjs(opensAt).format('DD MMMM YYYY')}
+            {dayjs(closesAt).format('DD MMMM YYYY')}
           </p>
         </div>
 

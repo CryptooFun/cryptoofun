@@ -42,7 +42,7 @@ async function searchLobbies({ title }, take, cursorId = null) {
       },
     },
     orderBy: {
-      opensAt: 'desc',
+      opensAt: 'asc',
     },
     cursor: cursorId ? { id: cursorId } : undefined,
     take,

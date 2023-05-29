@@ -1,6 +1,6 @@
 const apiOriginUrl = `${process.env.API_LOBBY_BASE_URL}/`;
 
-export async function GetAllLobbies(query) {
+export async function GetAllLobbies(authnToken, query) {
   const url = new URL('/lobby', apiOriginUrl);
 
   for (const [k, v] of Object.entries(query)) {
@@ -12,6 +12,7 @@ export async function GetAllLobbies(query) {
   const response = await fetch(url, {
     method: 'GET',
     headers: {
+      Authorization: `Bearer ${authnToken}`,
       'Content-Type': 'application/json',
     },
   });

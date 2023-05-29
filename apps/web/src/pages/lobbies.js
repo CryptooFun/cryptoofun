@@ -31,13 +31,17 @@ function Lobbies() {
       </h1>
       <div className="mt-8 justify-between flex">
         <button
-          className="flex-auto mr-8 rounded-l w-40 border opacity-80 bg-turkuaz bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none "
+          className={`flex-auto mr-8 rounded-l w-40 border opacity-80 bg-gri bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none ${
+            showAftermath ? 'bg-gri' : 'bg-turkuaz'
+          }`}
           onClick={() => setShowAftermath(false)}
         >
           Open Lobbies
         </button>
         <button
-          className="flex-auto ml-8 rounded-l w-40 border opacity-80 bg-turkuaz bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none "
+          className={`flex-auto ml-8 rounded-l w-40 border opacity-80 bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none ${
+            showAftermath ? 'bg-turkuaz' : 'bg-gri'
+          }`}
           onClick={() => setShowAftermath(true)}
         >
           Past Lobbies
