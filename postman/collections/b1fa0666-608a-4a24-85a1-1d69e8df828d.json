@@ -1,0 +1,564 @@
+{
+  "info": {
+    "_postman_id": "b1fa0666-608a-4a24-85a1-1d69e8df828d",
+    "name": "Lobby v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Search/List Lobbies",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "7f8b8d0d-3fdc-4efb-923c-213a7a6cf5d6",
+            "exec": [
+              "pm.test(\"Search/List Lobbies\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "    pm.expect(data).to.be.instanceOf(Array).and.length(2);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "3cdddd68-ed41-418a-a208-44f9bb98d6a8",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOBBY_HOST}}/lobby?keyword=profit&limit=12",
+          "host": ["{{LOBBY_HOST}}"],
+          "path": ["lobby"],
+          "query": [
+            {
+              "key": "keyword",
+              "value": "profit",
+              "description": "A keyword to search for lobby titles"
+            },
+            {
+              "key": "cursorId",
+              "value": "5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c",
+              "description": "Has similar functionality with \"skip\". But expects the ID of last element returned in the previous search.",
+              "disabled": true
+            },
+            { "key": "limit", "value": "12" }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "5880c240-d339-449f-8e29-f79821d1f397",
+          "name": "Search/List Lobbies",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5004/lobby?keyword=profit&limit=2",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5004",
+              "path": ["lobby"],
+              "query": [
+                {
+                  "key": "keyword",
+                  "value": "profit",
+                  "description": "A keyword to search for lobby titles"
+                },
+                {
+                  "key": "limit",
+                  "value": "2",
+                  "description": "Also known as \"take\". Limits search result to the given count. Allows up to 20 records."
+                },
+                {
+                  "key": "cursorId",
+                  "value": "5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c",
+                  "description": "Has similar functionality with \"skip\". But expects the ID of last element returned in the previous search.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+            },
+            { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+            { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" },
+            { "key": "Origin-Agent-Cluster", "value": "?1" },
+            { "key": "Referrer-Policy", "value": "no-referrer" },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=15552000; includeSubDomains"
+            },
+            { "key": "X-Content-Type-Options", "value": "nosniff" },
+            { "key": "X-DNS-Prefetch-Control", "value": "off" },
+            { "key": "X-Download-Options", "value": "noopen" },
+            { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+            { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
+            { "key": "X-XSS-Protection", "value": "0" },
+            { "key": "Access-Control-Allow-Origin", "value": "*" },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            { "key": "Content-Length", "value": "752" },
+            { "key": "ETag", "value": "W/\"2f0-r0HZUq7PfdKNDWoQqIgDYEwpO0s\"" },
+            { "key": "Date", "value": "Fri, 12 May 2023 20:58:19 GMT" },
+            { "key": "Connection", "value": "keep-alive" },
+            { "key": "Keep-Alive", "value": "timeout=5" }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "[\n    {\n        \"id\": \"f4aa611a-0424-4d13-8593-c689adf7fd50\",\n        \"title\": \"Awesome Profit Challenge #1\",\n        \"description\": null,\n        \"requiredCashBalance\": null,\n        \"challenge\": \"BEST_PROFIT\",\n        \"cashAward\": 1150,\n        \"isAwardDistributed\": false,\n        \"opensAt\": \"2023-05-13T20:53:13.193Z\",\n        \"closesAt\": \"2023-05-19T20:53:13.194Z\",\n        \"createdAt\": \"2023-05-12T20:53:14.314Z\",\n        \"updatedAt\": \"2023-05-12T20:53:14.314Z\",\n        \"_count\": {\n            \"users\": 1\n        }\n    },\n    {\n        \"id\": \"5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c\",\n        \"title\": \"Yet Another Profit Challenge #1\",\n        \"description\": null,\n        \"requiredCashBalance\": null,\n        \"challenge\": \"BEST_PROFIT\",\n        \"cashAward\": 250,\n        \"isAwardDistributed\": false,\n        \"opensAt\": \"2023-05-13T20:53:13.193Z\",\n        \"closesAt\": \"2023-05-26T20:53:13.194Z\",\n        \"createdAt\": \"2023-05-12T20:53:15.043Z\",\n        \"updatedAt\": \"2023-05-12T20:53:15.043Z\",\n        \"_count\": {\n            \"users\": 0\n        }\n    }\n]"
+        }
+      ]
+    },
+    {
+      "name": "Get Lobby by Id",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "2e412659-e100-4233-b59d-c734bc75ffb4",
+            "exec": [
+              "pm.test(\"Get Lobby by Id\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "    pm.expect(data.title).equals('Awesome Profit Challenge #1');\r",
+              "    pm.expect(new Date(data.closesAt)).greaterThan(new Date(data.opensAt));\r",
+              "    pm.expect(data.isAwardDistributed).equals(false);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "145b68fb-08f5-4ba8-bf00-b015b14d07a3",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOBBY_HOST}}/lobby/id/:id",
+          "host": ["{{LOBBY_HOST}}"],
+          "path": ["lobby", "id", ":id"],
+          "variable": [
+            { "key": "id", "value": "f4aa611a-0424-4d13-8593-c689adf7fd50" }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "29acbb25-b871-4b01-bc09-4a4982c76d0f",
+          "name": "Get Lobby by Id",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5004/lobby/id/:id",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5004",
+              "path": ["lobby", "id", ":id"],
+              "variable": [
+                { "key": "id", "value": "f4aa611a-0424-4d13-8593-c689adf7fd50" }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+            },
+            { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+            { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" },
+            { "key": "Origin-Agent-Cluster", "value": "?1" },
+            { "key": "Referrer-Policy", "value": "no-referrer" },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=15552000; includeSubDomains"
+            },
+            { "key": "X-Content-Type-Options", "value": "nosniff" },
+            { "key": "X-DNS-Prefetch-Control", "value": "off" },
+            { "key": "X-Download-Options", "value": "noopen" },
+            { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+            { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
+            { "key": "X-XSS-Protection", "value": "0" },
+            { "key": "Access-Control-Allow-Origin", "value": "*" },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            { "key": "Content-Length", "value": "352" },
+            { "key": "ETag", "value": "W/\"160-UPnIyNAgRVUPwiCHRGx7TA8wGZ4\"" },
+            { "key": "Date", "value": "Fri, 12 May 2023 21:22:05 GMT" },
+            { "key": "Connection", "value": "keep-alive" },
+            { "key": "Keep-Alive", "value": "timeout=5" }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"id\": \"f4aa611a-0424-4d13-8593-c689adf7fd50\",\n    \"title\": \"Awesome Profit Challenge #1\",\n    \"description\": null,\n    \"requiredCashBalance\": null,\n    \"challenge\": \"BEST_PROFIT\",\n    \"cashAward\": 1150,\n    \"isAwardDistributed\": false,\n    \"opensAt\": \"2023-05-13T20:53:13.193Z\",\n    \"closesAt\": \"2023-05-19T20:53:13.194Z\",\n    \"createdAt\": \"2023-05-12T20:53:14.314Z\",\n    \"updatedAt\": \"2023-05-12T20:53:14.314Z\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Join to Lobby as User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "fbb26446-4694-4626-8283-d69139daa6b0",
+            "exec": [
+              "pm.test(\"Join to Lobby as User\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "d2f3dc06-a4df-4dfe-a6be-e7254d22c151",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"lobbyId\": \"5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c\"\r\n}\r\n",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{LOBBY_HOST}}/lobby/join",
+          "host": ["{{LOBBY_HOST}}"],
+          "path": ["lobby", "join"]
+        }
+      },
+      "response": [
+        {
+          "id": "c2cb0eff-4643-4c7b-8671-847442a26426",
+          "name": "Join to Lobby as User",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"lobbyId\": \"5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c\"\r\n}\r\n",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "http://localhost:5004/lobby/join",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5004",
+              "path": ["lobby", "join"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+            },
+            { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+            { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" },
+            { "key": "Origin-Agent-Cluster", "value": "?1" },
+            { "key": "Referrer-Policy", "value": "no-referrer" },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=15552000; includeSubDomains"
+            },
+            { "key": "X-Content-Type-Options", "value": "nosniff" },
+            { "key": "X-DNS-Prefetch-Control", "value": "off" },
+            { "key": "X-Download-Options", "value": "noopen" },
+            { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+            { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
+            { "key": "X-XSS-Protection", "value": "0" },
+            { "key": "Access-Control-Allow-Origin", "value": "*" },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            { "key": "Date", "value": "Fri, 12 May 2023 21:35:58 GMT" },
+            { "key": "Connection", "value": "keep-alive" },
+            { "key": "Keep-Alive", "value": "timeout=5" },
+            { "key": "Content-Length", "value": "0" }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "Get My Current Lobby",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "30b9cc8c-6d25-42ec-bd69-a2e8e79e14e1",
+            "exec": [
+              "pm.test(\"Get My Current Lobby\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "    pm.expect(data.Lobby.id).eqls('5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c');\r",
+              "    pm.expect(data.id).to.equal(pm.environment.get('AUTH_USER'));\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "337bba00-6f0d-43b2-90e3-8db94d47c1f2",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOBBY_HOST}}/lobby/me",
+          "host": ["{{LOBBY_HOST}}"],
+          "path": ["lobby", "me"]
+        }
+      },
+      "response": [
+        {
+          "id": "c51ef5a0-7781-4949-8c4e-a964bc8c1905",
+          "name": "Get Lobby of User Herself/Himself",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5004/lobby/me",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5004",
+              "path": ["lobby", "me"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+            },
+            { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+            { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" },
+            { "key": "Origin-Agent-Cluster", "value": "?1" },
+            { "key": "Referrer-Policy", "value": "no-referrer" },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=15552000; includeSubDomains"
+            },
+            { "key": "X-Content-Type-Options", "value": "nosniff" },
+            { "key": "X-DNS-Prefetch-Control", "value": "off" },
+            { "key": "X-Download-Options", "value": "noopen" },
+            { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+            { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
+            { "key": "X-XSS-Protection", "value": "0" },
+            { "key": "Access-Control-Allow-Origin", "value": "*" },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            { "key": "Content-Length", "value": "415" },
+            { "key": "ETag", "value": "W/\"19f-QNA5gum3VTDJZPM8n3+tyJL7IdA\"" },
+            { "key": "Date", "value": "Fri, 12 May 2023 21:24:16 GMT" },
+            { "key": "Connection", "value": "keep-alive" },
+            { "key": "Keep-Alive", "value": "timeout=5" }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"id\": \"user-1\",\n    \"initialCashBalance\": 99999803544.79997,\n    \"Lobby\": {\n        \"id\": \"f4aa611a-0424-4d13-8593-c689adf7fd50\",\n        \"title\": \"Awesome Profit Challenge #1\",\n        \"description\": null,\n        \"requiredCashBalance\": null,\n        \"challenge\": \"BEST_PROFIT\",\n        \"cashAward\": 1150,\n        \"isAwardDistributed\": false,\n        \"opensAt\": \"2023-05-13T20:53:13.193Z\",\n        \"closesAt\": \"2023-05-19T20:53:13.194Z\",\n        \"createdAt\": \"2023-05-12T20:53:14.314Z\",\n        \"updatedAt\": \"2023-05-12T20:53:14.314Z\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Aftermath by LobbyId",
+      "id": "f61dc588-5f97-42cf-88dd-edfed5039159",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOBBY_HOST}}/lobby/id/:id/aftermath",
+          "host": ["{{LOBBY_HOST}}"],
+          "path": ["lobby", "id", ":id", "aftermath"],
+          "variable": [
+            {
+              "key": "id",
+              "value": "5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c",
+              "description": "Lobby Id"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "id": "bb091e15-c807-4d36-a5f7-e1644c80ee5d",
+          "name": "Get Aftermath by LobbyId",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5004/lobby/id/:id/aftermath",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5004",
+              "path": ["lobby", "id", ":id", "aftermath"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c",
+                  "description": "Lobby Id"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+            },
+            { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+            { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" },
+            { "key": "Origin-Agent-Cluster", "value": "?1" },
+            { "key": "Referrer-Policy", "value": "no-referrer" },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=15552000; includeSubDomains"
+            },
+            { "key": "X-Content-Type-Options", "value": "nosniff" },
+            { "key": "X-DNS-Prefetch-Control", "value": "off" },
+            { "key": "X-Download-Options", "value": "noopen" },
+            { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+            { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
+            { "key": "X-XSS-Protection", "value": "0" },
+            { "key": "Access-Control-Allow-Origin", "value": "*" },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            { "key": "Content-Length", "value": "744" },
+            { "key": "ETag", "value": "W/\"2e8-+4bvNb5V27CiGtXlPdsakS+lWrI\"" },
+            { "key": "Date", "value": "Wed, 17 May 2023 12:29:02 GMT" },
+            { "key": "Connection", "value": "keep-alive" },
+            { "key": "Keep-Alive", "value": "timeout=5" }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"id\": \"d01b8783-b8a8-4448-b41a-8f871e95c3ca\",\n    \"lobbyId\": \"5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c\",\n    \"createdAt\": \"2023-05-17T11:43:49.264Z\",\n    \"users\": [\n        {\n            \"id\": \"bfaab6f5-829b-44da-b7f4-bdc4fdcbead3\",\n            \"userId\": \"user-2\",\n            \"cashBefore\": 99999803544.79997,\n            \"cashAfter\": 99999803544.79997,\n            \"profitPct\": 0,\n            \"aftermathId\": \"d01b8783-b8a8-4448-b41a-8f871e95c3ca\"\n        }\n    ],\n    \"Lobby\": {\n        \"id\": \"5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c\",\n        \"title\": \"Yet Another Profit Challenge #1\",\n        \"description\": null,\n        \"requiredCashBalance\": null,\n        \"challenge\": \"BEST_PROFIT\",\n        \"cashAward\": 250,\n        \"isAwardDistributed\": true,\n        \"opensAt\": \"2023-05-13T21:28:36.799Z\",\n        \"closesAt\": \"2023-05-17T11:01:36.800Z\",\n        \"createdAt\": \"2023-05-12T21:28:38.664Z\",\n        \"updatedAt\": \"2023-05-17T11:43:49.264Z\",\n        \"atOpeningStage\": true,\n        \"atAftermathStage\": true\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get My Aftermaths",
+      "id": "d311b305-eb30-40ac-aa11-189c09335a66",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{LOBBY_HOST}}/lobby/me/aftermath",
+          "host": ["{{LOBBY_HOST}}"],
+          "path": ["lobby", "me", "aftermath"]
+        }
+      },
+      "response": [
+        {
+          "id": "7fcb5c21-d0eb-4c79-8899-892e64b55fd8",
+          "name": "Get My Aftermaths",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5004/lobby/me/aftermath",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "5004",
+              "path": ["lobby", "me", "aftermath"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Security-Policy",
+              "value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+            },
+            { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+            { "key": "Cross-Origin-Resource-Policy", "value": "same-origin" },
+            { "key": "Origin-Agent-Cluster", "value": "?1" },
+            { "key": "Referrer-Policy", "value": "no-referrer" },
+            {
+              "key": "Strict-Transport-Security",
+              "value": "max-age=15552000; includeSubDomains"
+            },
+            { "key": "X-Content-Type-Options", "value": "nosniff" },
+            { "key": "X-DNS-Prefetch-Control", "value": "off" },
+            { "key": "X-Download-Options", "value": "noopen" },
+            { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+            { "key": "X-Permitted-Cross-Domain-Policies", "value": "none" },
+            { "key": "X-XSS-Protection", "value": "0" },
+            { "key": "Access-Control-Allow-Origin", "value": "*" },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            { "key": "Content-Length", "value": "360" },
+            { "key": "ETag", "value": "W/\"168-7yXRsnTl50Tkc5bWYJjVbipwpKw\"" },
+            { "key": "Date", "value": "Wed, 17 May 2023 12:31:25 GMT" },
+            { "key": "Connection", "value": "keep-alive" },
+            { "key": "Keep-Alive", "value": "timeout=5" }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "[\n    {\n        \"id\": \"bfaab6f5-829b-44da-b7f4-bdc4fdcbead3\",\n        \"userId\": \"user-2\",\n        \"cashBefore\": 99999803544.79997,\n        \"cashAfter\": 99999803544.79997,\n        \"profitPct\": 0,\n        \"aftermathId\": \"d01b8783-b8a8-4448-b41a-8f871e95c3ca\",\n        \"Aftermath\": {\n            \"id\": \"d01b8783-b8a8-4448-b41a-8f871e95c3ca\",\n            \"lobbyId\": \"5e206f82-1fd1-4d81-ba8b-c0f3551a5e1c\",\n            \"createdAt\": \"2023-05-17T11:43:49.264Z\",\n            \"_count\": {\n                \"users\": 1\n            }\n        }\n    }\n]"
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{AUTH_TOKEN}}", "type": "string" }]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "7fd281a3-4334-4117-b727-9a0acd6b1161",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "55ed0832-4c05-48db-b7f2-5fa1088707fe",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

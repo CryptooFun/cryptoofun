@@ -1,0 +1,66 @@
+{
+  "info": {
+    "_postman_id": "f5b0db87-634f-4338-a390-13fb2d0ef993",
+    "name": "Progression v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get User Level",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "cf594c95-a05a-4d87-a286-b7aa01a2e180",
+            "exec": [
+              "pm.test(\"Get User Level\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "    pm.expect(data.userID).to.equal(pm.environment.get('AUTH_USER'));\r",
+              "    pm.expect(data.xp).greaterThan(0);\r",
+              "    pm.expect(data.level).gte(0);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "357be51f-98ac-49d9-b172-bdd1b51633b3",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{PROGRESSION_HOST}}/:userId",
+          "host": ["{{PROGRESSION_HOST}}"],
+          "path": [":userId"],
+          "variable": [{ "key": "userId", "value": "{{AUTH_USER}}" }]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{AUTH_TOKEN}}", "type": "string" }]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "b68cbe7c-e0d0-423c-a7be-0e9362e6fe03",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "31332004-a3bd-43e7-8688-6e3428950d5e",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "info": {
+    "_postman_id": "a84909ab-7622-4623-a17f-064ce44a448b",
+    "name": "MarketData v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Allowed Symbols",
+      "id": "bdc334df-5951-409e-b51c-11a562d763e5",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{MARKET_DATA_HOST}}/market/symbols/allowed",
+          "host": ["{{MARKET_DATA_HOST}}"],
+          "path": ["market", "symbols", "allowed"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Market Recap",
+      "id": "b1450a08-9081-4639-a4ba-07d954c4beee",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{MARKET_DATA_HOST}}/market/data/recap",
+          "host": ["{{MARKET_DATA_HOST}}"],
+          "path": ["market", "data", "recap"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Populars Recap",
+      "id": "722703e1-b154-4cb1-b57a-00dd3883da11",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{MARKET_DATA_HOST}}/market/data/popular",
+          "host": ["{{MARKET_DATA_HOST}}"],
+          "path": ["market", "data", "popular"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{AUTH_TOKEN}}", "type": "string" }]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "ebcf2f98-3d51-43bd-9e29-9268562f89f4",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "7009670b-396b-4c08-aea5-9ff338be1cfd",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

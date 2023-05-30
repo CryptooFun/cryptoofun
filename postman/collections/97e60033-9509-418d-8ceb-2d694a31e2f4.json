@@ -1,0 +1,69 @@
+{
+  "info": {
+    "_postman_id": "97e60033-9509-418d-8ceb-2d694a31e2f4",
+    "name": "Portfolio v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GetPortfolio",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "497111ca-d377-4472-a6d0-5520b452eaad",
+            "exec": [
+              "pm.test(\"Get Portfolio\", function () {\r",
+              "    const { portfolio } = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "    pm.expect(portfolio).to.be.instanceOf(Array);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "d5babdcf-38cd-422c-8fcd-133ef639597a",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{AUTH_TOKEN}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{PORTFOLIO_HOST}}/",
+          "host": ["{{PORTFOLIO_HOST}}"],
+          "path": [""]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{AUTH_TOKEN}}", "type": "string" }]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "a2c94ac6-e132-4abd-954b-3b3c44cd3d8e",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "434088fa-299e-4ca2-8412-548febf7f99b",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

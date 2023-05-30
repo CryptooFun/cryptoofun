@@ -1,0 +1,83 @@
+{
+  "info": {
+    "_postman_id": "9ab4a945-135b-42a6-86b0-d627fa304583",
+    "name": "CashWallet v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GetWallet",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "a1680144-37cd-42e2-a404-efcee8afb653",
+            "exec": [
+              "pm.test(\"Get Wallet\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "    pm.expect(data.balance).to.be.greaterThan(0.00);\r",
+              "    pm.expect(data.userId).to.equal(pm.environment.get('AUTH_USER'));\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "id": "fa4e717a-c359-4484-9131-b681d976aa73",
+            "exec": [""],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "7775c4fb-4798-4c0a-8d0f-6ef08636da7c",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{AUTH_TOKEN}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{CASH_WALLET_HOST}}/",
+          "host": ["{{CASH_WALLET_HOST}}"],
+          "path": [""]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{AUTH_TOKEN}}", "type": "string" }]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "be4262b4-2744-4018-955f-15d2c9618beb",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "ab9b2539-f741-4b3f-8345-f708b30bf823",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "info": {
+    "_postman_id": "96489f0d-3109-4579-995d-6cd403e51d96",
+    "name": "TradeButler v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Market Order",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "cc012120-bbfb-46c7-83c7-c6f576c97e77",
+            "exec": [
+              "pm.test(\"Create Market Order [Buy ETH]\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "    pm.expect(data).haveOwnProperty('userID');\r",
+              "    pm.expect(data).haveOwnProperty('ticker');\r",
+              "    pm.expect(data).haveOwnProperty('orderType');\r",
+              "    pm.expect(data).haveOwnProperty('intent');\r",
+              "    pm.expect(data.id).to.match(/[0-9a-f]{8}\\-[0-9a-f]{4}\\-4[0-9a-f]{3}\\-[89ab][0-9a-f]{3}\\-[0-9a-f]{12}/)\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "69156f99-fc93-419b-a31d-c0bad3bf34fb",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"orderType\": \"MARKET\",\r\n    \"intent\": \"BUY\",\r\n    \"ticker\": \"XRP_USDT\",\r\n    \"amount\": 1,\r\n    \"price\": -1\r\n}\r\n",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{TRADE_BUTLER_HOST}}/",
+          "host": ["{{TRADE_BUTLER_HOST}}"],
+          "path": [""]
+        }
+      },
+      "response": [
+        {
+          "id": "54bdeb0b-78ff-46e0-a7bb-5c15b28a8efc",
+          "name": "Create Market Order",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"orderType\": \"MARKET\",\r\n    \"intent\": \"BUY\",\r\n    \"ticker\": \"XRP_USDT\",\r\n    \"amount\": 1,\r\n    \"price\": -1\r\n}\r\n",
+              "options": { "raw": { "language": "json" } }
+            },
+            "url": {
+              "raw": "{{TRADE_BUTLER_HOST}}/",
+              "host": ["{{TRADE_BUTLER_HOST}}"],
+              "path": [""]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            { "key": "Content-Type", "value": "application/json" },
+            { "key": "Transfer-Encoding", "value": "chunked" },
+            { "key": "Date", "value": "Sun, 28 May 2023 22:05:06 GMT" },
+            { "key": "Keep-Alive", "value": "timeout=60" },
+            { "key": "Connection", "value": "keep-alive" }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"id\": \"302b79df-0cd3-458f-89a6-f718a2b06706\",\n    \"userID\": \"auth0|64593b4807e91e60787f9350\",\n    \"ticker\": \"XRP_USDT\",\n    \"orderType\": \"MARKET\",\n    \"intent\": \"BUY\",\n    \"price\": -1,\n    \"amount\": 1,\n    \"actualizationPrice\": 0,\n    \"processed\": false,\n    \"cancelled\": false,\n    \"createdAt\": \"2023-05-28T22:05:06.346194600Z\",\n    \"updatedAt\": null\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Orders by User",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "095e0aa9-df32-4d7e-ac84-616cfcc3ede8",
+            "exec": [
+              "pm.test(\"Get Orders by User\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "    pm.expect(data).haveOwnProperty('orders');\r",
+              "    pm.expect(data.orders).to.be.instanceOf(Array);\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "384c829f-d5e7-4229-b6e6-0009a6d3ebac",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{TRADE_BUTLER_HOST}}/?dateAfter=2023-05-28",
+          "host": ["{{TRADE_BUTLER_HOST}}"],
+          "path": [""],
+          "query": [
+            { "key": "ticker", "value": "", "disabled": true },
+            { "key": "dateAfter", "value": "2023-05-28" }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{AUTH_TOKEN}}", "type": "string" }]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "f1c1ce94-2c38-4364-a6b2-672a4a68b5ba",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "5d6811bf-636e-470f-8835-1cdfb9f77e16",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}

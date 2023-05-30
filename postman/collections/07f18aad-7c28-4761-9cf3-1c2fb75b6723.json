@@ -1,0 +1,70 @@
+{
+  "info": {
+    "_postman_id": "07f18aad-7c28-4761-9cf3-1c2fb75b6723",
+    "name": "Leaderboard v1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GetTop100",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "dc80369e-79d9-486a-bbc4-7503b4adf008",
+            "exec": [
+              "pm.test(\"Get Top 100\", function () {\r",
+              "    const data = pm.response.json();\r",
+              "    pm.expect(pm.response.code).to.eql(200);\r",
+              "    pm.expect(data).to.be.instanceOf(Array);\r",
+              "    pm.expect(data[0]).haveOwnProperty(\"userName\");\r",
+              "    pm.expect(data[0]).haveOwnProperty(\"balance\");\r",
+              "});\r",
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "015248c9-ef30-4702-8788-a73af5f7627c",
+      "protocolProfileBehavior": { "disableBodyPruning": true },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": {
+          "raw": "{{LEADERBOARD_HOST}}/",
+          "host": ["{{LEADERBOARD_HOST}}"],
+          "path": [""]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{AUTH_TOKEN}}", "type": "string" }]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "6ad5e714-4725-4389-8512-40f59bcde344",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "bbc8d352-9f2f-4b9a-bc7f-182819522749",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ]
+}
