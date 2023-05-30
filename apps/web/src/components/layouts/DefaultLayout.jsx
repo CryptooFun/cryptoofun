@@ -7,7 +7,7 @@ function DefaultLayout({ children }) {
     <>
       <Header className="fixed top-0 w-full bg-dark z-10" />
 
-      <div className="fixed  -z-10 bg-dark w-full justify-center items-center h-full">
+      <div className="fixed -z-10 bg-dark w-full justify-center items-center h-full">
         <Image
           className="max-h-screen mx-auto transparent"
           src={'/bg.png'}
@@ -18,9 +18,7 @@ function DefaultLayout({ children }) {
 
       <main className="max-w-max mx-auto text-center">{children}</main>
 
-      <div className="bottom-0 mx-auto w-full fixed">
-        <Footer />
-      </div>
+      <Footer />
     </>
   );
 }
