@@ -3,78 +3,87 @@ import AftermathCard from '@/components/AftermathCard';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { useRouter } from 'next/router';
 import { useState } from 'react';
+import MyCurrentLobbyCard from '@/components/MyCurrentLobbyCard';
 
 function Lobbies() {
-  const router = useRouter();
-
-  const [showAftermath, setShowAftermath] = useState(false);
+  const [activeTab, setActiveTab] = useState(0);
 
   const { data } = useQuery({
-    queryKey: ['lobbies', showAftermath],
+    queryKey: [`lobbies-${activeTab}`],
     queryFn: async () => {
       let res;
-      if (showAftermath) {
-        res = await axios.get('/api/lobby/aftermath');
-      } else {
-        res = await axios.get('/api/lobby/all');
+      switch (activeTab) {
+        case 0:
+          res = await axios.get('/api/lobby/all');
+          break;
+        case 1:
+          res = await axios.get('/api/lobby/aftermath');
+          break;
+        case 2:
+          res = await axios.get('/api/lobby/current');
+          break;
       }
       return res.data;
     },
   });
+
+  const highlightedTabClass = 'bg-turkuaz font-semibold opacity-100';
+  const defaultTabClass = 'bg-gri';
 
   return (
     <DefaultLayout>
       <h1 className="mt-8 mb-2 text-turkuaz font-bold text-3xl">
         Trading Lobbies
       </h1>
-      <div className="mt-8 justify-between flex">
+      <div className="mt-8 justify-between flex gap-8">
         <button
-          className={`flex-auto mr-8 rounded-l w-40 border opacity-80 bg-gri bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none ${
-            showAftermath ? 'bg-gri' : 'bg-turkuaz'
+          className={`flex-auto rounded-t w-44 border opacity-80 bg-gri bg-clip-padding px-3 py-[0.25rem] leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none ${
+            activeTab == 0 ? highlightedTabClass : defaultTabClass
           }`}
-          onClick={() => setShowAftermath(false)}
+          onClick={() => setActiveTab(0)}
         >
           Open Lobbies
         </button>
         <button
-          className={`flex-auto ml-8 rounded-l w-40 border opacity-80 bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none ${
-            showAftermath ? 'bg-turkuaz' : 'bg-gri'
+          className={`flex-auto rounded-t w-44 border opacity-80 bg-clip-padding px-3 py-[0.25rem] leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none ${
+            activeTab == 1 ? highlightedTabClass : defaultTabClass
           }`}
-          onClick={() => setShowAftermath(true)}
+          onClick={() => setActiveTab(1)}
         >
           Past Lobbies
+        </button>
+        <button
+          className={`flex-auto rounded-t w-44 border opacity-80 bg-clip-padding px-3 py-[0.25rem] leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-white focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(52,224,206)] focus:outline-none ${
+            activeTab == 2 ? highlightedTabClass : defaultTabClass
+          }`}
+          onClick={() => setActiveTab(2)}
+        >
+          My Current Lobby
         </button>
       </div>
       <div className=" w-50 h-0.5 bg-turkuaz rounded-3xl "></div>
 
-      {data?.length == 0 && !showAftermath && (
-        <>
-          <h1 className="mt-10 text-2xl">
-            No lobby is available at the moment... 🙄
-          </h1>
-          <h1
-            className="mt-10 text-3xl underline hover:cursor-pointer"
-            onClick={() => router.reload()}
-          >
-            🧐 Keep an eye on!
-          </h1>
-        </>
-      )}
-
       <div className="grid max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-3 grid-cols-4 mt-8 gap-12">
-        {showAftermath ? (
-          <>
-            {data?.map((aftermathInfo, i) => (
-              <AftermathCard key={i} {...aftermathInfo} />
-            ))}
-          </>
-        ) : (
+        {activeTab == 0 ? (
           <>
             {data?.map((lobbyInfo, i) => (
               <LobbyCard key={i} {...lobbyInfo} />
             ))}
+          </>
+        ) : (
+          <>
+            {activeTab == 1 ? (
+              <>
+                {data?.map((aftermathInfo, i) => (
+                  <AftermathCard key={i} {...aftermathInfo} />
+                ))}
+              </>
+            ) : (
+              <>
+                <MyCurrentLobbyCard {...data} />
+              </>
+            )}
           </>
         )}
       </div>

@@ -13,7 +13,7 @@ const Aftermath = ({
 }) => {
   return (
     <div className="flex flex-col justify-center shadow-default">
-      <div className="py-8 px-4 flex bg-gri w-60 h-14 justify-center items-center opacity-80 rounded-t-2xl">
+      <div className="py-8 px-4 flex bg-gri w-60 h-14 justify-center items-center opacity-80 rounded-t-2xl bg-gradient-to-r from-turkuaz to-gri">
         <h1 className="font-bold">{title}</h1>
       </div>
 
@@ -25,7 +25,7 @@ const Aftermath = ({
           <p>
             <b>Cash Before:</b> {cashBefore}
           </p>
-          <p>
+          <p className="mb-2">
             <b>Cash After:</b> {cashAfter}
           </p>
         </div>

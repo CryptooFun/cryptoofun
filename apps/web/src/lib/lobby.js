@@ -45,3 +45,16 @@ export async function JoinToLobby(authnToken, id) {
   });
   return response.status;
 }
+
+export async function GetMyLobby(authnToken) {
+  const url = new URL('/lobby/me', apiOriginUrl);
+
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authnToken}`,
+      'Content-Type': 'application/json',
+    },
+  });
+  return await response.json();
+}
