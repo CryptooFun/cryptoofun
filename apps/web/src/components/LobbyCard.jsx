@@ -3,6 +3,7 @@ import Image from 'next/image';
 import dayjs from 'dayjs';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Lobby = ({
   id,
@@ -16,8 +17,11 @@ const Lobby = ({
 }) => {
   const joinMutation = useMutation({
     mutationFn: () => axios.post('/api/lobby/join', { id }),
+    onSuccess: () => {
+      toast.success('Joined the lobby successfully!');
+    },
     onError: () => {
-      alert('Unable to join the lobby');
+      toast.error('Unable to join the lobby!');
     },
   });
 
