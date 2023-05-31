@@ -54,7 +54,7 @@ function Assets() {
       <div className="text-left">
         <div className="text-center font-extrabold rounded-2xl p-3 w-auto bg-gri text-2xl mt-8 inline-block">
           {balance ? (
-            <p className="text-turkuaz">
+            <p className="text-turkuaz" id="balance">
               $ {hideBalance ? '*******' : Number(balance)}
             </p>
           ) : (
