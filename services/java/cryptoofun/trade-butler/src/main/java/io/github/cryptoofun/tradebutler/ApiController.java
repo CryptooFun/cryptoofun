@@ -6,10 +6,9 @@ import io.github.cryptoofun.tradebutler.exception.CommandServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class ApiController {
@@ -18,7 +17,7 @@ public class ApiController {
     private TradeButlerService tradeButlerCommandService;
 
     @PostMapping("/")
-    public Mono<Order> postOrder(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
+    public Order postOrder(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
                                  @RequestBody PostOrderRequest request) throws CommandServiceException {
 
         // TODO: May utilize object mapping for less hustle.
@@ -33,7 +32,7 @@ public class ApiController {
     }
 
     @GetMapping("/")
-    public Flux<Order> getOrders(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
+    public List<Order> getOrders(@RequestAttribute(value = JwtMiddlewareNoVerify.UserIdAttrKey) String userID,
                                  @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date dateAfter,
                                  @RequestParam(defaultValue = "") String ticker) throws CommandServiceException {
 

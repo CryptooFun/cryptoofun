@@ -9,8 +9,6 @@ import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import org.springframework.util.concurrent.ListenableFuture;
 
-import java.util.concurrent.CompletableFuture;
-
 @Service
 @Slf4j
 public class KafkaPublisher {
