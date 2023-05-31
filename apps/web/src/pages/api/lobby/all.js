@@ -6,7 +6,8 @@ async function handler(req, res) {
   try {
     if (req.method === 'GET') {
       const { accessToken } = await getAccessToken(req, res);
-      const data = await GetAllLobbies(accessToken, {});
+      const q = req.query;
+      const data = await GetAllLobbies(accessToken, q);
       return res.status(200).json(data);
     }
     return res.status(405).send('Method Not Allowed');
